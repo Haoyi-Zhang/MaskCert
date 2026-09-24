@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/data/pcs-final-work/project/paper/fit_to_12.py", line 25, in <module>
+    pages=build()
+  File "/mnt/data/pcs-final-work/project/paper/fit_to_12.py", line 19, in build
+    subprocess.run([str(paper/'build.sh')],cwd=paper,check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/mnt/data/pcs-final-work/project/paper/build.sh']' returned non-zero exit status 1.

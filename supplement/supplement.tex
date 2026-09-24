@@ -1,0 +1,363 @@
+\documentclass[11pt,onecolumn]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{microtype}
+\emergencystretch=2em
+\usepackage[margin=0.82in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newcommand{\U}{\mathcal U}
+\newcommand{\A}{\mathcal A}
+\newcommand{\F}{\mathcal F}
+\newcommand{\code}[1]{\texttt{#1}}
+\title{Supplementary Material for\\``Mask-Aware Certificates for Permutation-Complete Stateless Scan Plans''}
+\author{Anonymous Authors}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+This supplement fixes the input semantics, expands every proof used by the main paper, specifies the JSON and JSONL contracts, describes the independent oracle and deterministic test families, and gives a clean-room reproduction protocol.  It is part of the artifact's claim boundary.  Nothing in this document upgrades plan verification into execution attestation or extends the counting algorithm to arbitrary permutations.
+\end{abstract}
+\tableofcontents
+
+\section{Normative Semantics}
+\subsection{Integer and interval conventions}
+All mathematical integers are unbounded.  The interchange schema restricts the universe size to $1\leq N\leq2^{63}-1$ so independent implementations have an explicit accepted range, but intermediate arithmetic is not restricted to signed 64-bit values.  Every interval is half open.  Thus $[l,h)=\{l,l+1,\ldots,h-1\}$, its cardinality is $h-l$, and $[l,l)$ is empty.
+
+A canonical interval list is sorted by lower endpoint, has $0\leq l<h\leq N$, and contains neither overlapping nor adjacent intervals.  For consecutive intervals $[l_i,h_i)$ and $[l_{i+1},h_{i+1})$, canonicality requires $h_i<l_{i+1}$.  Requiring a gap, rather than merely nonoverlap, ensures that $[0,2),[2,4)$ is rejected in favor of the unique representation $[0,4)$.  The validator does not silently rewrite inputs before hashing.
+
+\subsection{Affine target map}
+The target universe is $\U_N=\{0,\ldots,N-1\}$.  A declaration contains $a,b\in\U_N$ with $\gcd(a,N)=1$ and defines
+\begin{equation}
+  \pi(i)=(ai+b)\bmod N.
+\end{equation}
+There is an inverse $\pi^{-1}(x)=a^{-1}(x-b)\bmod N$.  The checker computes $a^{-1}$ only after validating coprimality.  The word ``permutation'' in the artifact always refers to this algebraic bijection.  It does not imply pseudorandomness, secrecy, or cryptographic strength.
+
+\subsection{Fragments and phases}
+A fragment has an identifier, a phase in \{\code{committed}, \code{planned}\}, bounds $0\leq l<h\leq N$, stride $s\geq1$, and residue $0\leq r<s$.  It selects
+\begin{equation}
+ S(l,h,s,r)=\{i:l\leq i<h\wedge i\equiv r\pmod s\}.
+\end{equation}
+Fragments in both phases contribute to target multiplicity.  The phase is provenance useful to an operator: an overlap between committed and planned fragments can reveal an incorrect resume point.  It has no special case in the safety equation.
+
+The plan may have zero fragments.  Each listed fragment must select at least one counter.  Empty work is represented by omission rather than by degenerate bounds or an impossible congruence.  Identifiers are unique nonempty strings and appear in strictly increasing lexical order.  Ordering makes certificate rows and witnesses deterministic.
+
+\subsection{Authorization and multiplicity}
+The declaration's canonical interval list denotes $\A\subseteq\U_N$.  Every target outside $\A$ is forbidden by this model.  Let
+\begin{equation}
+ m_x=|\{f\in\F:x\in\pi(S_f)\}|.
+\end{equation}
+A plan is safe exactly when
+\begin{equation}
+  \forall x\in\A:m_x=1,
+  \qquad
+  \forall x\in\U_N\setminus\A:m_x=0.
+\end{equation}
+This is a property of the declared sets.  It says nothing about whether a worker executes a set, executes it once, observes a stable remote state, or commits a side effect.
+
+\section{Defect Identity: Expanded Proof}
+Define
+\begin{align}
+ B&=\sum_{f\in\F}|S_f|,\\
+ T&=|\A|,\\
+ C&=\sum_{f\in\F}|\pi(S_f)\cap\A|,\\
+ Q&=\sum_{\{f,g\}\subseteq\F,\ f<g}|S_f\cap S_g|.
+\end{align}
+The order relation in $Q$ selects each unordered pair once.
+
+\begin{lemma}[First moment]
+$B=\sum_{x\in\U_N}m_x$.
+\end{lemma}
+\begin{proof}
+A fragment contains no repeated counter and $\pi$ is injective, so it contributes one visit to each target in $\pi(S_f)$.  Counting the incidence pairs $(f,x)$ first by fragment gives $B$ and first by target gives $\sum_xm_x$.
+\end{proof}
+
+\begin{lemma}[Second combinatorial moment]
+$Q=\sum_{x\in\U_N}{m_x\choose2}$.
+\end{lemma}
+\begin{proof}
+Because $\pi$ is injective, $x$ belongs to both $\pi(S_f)$ and $\pi(S_g)$ exactly when $\pi^{-1}(x)$ belongs to $S_f\cap S_g$.  For a fixed target visited by $m_x$ fragments, exactly ${m_x\choose2}$ unordered fragment pairs intersect at its preimage.  Counting triples $(\{f,g\},x)$ by pair or by target proves the result.
+\end{proof}
+
+\begin{lemma}[Authorized first moment]
+$C=\sum_{x\in\A}m_x$.
+\end{lemma}
+\begin{proof}
+Count incidence pairs $(f,x)$ restricted to $x\in\A$ by fragment and by target.
+\end{proof}
+
+\begin{theorem}[Nonnegative defect]
+\begin{equation}
+B+T-2C+2Q
+=\sum_{x\in\A}(m_x-1)^2+
+ \sum_{x\notin\A}m_x^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The first two lemmas yield
+\begin{align}
+ B+2Q
+ &=\sum_x\left(m_x+2{m_x\choose2}\right)\\
+ &=\sum_x\left(m_x+m_x(m_x-1)\right)\\
+ &=\sum_xm_x^2.
+\end{align}
+The authorized first moment and $T=\sum_{x\in\A}1$ give
+\begin{align}
+B+T-2C+2Q
+&=\sum_xm_x^2+\sum_{x\in\A}1-2\sum_{x\in\A}m_x\\
+&=\sum_{x\in\A}(m_x^2-2m_x+1)+\sum_{x\notin\A}m_x^2.
+\end{align}
+Every summand is the square of an integer.
+\end{proof}
+
+\begin{proposition}[Decision equivalence]
+The plan is safe if and only if $D=B+T-2C+2Q=0$.
+\end{proposition}
+\begin{proof}
+If safe, every authorized square is $(1-1)^2=0$ and every unauthorized square is $0^2=0$.  Conversely, a sum of nonnegative integers is zero only if every term is zero.  Thus authorized multiplicities are one and unauthorized multiplicities are zero.
+\end{proof}
+
+Two weaker checks illustrate why all terms are needed.  Cardinality equality $B=T$ admits one missing and one duplicated authorized target.  Equality $C=T$ can coexist with unauthorized visits if authorized omissions and duplicates balance the first moment.  Pair information in $Q$ converts the first moment into the second moment and prevents such cancellation.
+
+\section{Counting One Fragment}
+\subsection{Bounded congruence normalization}
+For $S(l,h,s,r)$, let
+\begin{equation}
+ u=l+((r-l)\bmod s).
+\end{equation}
+This is the least integer $u\geq l$ congruent to $r$ modulo $s$.  If $u\geq h$, the set is empty.  Otherwise its members are $u+sj$ for $0\leq j<n$, where
+\begin{equation}
+ n=1+\left\lfloor\frac{h-1-u}{s}\right\rfloor.
+\end{equation}
+The implementation uses this formula for fragment cardinality and for the cardinality of a CRT intersection.
+
+\subsection{Signed floor sum}
+Define
+\begin{equation}
+ F(n,m,a,b)=\sum_{j=0}^{n-1}\left\lfloor\frac{aj+b}{m}\right\rfloor,
+ \qquad n\geq0,\ m>0.
+\end{equation}
+For signed $a,b$, Euclidean division gives $a=q_am+r_a$ and $b=q_bm+r_b$ with $0\leq r_a,r_b<m$.  Therefore
+\begin{equation}
+ F(n,m,a,b)=q_a\frac{n(n-1)}2+q_bn+F(n,m,r_a,r_b).
+\end{equation}
+The remaining nonnegative floor sum is evaluated by repeatedly extracting quotients when $a\geq m$ or $b\geq m$ and applying the reciprocal reduction to the residual triangle.  The release tests the signed wrapper against direct summation over a dense small range including negative coefficients.
+
+\subsection{Residue threshold formula}
+Let $z_j=\alpha j+\beta$ and $y_j=z_j\bmod N$.  For $0\leq t\leq N$,
+\begin{equation}
+ I_j(t)=\left\lfloor\frac{z_j+N-t}{N}\right\rfloor-
+        \left\lfloor\frac{z_j}{N}\right\rfloor
+\end{equation}
+is one exactly when $y_j\geq t$.  To see this, write $z_j=qN+y_j$ with $0\leq y_j<N$; then $I_j(t)=\lfloor(y_j+N-t)/N\rfloor$.  Consequently
+\begin{align}
+ |\{j:y_j<t\}|
+ &=n-\sum_jI_j(t)\\
+ &=n-F(n,N,\alpha,\beta+N-t)+F(n,N,\alpha,\beta).
+\end{align}
+The endpoint cases return zero for $t=0$ and $n$ for $t=N$.  The count in $[L,R)$ is the threshold count at $R$ minus the threshold count at $L$.  For a fragment, $\alpha=as$ and $\beta=au+b$.
+
+The authorization count for a fragment is the sum over canonical mask intervals.  Intervals are disjoint, so no inclusion--exclusion is required.  The algorithm's work is proportional to mask representation size, not mask cardinality.
+
+\section{Counting Fragment Pairs}
+Two congruences
+\begin{equation}
+ i\equiv r_1\pmod{s_1},\qquad i\equiv r_2\pmod{s_2}
+\end{equation}
+are compatible if and only if $g=\gcd(s_1,s_2)$ divides $r_2-r_1$.  When compatible, divide by $g$ and solve
+\begin{equation}
+ (s_1/g)t\equiv(r_2-r_1)/g\pmod{s_2/g}.
+\end{equation}
+The coefficient is invertible modulo $s_2/g$, so a solution is
+\begin{equation}
+ t=\frac{r_2-r_1}{g}(s_1/g)^{-1}\bmod(s_2/g).
+\end{equation}
+Then $r=r_1+s_1t$ is reduced modulo $\operatorname{lcm}(s_1,s_2)$ and describes every simultaneous solution.  Intersecting the two counter bounds and applying bounded-progression normalization gives $|S_1\cap S_2|$.
+
+For full defect calculation this cardinality is sufficient.  For a target prefix $[0,p)$, the intersection progression is mapped through the same affine permutation and counted with the threshold formula.  This reuse is important: witness generation does not introduce an untested counting primitive.
+
+The least common multiple can exceed the interchange bound on $N$ even though the bounded intersection lies inside $[0,N)$.  The Python reference uses arbitrary-precision integers.  A fixed-width port must detect multiplication overflow before forming $(s_1/g)s_2$ or establish a semantically equivalent bounded algorithm.
+
+\section{Prefix Defects and Witnesses}
+For $0\leq p\leq N$, define
+\begin{equation}
+D(p)=\sum_{\substack{x<p\\x\in\A}}(m_x-1)^2+
+     \sum_{\substack{x<p\\x\notin\A}}m_x^2.
+\end{equation}
+Then $D(0)=0$, $D(N)=D$, and
+\begin{equation}
+ D(p+1)-D(p)=
+ \begin{cases}
+ (m_p-1)^2,&p\in\A,\\
+ m_p^2,&p\notin\A.
+ \end{cases}
+\end{equation}
+Thus $D(p)$ is monotone.  When $D>0$, binary search on $p\in[1,N]$ yields the smallest prefix with positive defect.  The target $x=p-1$ is the least target with an incorrect multiplicity.
+
+The witness contains:
+\begin{itemize}
+\item schema identifier and canonical input digests;
+\item category, target $x$, and inverse source $\pi^{-1}(x)$;
+\item authorization Boolean, expected multiplicity, and actual multiplicity;
+\item lexically sorted covering fragment identifiers;
+\item $D(x)$, $D(x+1)$, and $D(N)$; and
+\item a digest of all preceding witness fields.
+\end{itemize}
+The checker reconstructs the entire canonical object.  Listing a target that is defective but not minimal is rejected.  A changed covering list, category, source counter, or prefix value is rejected even if another field remains plausible.
+
+Witness generation is $O(\log N)$ full prefix analyses.  A more elaborate implementation could cache invariant pair structure or descend an interval tree, but the reference favors a single transparent path.  Witness production is invoked only after the one-pass full analysis has established $D>0$.
+
+\section{Normative JSON Contracts}
+\subsection{Declaration}
+The exact object keys are \code{schema}, \code{universe}, \code{permutation}, and \code{authorized}.  The schema value is \code{pcs-declaration-v2}.  The permutation object has exactly \code{kind}, \code{multiplier}, and \code{offset}, with kind \code{affine}.  The authorization value is an array of two-element integer arrays.  No nulls, numeric strings, floats, booleans, duplicate keys, unknown keys, or noncanonical interval lists are accepted.
+
+\begin{verbatim}
+{
+  "schema": "pcs-declaration-v2",
+  "universe": 64,
+  "permutation": {
+    "kind": "affine", "multiplier": 5, "offset": 7
+  },
+  "authorized": [[1,2], [3,4], ...]
+}
+\end{verbatim}
+
+\subsection{Plan}
+The exact top-level keys are \code{schema} and \code{fragments}; schema is \code{pcs-plan-v2}.  Each fragment has exactly \code{id}, \code{phase}, \code{lo}, \code{hi}, \code{stride}, and \code{residue}.  The list is strictly ordered by identifier.  A zero-fragment list is valid.
+
+\subsection{Certificate}
+A certificate has exactly $K(K-1)/2+K+2$ nonblank JSONL rows: one header, $K$ fragment rows, one row for every ordered identifier pair $f<g$, and one summary.  Each row is augmented with \code{seq}, \code{prev\_sha256}, and \code{row\_sha256}.  The first previous hash is 64 zero digits.  The row digest is SHA-256 of canonical JSON containing every row field except \code{row\_sha256}; subsequent rows name that digest.
+
+The checker does not merely validate a generic row schema.  It generates the expected row at each position and compares exact canonical objects.  This rejects an extra unknown field even when the mathematical values otherwise agree.
+
+\subsection{Canonical encoding and binding}
+Canonical JSON is UTF-8, with object keys sorted, separators \code{,} and \code{:} without surrounding whitespace, arrays in declared order, JSON literals in lowercase, and no ASCII escaping of valid non-ASCII strings.  Inputs are validated before canonical encoding.  The header contains lowercase hexadecimal SHA-256 digests of the complete canonical declaration and plan objects.
+
+These digests protect association under the collision-resistance assumption.  They do not identify an author, establish freshness, or prevent an attacker from replacing inputs and generating a new matching certificate.  An authenticated outer envelope is required when those properties matter.
+
+\section{Checker Soundness and Completeness}
+\begin{theorem}[Relative soundness]
+Assume the checker implementation faithfully realizes the specified integer algorithms, the declaration and plan presented to it are the intended inputs, and SHA-256 collision resistance holds for input binding.  If the checker accepts a certificate with summary \code{safe=true}, then the declared plan is permutation-complete for the declared authorization mask.
+\end{theorem}
+\begin{proof}
+Acceptance means strict input validation succeeded, header digests equal canonical input digests, every expected row was present in the unique position, and every row equaled the checker-recomputed row.  Therefore the accepted summary's $B,T,C,Q,D$ equal the mathematical quantities for those inputs.  The checker sets \code{safe} exactly when $D=0$.  Decision equivalence then gives the required multiplicities.
+\end{proof}
+
+\begin{theorem}[Completeness]
+For every valid declaration and plan, the reference producer's certificate is accepted by the reference checker; its safe Boolean equals the semantic safety predicate.
+\end{theorem}
+\begin{proof}
+Producer and checker use the same deterministic canonical row construction on validated inputs.  All integer counts are total for the accepted ranges, so generated rows compare equal.  Decision equivalence establishes the Boolean result.
+\end{proof}
+
+These theorems are relative to implementation fidelity; the source code is not extracted from a proof assistant.  Differential testing, strict rejection tests, and clean builds increase confidence but are not a machine-checked refinement proof.
+
+\section{Independent Oracle and Test Design}
+\subsection{Explicit oracle}
+For $N\leq10^6$, the oracle allocates an array $m[0\ldots N-1]$ initialized to zero.  It independently enumerates each fragment by testing or stepping through its bounded congruence, computes $(ai+b)\bmod N$, and increments the corresponding target.  It then directly evaluates the target-wise squares.  It does not call the optimized floor-sum, mapped-interval, CRT, aggregate-analysis, certificate, or witness code.
+
+Shared strict parsing is not used inside the randomized semantic test: objects are constructed in memory and validated before both paths.  This arrangement catches arithmetic disagreement but could still share a mistaken high-level interpretation.  The normative semantics and retained small examples support human inspection of that layer.
+
+\subsection{Deterministic test families}
+\begin{longtable}{@{}p{0.28\textwidth}p{0.64\textwidth}@{}}
+\caption{Principal test families.}\label{tab:tests}\\
+\toprule
+Family & Obligation \\
+\midrule
+\endfirsthead
+\toprule
+Family & Obligation \\
+\midrule
+\endhead
+Signed floor sum & Exhaustive direct summation for small $n,m$ and negative/positive $a,b$. \\
+Residue threshold & 5,000 seeded random cases compared with explicit modular residues. \\
+Mapped target interval & 5,000 seeded fragments, affine maps, and half-open target intervals compared with enumeration. \\
+Generalized CRT & 3,000 seeded pairs compared with explicit bounded set intersection. \\
+Complete plan & 1,000 seeded declarations/plans compared target by target with the independent oracle. \\
+Witnesses & Missing, duplicate, forbidden, safe-no-witness, inverse source, prefix monotonicity, and tampering. \\
+Strict parser & Duplicate keys, wrong schema, unknown fields, booleans as integers, invalid intervals, phases, identifiers, and empty fragments. \\
+Certificate structure & Round trip, input mismatch, row deletion/duplication/reordering, field edits, unknown fields, chain edits, truncation, and blank lines. \\
+Tamper matrix & 200 seeded mutations across Boolean, integer, and string certificate fields; every mutation must be rejected. \\
+CLI & Successful creation/check, malformed input status, and valid-but-unsafe \code{--require-safe} status. \\
+\bottomrule
+\end{longtable}
+
+Random generators use fixed seeds recorded in source.  A failed case therefore reproduces without a property-testing framework.  Tests use only the Python standard library and run through \code{unittest}.
+
+\section{Benchmark Construction}
+The scaling cases are semantic fixtures, not random workloads.  For a power-of-two universe, the generator chooses an odd affine multiplier, splits the source range into widely separated blocks, and creates one stride-one fragment per block.  Blocks are disjoint.  It maps the selected source points through the affine permutation and canonicalizes those images into the authorization interval list.  Thus every selected point is authorized exactly once and no other point is selected; expected $D=0$ follows directly from construction.
+
+This method produces masks with many isolated intervals while keeping point counts manageable.  The focal case has universe $2^{32}$, 125 fragments, and 1,024 authorized points.  Certificate construction still evaluates every fragment--mask combination and every fragment pair, so the case exercises the structural terms while avoiding a universe-sized ground-truth file.
+
+For the enumeration baseline, structure is fixed at 32 fragments and 256 authorized points while $N$ ranges from $2^{12}$ to $2^{20}$.  The explicit oracle's multiplicity array grows with $N$; optimized arithmetic does not enumerate it.  Both paths must return exact zero before a timing is retained.
+
+Each timed operation runs repeatedly in one process and reports all repeats plus median, minimum, maximum, and quartiles.  The script uses wall-clock nanoseconds.  Python's \code{tracemalloc} measures peak traced Python allocations for one verification call.  It does not measure total resident set size, mapped libraries, kernel buffers, or filesystem cache; the paper labels it accordingly.
+
+\section{Reproduction Protocol}
+From the artifact root, the normative command is:
+\begin{verbatim}
+python software/scripts/reproduce.py
+\end{verbatim}
+The script checks the Python version, runs the unit suite, regenerates the four small examples, validates every retained certificate and witness, reruns semantic benchmarks, recompiles the paper and supplement when TeX tools are available, scans logs and extracted text, and writes a machine-readable reproduction report.  It returns nonzero on an exact semantic or build failure.
+
+For a fast manual path:
+\begin{verbatim}
+PYTHONPATH=software python -m unittest discover \
+  -s software/tests -v
+PYTHONPATH=software python software/pcs.py check \
+  examples/declaration.json examples/safe-plan.json \
+  examples/safe-plan-certificate.jsonl --require-safe
+PYTHONPATH=software python software/pcs.py check-witness \
+  examples/declaration.json examples/missing-plan.json \
+  examples/missing-plan-witness.json
+\end{verbatim}
+The top-level manifest gives SHA-256 values for release files.  ZIP integrity is checked separately with the archive's CRC records and path-safety rules.  A clean-room test extracts the public artifact into a new temporary directory and invokes the same reproduction entry point without referring to the source work tree.
+
+\section{Claim--Evidence Boundaries}
+\begin{longtable}{@{}p{0.30\textwidth}p{0.31\textwidth}p{0.31\textwidth}@{}}
+\caption{Claim, evidence, and non-claim.}\label{tab:claims}\\
+\toprule
+Claim & Evidence & Explicit non-claim \\
+\midrule
+\endfirsthead
+\toprule
+Claim & Evidence & Explicit non-claim \\
+\midrule
+\endhead
+$D=0$ iff masked exact coverage & Algebraic theorem and small explicit cases & No assertion about arbitrary execution traces \\
+Mapped interval counts are exact & Threshold lemma, signed floor sum, 5,000 differential cases & No support for arbitrary PRPs \\
+Pair counts are exact & Generalized CRT derivation and 3,000 differential cases & No data-dependent fragment predicates \\
+Certificate is input-bound & Canonical SHA-256 fields and mismatch tests & No signer identity or freshness \\
+Transcript tampering is rejected & Full recomputation plus fixed and randomized mutations & No protection if checker/runtime is compromised \\
+Witness is earliest & Prefix-square proof and canonical recomputation & Not the earliest wall-clock execution failure \\
+Large universe is feasible for retained structure & Raw benchmark inputs/repeats and clean rerun & No universal latency guarantee \\
+Bibliographic records are real & Frozen Crossref responses and exact DOI matching & No claim that metadata verifies scientific conclusions \\
+\bottomrule
+\end{longtable}
+
+\section{Known Limitations}
+The fragment language cannot directly encode data-dependent skips or a union of many residues under one identifier.  The interval mask can represent any finite subset but may require one interval per isolated point.  Pair rows scale quadratically in fragment count.  Prefix witnesses multiply analysis work by $O(\log N)$.  The Python checker is not constant time, formally verified, or hardened as a network service.  Hash binding is unsigned.  The benchmark is synthetic and single-host.  The reference audit depends on a metadata service and verifies identity rather than interpretation.  These limits are recorded in both human- and machine-readable release documents.
+
+\section{Reviewer Checklist}
+A reviewer can complete the following independent checks without trusting the paper's prose:
+\begin{enumerate}
+\item confirm the main PDF has exactly 12 pages and no unresolved citations;
+\item run the unit suite and inspect the reported test count and \code{OK} status;
+\item check the safe example, then edit one certificate field and confirm rejection;
+\item recompute one witness of each category and compare target/minimality fields;
+\item inspect the explicit oracle to confirm it does not call optimized counters;
+\item recompute $D$ manually for the 16-position fixed fixtures;
+\item inspect \code{results.json} and regenerate paper table rows;
+\item verify at least 40 unique DOI records and their frozen raw responses;
+\item extract the public ZIP into an empty directory and run reproduction; and
+\item compare release files against the external SHA-256 manifest.
+\end{enumerate}
+
+\section{Conclusion}
+The supplement makes the contract auditable at four levels: set semantics, integer derivations, byte-level formats, and executable evidence.  The guarantee remains precise: for the declared affine map, interval authorization mask, and bounded-congruence fragments, an accepted zero-defect certificate establishes exact masked plan coverage.  All broader operational and cryptographic properties require separate mechanisms.
+\end{document}
