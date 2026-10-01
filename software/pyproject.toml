@@ -1,9 +1,0 @@
-[project]
-name = "permutation-complete-sharding"
-version = "2.0.0"
-description = "Exact certificates for affine stateless scan plans"
-requires-python = ">=3.10"
-dependencies = []
-
-[project.scripts]
-pcs = "pcs.cli:main"

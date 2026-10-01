@@ -1,0 +1,1658 @@
+[
+  {
+    "bits": 1,
+    "truth_table": 0,
+    "missing_authorized": 0,
+    "accepted": true
+  },
+  {
+    "bits": 1,
+    "truth_table": 1,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 1,
+    "truth_table": 2,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 1,
+    "truth_table": 3,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 0,
+    "missing_authorized": 0,
+    "accepted": true
+  },
+  {
+    "bits": 2,
+    "truth_table": 1,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 2,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 3,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 4,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 5,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 6,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 7,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 8,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 9,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 10,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 11,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 12,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 13,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 14,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 2,
+    "truth_table": 15,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 0,
+    "missing_authorized": 0,
+    "accepted": true
+  },
+  {
+    "bits": 3,
+    "truth_table": 1,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 2,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 3,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 4,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 5,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 6,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 7,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 8,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 9,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 10,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 11,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 12,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 13,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 14,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 15,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 16,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 17,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 18,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 19,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 20,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 21,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 22,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 23,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 24,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 25,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 26,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 27,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 28,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 29,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 30,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 31,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 32,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 33,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 34,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 35,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 36,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 37,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 38,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 39,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 40,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 41,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 42,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 43,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 44,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 45,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 46,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 47,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 48,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 49,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 50,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 51,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 52,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 53,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 54,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 55,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 56,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 57,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 58,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 59,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 60,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 61,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 62,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 63,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 64,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 65,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 66,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 67,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 68,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 69,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 70,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 71,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 72,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 73,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 74,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 75,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 76,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 77,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 78,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 79,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 80,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 81,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 82,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 83,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 84,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 85,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 86,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 87,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 88,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 89,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 90,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 91,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 92,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 93,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 94,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 95,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 96,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 97,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 98,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 99,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 100,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 101,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 102,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 103,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 104,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 105,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 106,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 107,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 108,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 109,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 110,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 111,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 112,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 113,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 114,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 115,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 116,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 117,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 118,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 119,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 120,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 121,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 122,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 123,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 124,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 125,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 126,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 127,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 128,
+    "missing_authorized": 1,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 129,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 130,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 131,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 132,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 133,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 134,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 135,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 136,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 137,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 138,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 139,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 140,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 141,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 142,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 143,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 144,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 145,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 146,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 147,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 148,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 149,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 150,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 151,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 152,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 153,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 154,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 155,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 156,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 157,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 158,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 159,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 160,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 161,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 162,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 163,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 164,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 165,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 166,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 167,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 168,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 169,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 170,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 171,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 172,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 173,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 174,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 175,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 176,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 177,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 178,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 179,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 180,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 181,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 182,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 183,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 184,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 185,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 186,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 187,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 188,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 189,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 190,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 191,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 192,
+    "missing_authorized": 2,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 193,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 194,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 195,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 196,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 197,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 198,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 199,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 200,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 201,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 202,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 203,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 204,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 205,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 206,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 207,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 208,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 209,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 210,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 211,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 212,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 213,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 214,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 215,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 216,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 217,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 218,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 219,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 220,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 221,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 222,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 223,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 224,
+    "missing_authorized": 3,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 225,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 226,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 227,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 228,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 229,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 230,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 231,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 232,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 233,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 234,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 235,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 236,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 237,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 238,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 239,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 240,
+    "missing_authorized": 4,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 241,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 242,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 243,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 244,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 245,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 246,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 247,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 248,
+    "missing_authorized": 5,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 249,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 250,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 251,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 252,
+    "missing_authorized": 6,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 253,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 254,
+    "missing_authorized": 7,
+    "accepted": false
+  },
+  {
+    "bits": 3,
+    "truth_table": 255,
+    "missing_authorized": 8,
+    "accepted": false
+  }
+]

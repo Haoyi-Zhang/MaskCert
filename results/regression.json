@@ -1,0 +1,9 @@
+{
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "all_checks_passed": true,
+  "cpu_seconds": 0.02863329299999995,
+  "peak_rss_kib": 93356,
+  "workers": 1
+}

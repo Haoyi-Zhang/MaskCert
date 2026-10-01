@@ -1,0 +1,22 @@
+{
+  "seed": 110300,
+  "counts": {
+    "floor_oracles": 16938,
+    "crt_oracles": 3888,
+    "plan_oracles": 303,
+    "prefix_oracles": 909,
+    "witness_checks": 146,
+    "certificate_mutations": 1194,
+    "schema_mutations": 22,
+    "feistel_functions": 276,
+    "feistel_point_checks": 16656
+  },
+  "safe": 157,
+  "unsafe": 146,
+  "affine_case_records": 303,
+  "all_checks_passed": true,
+  "obligation_count": 23676,
+  "cpu_seconds": 2.329472503,
+  "peak_rss_kib": 96048,
+  "workers": 1
+}

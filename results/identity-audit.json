@@ -1,0 +1,21 @@
+{
+  "project_name": "Mask-Aware Certificates for Affine Schedule Fragments",
+  "project_key": "mask-aware-certificates-for-permutation-complete-stateless-scan-plans",
+  "lineage_decision": "formal scope narrowing; incompatible pcs-v2 excluded",
+  "guard_epoch_exclusion_history_schema_present": true,
+  "linear_unauthorized_penalty_source_present": true,
+  "separate_checker_arithmetic_source_present": true,
+  "least_witness": {
+    "epoch": 0,
+    "counter": 2,
+    "target": 17,
+    "kind": "omission",
+    "rows": []
+  },
+  "sibling_paper_source_check": "performed when a sibling paper directory is present; standalone artifact does not require it",
+  "venue_status": "intent only; not approved, submitted, accepted, or venue-validated",
+  "all_checks_passed": true,
+  "cpu_seconds": 4.703499999991756e-05,
+  "peak_rss_kib": 92200,
+  "workers": 1
+}

@@ -1,0 +1,54 @@
+{
+  "campaign_cpu_ceiling_seconds": 21600,
+  "reserved_repair_fraction": 0.25,
+  "recorded_runs": [
+    {
+      "run": "pilot",
+      "cpu_seconds": 0.13760784999999998,
+      "kind": "measured process time"
+    },
+    {
+      "run": "initial validation",
+      "cpu_seconds": 1.917323606,
+      "kind": "measured process time reported at execution"
+    },
+    {
+      "run": "validation after input-reader repair",
+      "cpu_seconds": 2.329472503,
+      "kind": "measured process time"
+    },
+    {
+      "run": "repaired boundary",
+      "cpu_seconds": 13.25833465,
+      "kind": "measured process time"
+    },
+    {
+      "run": "regression methods",
+      "cpu_seconds": 0.028633293,
+      "kind": "measured process time"
+    },
+    {
+      "run": "example generation",
+      "cpu_seconds": 0.001656665,
+      "kind": "measured process time"
+    },
+    {
+      "run": "clean reproduction parent and children",
+      "cpu_seconds": 15.914348085,
+      "kind": "measured process and child CPU including startup"
+    },
+    {
+      "run": "clean example generation",
+      "cpu_seconds": 0.004687664999999841,
+      "kind": "measured process time"
+    }
+  ],
+  "recorded_completed_cpu_seconds": 33.592064317,
+  "failed_boundary_budget_charge_seconds": 115,
+  "failed_boundary_actual_cpu_seconds": null,
+  "complete_cumulative_cpu_measurement": false,
+  "limitation": "Initial interactive checks, standalone unit/CLI smoke tests and some process startup were not cumulatively instrumented. The observed sum plus failed-run charge is not a complete measured campaign total. Compilation and packaging are outside this science-run subtotal.",
+  "recorded_peak_science_rss_kib": 113836,
+  "science_workers": 1,
+  "recorded_plus_failure_charge_seconds": 148.592064317
+}

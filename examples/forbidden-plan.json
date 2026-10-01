@@ -1,1 +1,0 @@
-{"fragments":[{"hi":64,"id":"f000","lo":0,"phase":"committed","residue":0,"stride":4},{"hi":64,"id":"f001","lo":0,"phase":"planned","residue":2,"stride":4},{"hi":64,"id":"f999","lo":0,"phase":"planned","residue":1,"stride":4}],"schema":"pcs-plan-v2"}

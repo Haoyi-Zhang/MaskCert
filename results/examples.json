@@ -1,0 +1,23 @@
+{
+  "observation_kind": "repair_recheck",
+  "all_checks_passed": true,
+  "examples": 2,
+  "least_witness": {
+    "epoch": 0,
+    "counter": 2,
+    "target": 17,
+    "kind": "omission",
+    "rows": []
+  },
+  "defect_at_prefix_50": 12,
+  "prefix_defect": [
+    0,
+    1,
+    1,
+    1,
+    2
+  ],
+  "cpu_seconds": 0.012879824999999956,
+  "peak_rss_kib": 92720,
+  "workers": 1
+}

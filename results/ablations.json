@@ -1,0 +1,37 @@
+[
+  {
+    "case": "mass-cancellation",
+    "multiplicities": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "authorized": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "mass": 4,
+    "expected": 4,
+    "defect": 2,
+    "count_only_accepts": true,
+    "correct_accepts": false
+  },
+  {
+    "case": "excluded-overlap",
+    "raw_partition_accepts": false,
+    "correct_accepts": true
+  },
+  {
+    "case": "excluded-hole",
+    "raw_partition_accepts": false,
+    "correct_accepts": true
+  },
+  {
+    "case": "disjoint-guards",
+    "raw_partition_accepts": false,
+    "correct_accepts": true
+  }
+]

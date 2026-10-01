@@ -1,0 +1,18 @@
+{
+  "PROJECT_NAME": "Mask-Aware Certificates for Affine Schedule Fragments",
+  "SLUG": "mask-aware-certificates-for-permutation-complete-stateless-scan-plans",
+  "RESEARCH_LINEAGE": {
+    "origin_brief_name": "Permutation-Complete Sharding Certificates for Stateless Scan Plans",
+    "decision": "formal scope narrowing within the same project",
+    "reason": "The retained proof, six-page manuscript, two-page protocol, implementation, cases, and results all address guarded affine schedule fragments. The later pcs-v2 and anonymous nine-page supplement use a different schema and defect semantics and are excluded as a mismatched replacement."
+  },
+  "VENUE_INTENT": "IEEE Transactions on Dependable and Secure Computing (TDSC)",
+  "VENUE_STATUS": "intent only; not approved, submitted, accepted, or venue-validated",
+  "DOCUMENT_SET": {
+    "main": "paper/main.pdf (six pages)",
+    "artifact_protocol": "paper/supplement.pdf (two pages)",
+    "standalone_artifact_root": "artifact/"
+  },
+  "AUTHOR_METADATA_STATUS": "The named metadata in the recovered six-page main manuscript and two-page protocol requires confirmation by the actual authors before external use. The anonymous nine-page supplement is not part of this recovered project.",
+  "SCIENTIFIC_STATUS": "bounded internal research checkpoint; not a completed TDSC Regular Paper"
+}

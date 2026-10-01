@@ -1,0 +1,12 @@
+{
+  "case": "bounded-mask",
+  "outcome": "tool_timeout",
+  "tool_wall_limit_seconds": 120,
+  "configured_cpu_hard_limit_seconds": 115,
+  "configured_alarm_seconds": 115,
+  "recorded_cpu_seconds": null,
+  "cpu_budget_charge_seconds": 115,
+  "retained_observation": "A complete 32 MiB certificate ending in accepted=true was present; no completed-run result was produced.",
+  "repair": "Skip interval-mask intersection when a pair lattice is empty. This changes neither floor-query order nor the certificate contents.",
+  "scope": "One bounded validation run, not a failed theorem or a complete performance campaign."
+}

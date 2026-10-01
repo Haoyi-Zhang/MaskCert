@@ -1,0 +1,32 @@
+{
+  "all_checks_passed": true,
+  "symbolic": {
+    "n": 4294967296,
+    "rows": 125,
+    "old_shards": 61,
+    "new_shards": 64,
+    "exclusions": 1024,
+    "guard_intervals": 1024,
+    "certificate_bytes": 32816640,
+    "floor_calls": 514048,
+    "euclidean_steps": 1372994,
+    "producer_cpu_seconds": 2.7681709829999996,
+    "checker_cpu_seconds": 6.206920030000001,
+    "defects": [
+      0
+    ]
+  },
+  "exact": {
+    "n": 1048576,
+    "rows": 2,
+    "defects": [
+      0
+    ],
+    "enumeration_cpu_seconds": 2.7457993239999983,
+    "replay_cpu_seconds": 1.3199323670000016
+  },
+  "case_records": 2,
+  "cpu_seconds": 13.25833465,
+  "peak_rss_kib": 113836,
+  "workers": 1
+}
