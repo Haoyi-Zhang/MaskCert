@@ -169,5 +169,4 @@ The named metadata recovered in the six-page manuscript and two-page protocol
 must be confirmed by the actual authors before external use. The anonymous
 nine-page supplement was a mismatched artifact and is excluded; no consent,
 affiliation approval, corresponding-author role, or submission approval is
-inferred. The work used substantive AI assistance and is an internal research
-checkpoint, not independent review or a completed TDSC Regular Paper.
+inferred. The work is not independent review or a completed TDSC Regular Paper.
