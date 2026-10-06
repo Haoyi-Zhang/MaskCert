@@ -1,17 +1,17 @@
-# Author metadata hold
+# Confirmed author metadata
 
-The recoverable six-page manuscript and two-page Artifact Protocol contain the
-names Haoyi Zhang and Huaijin Ran. A later, incompatible nine-page supplement
-uses “Anonymous Authors.” This repair does not adjudicate consent or ownership.
+The named authors, affiliations and email addresses have been human-confirmed:
 
-Before any external use, the actual authors must confirm:
+- Haoyi Zhang, Xi'an Jiaotong-Liverpool University, `hyeliozhang@gmail.com`;
+- Huaijin Ran, Nanyang Technological University, `huaijin003@e.ntu.edu.sg`.
 
-- whether the named manuscript/protocol metadata is authorized;
-- affiliations and contact details at the time of submission;
-- author order and any corresponding-author designation;
-- AI-use, originality, conflict, funding, and contribution declarations;
-- whether the intended venue requires names or anonymization at that stage.
+The matching manuscript and protocol retain these names. Their obsolete
+recovery-status footnotes and PDF metadata placeholders are removed. The
+incompatible anonymous supplement is not used as a source for this project.
+The filename is retained for existing documentation links, not as an active hold.
 
-No author, institution, consent, collaboration, approval, or corresponding role
-has been added or inferred during the repair. The incompatible anonymous
-supplement is not used as a source for this project.
+This confirmation does not supply a corresponding-author designation,
+institutional agreement, funding/conflict declaration or submission authorization.
+Applicable disclosure and anonymization rules still govern external use.
+Substantive generative-AI assistance remains disclosed in the manuscript and
+artifact README; no claim of AI-free or exclusively human authorship is made.

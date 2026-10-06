@@ -1,7 +1,7 @@
 """Strict finite, integer-only declaration. No addresses or network operations."""
 from __future__ import annotations
 import json
-from math import gcd
+from math import gcd, isfinite
 from pathlib import Path
 from typing import Any
 
@@ -90,13 +90,19 @@ def _pairs(ps: list[tuple[str, Any]]) -> dict[str, Any]:
 def loads(text: str) -> Any:
     def bad_constant(x: str) -> None:
         raise Invalid('non-finite JSON number')
+    def finite_float(x: str) -> float:
+        value = float(x)
+        if not isfinite(value):
+            raise Invalid('non-finite JSON number')
+        return value
     def limited_int(x: str) -> int:
         if len(x.lstrip('-')) > 40:
             raise Invalid('integer encoding too long')
         return int(x)
     try:
         return json.loads(text, object_pairs_hook=_pairs,
-                          parse_constant=bad_constant, parse_int=limited_int)
+                          parse_constant=bad_constant, parse_int=limited_int,
+                          parse_float=finite_float)
     except (ValueError, RecursionError) as ex:
         raise Invalid('invalid JSON: '+str(ex)) from ex
 

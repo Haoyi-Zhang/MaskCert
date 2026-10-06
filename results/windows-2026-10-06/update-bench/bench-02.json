@@ -1,0 +1,436 @@
+{
+  "id": "bench-02",
+  "observation_kind": "new_measured_update_benchmark",
+  "group": "fragments",
+  "n": 16777216,
+  "base_fragments": 32,
+  "policy_exclusions": 16,
+  "guard_intervals_per_fragment": 16,
+  "removed": 2,
+  "added": 2,
+  "unchanged": 30,
+  "safe": true,
+  "full_floor_queries": 2080,
+  "update_floor_queries": 288,
+  "full_triples": 6240,
+  "update_triples": 864,
+  "full_certificate_bytes": 101273,
+  "update_certificate_bytes": 14126,
+  "measurements": {
+    "full_producer": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 8,
+          "wall_ns": 87856700,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 1,
+          "iterations": 8,
+          "wall_ns": 86188700,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 2,
+          "iterations": 8,
+          "wall_ns": 87095500,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 3,
+          "iterations": 8,
+          "wall_ns": 86142000,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 4,
+          "iterations": 8,
+          "wall_ns": 89046400,
+          "cpu_ns": 93750000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 46875000
+        },
+        {
+          "iterations": 8,
+          "cpu_ns": 78125000
+        }
+      ],
+      "batch_iterations": 8,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.01171875,
+      "cpu_q1_s": 0.009765625,
+      "cpu_q3_s": 0.01171875,
+      "cpu_iqr_s": 0.001953125,
+      "wall_median_s": 0.0108869375,
+      "wall_q1_s": 0.0107735875,
+      "wall_q3_s": 0.0109820875
+    },
+    "update_producer": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 32,
+          "wall_ns": 53701500,
+          "cpu_ns": 62500000
+        },
+        {
+          "repetition": 1,
+          "iterations": 32,
+          "wall_ns": 55790900,
+          "cpu_ns": 46875000
+        },
+        {
+          "repetition": 2,
+          "iterations": 32,
+          "wall_ns": 54185700,
+          "cpu_ns": 62500000
+        },
+        {
+          "repetition": 3,
+          "iterations": 32,
+          "wall_ns": 52497100,
+          "cpu_ns": 46875000
+        },
+        {
+          "repetition": 4,
+          "iterations": 32,
+          "wall_ns": 53277400,
+          "cpu_ns": 62500000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 8,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 16,
+          "cpu_ns": 31250000
+        },
+        {
+          "iterations": 32,
+          "cpu_ns": 62500000
+        }
+      ],
+      "batch_iterations": 32,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.001953125,
+      "cpu_q1_s": 0.00146484375,
+      "cpu_q3_s": 0.001953125,
+      "cpu_iqr_s": 0.00048828125,
+      "wall_median_s": 0.001678171875,
+      "wall_q1_s": 0.00166491875,
+      "wall_q3_s": 0.001693303125
+    },
+    "direct_symbolic": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 16,
+          "wall_ns": 86877400,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 1,
+          "iterations": 16,
+          "wall_ns": 87292100,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 2,
+          "iterations": 16,
+          "wall_ns": 87205200,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 3,
+          "iterations": 16,
+          "wall_ns": 86992500,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 4,
+          "iterations": 16,
+          "wall_ns": 87155700,
+          "cpu_ns": 78125000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 8,
+          "cpu_ns": 46875000
+        },
+        {
+          "iterations": 16,
+          "cpu_ns": 93750000
+        }
+      ],
+      "batch_iterations": 16,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.005859375,
+      "cpu_q1_s": 0.0048828125,
+      "cpu_q3_s": 0.005859375,
+      "cpu_iqr_s": 0.0009765625,
+      "wall_median_s": 0.00544723125,
+      "wall_q1_s": 0.00543703125,
+      "wall_q3_s": 0.005450325
+    },
+    "full_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 4,
+          "wall_ns": 99101500,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 1,
+          "iterations": 4,
+          "wall_ns": 101537000,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 2,
+          "iterations": 4,
+          "wall_ns": 101781300,
+          "cpu_ns": 109375000
+        },
+        {
+          "repetition": 3,
+          "iterations": 4,
+          "wall_ns": 101540400,
+          "cpu_ns": 109375000
+        },
+        {
+          "repetition": 4,
+          "iterations": 4,
+          "wall_ns": 101656300,
+          "cpu_ns": 93750000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 31250000
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 46875000
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 93750000
+        }
+      ],
+      "batch_iterations": 4,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.0234375,
+      "cpu_q1_s": 0.0234375,
+      "cpu_q3_s": 0.02734375,
+      "cpu_iqr_s": 0.00390625,
+      "wall_median_s": 0.0253851,
+      "wall_q1_s": 0.02538425,
+      "wall_q3_s": 0.025414075
+    },
+    "warm_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 32,
+          "wall_ns": 82680800,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 1,
+          "iterations": 32,
+          "wall_ns": 84093100,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 2,
+          "iterations": 32,
+          "wall_ns": 83188200,
+          "cpu_ns": 93750000
+        },
+        {
+          "repetition": 3,
+          "iterations": 32,
+          "wall_ns": 84471600,
+          "cpu_ns": 78125000
+        },
+        {
+          "repetition": 4,
+          "iterations": 32,
+          "wall_ns": 86536200,
+          "cpu_ns": 93750000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 15625000
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 0
+        },
+        {
+          "iterations": 8,
+          "cpu_ns": 31250000
+        },
+        {
+          "iterations": 16,
+          "cpu_ns": 31250000
+        },
+        {
+          "iterations": 32,
+          "cpu_ns": 93750000
+        }
+      ],
+      "batch_iterations": 32,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.00244140625,
+      "cpu_q1_s": 0.00244140625,
+      "cpu_q3_s": 0.0029296875,
+      "cpu_iqr_s": 0.00048828125,
+      "wall_median_s": 0.002627909375,
+      "wall_q1_s": 0.00259963125,
+      "wall_q3_s": 0.0026397375
+    },
+    "cold_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "iterations": 4,
+          "wall_ns": 116533800,
+          "cpu_ns": 125000000
+        },
+        {
+          "repetition": 1,
+          "iterations": 4,
+          "wall_ns": 115660900,
+          "cpu_ns": 109375000
+        },
+        {
+          "repetition": 2,
+          "iterations": 4,
+          "wall_ns": 114876800,
+          "cpu_ns": 109375000
+        },
+        {
+          "repetition": 3,
+          "iterations": 4,
+          "wall_ns": 114874000,
+          "cpu_ns": 125000000
+        },
+        {
+          "repetition": 4,
+          "iterations": 4,
+          "wall_ns": 114805600,
+          "cpu_ns": 109375000
+        }
+      ],
+      "calibration": [
+        {
+          "iterations": 1,
+          "cpu_ns": 31250000
+        },
+        {
+          "iterations": 2,
+          "cpu_ns": 46875000
+        },
+        {
+          "iterations": 4,
+          "cpu_ns": 125000000
+        }
+      ],
+      "batch_iterations": 4,
+      "calibration_target_cpu_ns": 50000000,
+      "cpu_median_s": 0.02734375,
+      "cpu_q1_s": 0.02734375,
+      "cpu_q3_s": 0.03125,
+      "cpu_iqr_s": 0.00390625,
+      "wall_median_s": 0.0287192,
+      "wall_q1_s": 0.0287185,
+      "wall_q3_s": 0.028915225
+    }
+  },
+  "boolean_encodings": {
+    "full": {
+      "status": "encoded_not_solved",
+      "variables": 3933,
+      "clauses": 11953,
+      "gates": 3896,
+      "primary_bits": 36,
+      "cpu_seconds": 0.03125
+    },
+    "safe_anchor": {
+      "status": "encoded_not_solved",
+      "variables": 694,
+      "clauses": 2076,
+      "gates": 665,
+      "primary_bits": 28,
+      "cpu_seconds": 0.0
+    }
+  },
+  "external_solver_executed": false,
+  "workers": 1,
+  "warmup": 1,
+  "timed_repeats": 5,
+  "total_cpu_seconds": 4.265625,
+  "process_peak_rss_kib": null,
+  "host": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+  },
+  "resource_controls": {
+    "posix_cpu_limit": false,
+    "address_space_cap": false,
+    "alarm": false,
+    "affinity": false,
+    "outer_wall_limit_seconds": 120,
+    "peak_rss_measured": false
+  }
+}

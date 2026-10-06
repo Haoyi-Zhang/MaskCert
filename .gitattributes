@@ -1,0 +1,5 @@
+# Preserve the archive and the exact retained scientific file bytes.
+/data/scientific-data.zip -text
+/cases/** -text
+/results/** -text
+/examples/** -text

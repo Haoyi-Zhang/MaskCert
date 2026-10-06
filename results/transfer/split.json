@@ -1,0 +1,95 @@
+{
+  "id": "split",
+  "observation_kind": "new_transfer_not_original_table_III",
+  "domain": 4294967296,
+  "history_fragments": 61,
+  "old_future_fragments": 64,
+  "new_future_fragments": 65,
+  "old_exclusions": 1024,
+  "defects": [
+    0
+  ],
+  "warmup": 1,
+  "timed_repeats": 3,
+  "measurements": {
+    "full_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 4395592227,
+          "wall_ns": 4396540500
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 4571794205,
+          "wall_ns": 4572466848
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 4389100118,
+          "wall_ns": 4390132788
+        }
+      ],
+      "cpu_median_s": 4.395592227,
+      "cpu_min_s": 4.389100118,
+      "cpu_max_s": 4.571794205,
+      "floor_queries": 518144,
+      "triples": 1381186,
+      "certificate_bytes": 33037144
+    },
+    "warm_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 347998696,
+          "wall_ns": 347550993
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 212007852,
+          "wall_ns": 213296394
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 279987619,
+          "wall_ns": 282192157
+        }
+      ],
+      "cpu_median_s": 0.279987619,
+      "cpu_min_s": 0.212007852,
+      "cpu_max_s": 0.347998696,
+      "floor_queries": 12288,
+      "triples": 30032,
+      "certificate_bytes": 798054
+    },
+    "cold_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 4822531650,
+          "wall_ns": 4825455650
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 4779672272,
+          "wall_ns": 4778281736
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 4835671670,
+          "wall_ns": 4841919781
+        }
+      ],
+      "cpu_median_s": 4.82253165,
+      "cpu_min_s": 4.779672272,
+      "cpu_max_s": 4.83567167,
+      "floor_queries": 12288,
+      "triples": 30032,
+      "certificate_bytes": 798054
+    }
+  },
+  "all_checks_passed": true,
+  "cpu_seconds": 45.789618727000004,
+  "peak_rss_kib": 174724,
+  "workers": 1
+}

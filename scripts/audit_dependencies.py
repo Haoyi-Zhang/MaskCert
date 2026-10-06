@@ -7,12 +7,12 @@ from pathlib import Path
 
 from common import ROOT, bounded, finish
 
-LOCAL_TOP_LEVEL = {'pcs', 'common', 'casegen'}
+LOCAL_TOP_LEVEL = {'pcs'} | {p.stem for p in (ROOT / 'scripts').glob('*.py')}
 
 
 def main() -> int:
     bounded()
-    paths = [ROOT / 'pcs.py']
+    paths = [ROOT / 'pcs.py', ROOT / 'pcs-update.py']
     for directory in (ROOT / 'src', ROOT / 'scripts', ROOT / 'tests'):
         paths.extend(sorted(directory.rglob('*.py')))
     imported: set[str] = set()
@@ -35,6 +35,8 @@ def main() -> int:
         'external_runtime_or_test_dependencies': external,
         'matplotlib_imported': 'matplotlib' in imported,
         'standard_library_only': True,
+        'scope': 'Python imports and default science; optional native SMT needs libz3',
+        'optional_native_dependency': 'Z3 shared library through ctypes; not needed by core or default recheck',
         'all_checks_passed': True,
     })
     return 0

@@ -1,0 +1,33 @@
+# The canonical originals are stored in data/scientific-data.zip.
+# Preparing them locally must not add duplicate expanded evidence to Git.
+/cases/boundary.json
+/cases/smt/bench-09-full.smt2
+/cases/transfer/remove.json
+/cases/transfer/revoke.json
+/cases/transfer/split.json
+/cases/update-bench/bench-04.json
+/cases/update-bench/bench-08.json
+/cases/update-bench/bench-09.json
+/cases/updates.json
+/results/boundary-certificate.jsonl
+/results/transfer/remove-full.jsonl
+/results/transfer/remove-update.jsonl
+/results/transfer/revoke-full.jsonl
+/results/transfer/revoke-update.jsonl
+/results/transfer/split-full.jsonl
+/results/transfer/split-update.jsonl
+/results/windows-2026-10-06/cases/smt/bench-09-full.smt2
+/results/windows-2026-10-06/cases/transfer/remove.json
+/results/windows-2026-10-06/cases/transfer/revoke.json
+/results/windows-2026-10-06/cases/transfer/split.json
+/results/windows-2026-10-06/cases/update-bench/bench-04.json
+/results/windows-2026-10-06/cases/update-bench/bench-08.json
+/results/windows-2026-10-06/cases/update-bench/bench-09.json
+/results/windows-2026-10-06/transfer/remove-full.jsonl
+/results/windows-2026-10-06/transfer/remove-update.jsonl
+/results/windows-2026-10-06/transfer/revoke-full.jsonl
+/results/windows-2026-10-06/transfer/revoke-update.jsonl
+/results/windows-2026-10-06/transfer/split-full.jsonl
+/results/windows-2026-10-06/transfer/split-update.jsonl
+__pycache__/
+*.pyc

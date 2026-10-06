@@ -1,0 +1,37 @@
+{
+  "observation_set": "windows-2026-10-06",
+  "source_campaign": "repair_workspace/experiments/P100",
+  "platform": "win32",
+  "host_platform": "Windows-11-10.0.28000-SP0",
+  "python_version": "3.12.14",
+  "solver_version_from_all_native_samples": "Z3 5.1.0.0",
+  "solver_distribution": "z3-solver 5.1.0.0",
+  "solver_wheel_tag": "py3-none-win_amd64",
+  "solver_package_metadata": "z3-package-metadata/METADATA",
+  "solver_native_library": "Windows libz3.dll, exact path preserved in execution.json",
+  "received_linux_binary_executed": false,
+  "outer_wall_limit_seconds_per_command": 120,
+  "posix_cpu_limit": false,
+  "address_space_cap": false,
+  "alarm": false,
+  "affinity": false,
+  "peak_rss_measured": false,
+  "observed_cpu_delta_quantum_ns": 15625000,
+  "transfer_file_newlines": "CRLF",
+  "in_memory_update_certificate_newlines": "LF",
+  "command_exit_counts": {"0": 64},
+  "finite_native_smt_status_counts": {"sat": 14, "unsat": 34, "unknown": 0},
+  "timed_native_smt_status_counts": {
+    "full": {"sat": 0, "unsat": 95, "unknown": 5},
+    "reduced": {"sat": 0, "unsat": 100, "unknown": 0}
+  },
+  "unknown_interpretation": "unresolved solver timeout, not unsafe and not a completed solution",
+  "native_unsat_independently_proof_checked": false,
+  "upstream_certified_counting_pipelines_executed": [],
+  "historical_observations": {
+    "paths": ["../update-bench", "../transfer", "../smt"],
+    "platform": "Linux",
+    "solver_version": "Z3 4.13.3.0",
+    "overwritten": false
+  }
+}

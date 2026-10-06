@@ -1,0 +1,108 @@
+{
+  "id": "split",
+  "observation_kind": "new_transfer_not_original_table_III",
+  "domain": 4294967296,
+  "history_fragments": 61,
+  "old_future_fragments": 64,
+  "new_future_fragments": 65,
+  "old_exclusions": 1024,
+  "defects": [
+    0
+  ],
+  "warmup": 1,
+  "timed_repeats": 3,
+  "measurements": {
+    "full_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 3515625000,
+          "wall_ns": 3560114400
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 3562500000,
+          "wall_ns": 3588229100
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 3546875000,
+          "wall_ns": 3580809200
+        }
+      ],
+      "cpu_median_s": 3.546875,
+      "cpu_min_s": 3.515625,
+      "cpu_max_s": 3.5625,
+      "floor_queries": 518144,
+      "triples": 1381186,
+      "certificate_bytes": 33555290
+    },
+    "warm_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 187500000,
+          "wall_ns": 193067700
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 218750000,
+          "wall_ns": 212690500
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 203125000,
+          "wall_ns": 200636200
+        }
+      ],
+      "cpu_median_s": 0.203125,
+      "cpu_min_s": 0.1875,
+      "cpu_max_s": 0.21875,
+      "floor_queries": 12288,
+      "triples": 30032,
+      "certificate_bytes": 810344
+    },
+    "cold_update_checker": {
+      "raw": [
+        {
+          "repetition": 0,
+          "cpu_ns": 3515625000,
+          "wall_ns": 3852979500
+        },
+        {
+          "repetition": 1,
+          "cpu_ns": 3734375000,
+          "wall_ns": 3839383000
+        },
+        {
+          "repetition": 2,
+          "cpu_ns": 3875000000,
+          "wall_ns": 3971095300
+        }
+      ],
+      "cpu_median_s": 3.734375,
+      "cpu_min_s": 3.515625,
+      "cpu_max_s": 3.875,
+      "floor_queries": 12288,
+      "triples": 30032,
+      "certificate_bytes": 810344
+    }
+  },
+  "all_checks_passed": true,
+  "cpu_seconds": 36.3125,
+  "peak_rss_kib": null,
+  "workers": 1,
+  "host": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+  },
+  "resource_controls": {
+    "posix_cpu_limit": false,
+    "address_space_cap": false,
+    "alarm": false,
+    "affinity": false,
+    "outer_wall_limit_seconds": 120,
+    "peak_rss_measured": false
+  }
+}

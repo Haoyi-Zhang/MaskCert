@@ -1,0 +1,80 @@
+{
+  "id": "bench-06-reduced",
+  "case": 6,
+  "route": "reduced",
+  "epoch": 0,
+  "expected_safe": true,
+  "guarantee": "trusted SMT safety decision; no certified count",
+  "construction_cpu_seconds": 0.0,
+  "formula_bytes": 1514,
+  "timeout_ms": 10000,
+  "warmup": {
+    "status": "unsat",
+    "native_output": "unsat",
+    "model_counter": null,
+    "reason_unknown": null,
+    "cpu_ns": 16321887,
+    "wall_ns": 14056874,
+    "solver_version": "4.13.3.0"
+  },
+  "repetitions": [
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 11993173,
+      "wall_ns": 11085007,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 6632970,
+      "wall_ns": 6532401,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 5319336,
+      "wall_ns": 5803860,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 12038273,
+      "wall_ns": 11668278,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 6012752,
+      "wall_ns": 6030084,
+      "solver_version": "4.13.3.0"
+    }
+  ],
+  "status_counts": {
+    "sat": 0,
+    "unsat": 5,
+    "unknown": 0
+  },
+  "cpu_median_s": 0.00663297,
+  "cpu_q1_s": 0.006012752,
+  "cpu_q3_s": 0.011993173,
+  "anchor_cost_timed": false,
+  "semantic_result_verified": true,
+  "cpu_seconds": 0.07514159899999995,
+  "peak_rss_kib": 130224,
+  "workers": 1
+}

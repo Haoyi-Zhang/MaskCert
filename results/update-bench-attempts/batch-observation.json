@@ -1,0 +1,9 @@
+{
+  "observation_kind": "new_benchmark_driver_interruption",
+  "event": "The enclosing container tool invocation reached its 120-second bound during a multi-case batch.",
+  "completed_child_statuses_seen": [1,2,3,4,5,6,7,8,9,10,11,12,13],
+  "completed_result_present_without_collected_child_status": 14,
+  "individual_scientific_timeout_observed": false,
+  "total_driver_cpu_seconds": null,
+  "action": "Retain the unconfirmed bench-14 result separately, rerun it, and use smaller outer batches. No failed observation is relabeled as a success."
+}

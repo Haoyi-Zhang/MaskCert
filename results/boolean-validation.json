@@ -1,0 +1,279 @@
+{
+  "observation_kind": "new_boolean_encoding_validation",
+  "all_checks_passed": true,
+  "local_gate_truth_assignments": 16,
+  "modular_arithmetic_assignments": 2016,
+  "plan_records": 8,
+  "encodings_compared": 28,
+  "primary_assignments_checked": 9056,
+  "records": [
+    {
+      "case": "update-000",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 21,
+      "clauses": 41,
+      "path": "cases/cnf/update-000-e0-full.cnf"
+    },
+    {
+      "case": "update-000",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 5,
+      "clauses": 5,
+      "path": "cases/cnf/update-000-e0-anchor.cnf"
+    },
+    {
+      "case": "update-001",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 13,
+      "clauses": 17,
+      "path": "cases/cnf/update-001-e0-full.cnf"
+    },
+    {
+      "case": "update-001",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 5,
+      "clauses": 5,
+      "path": "cases/cnf/update-001-e0-anchor.cnf"
+    },
+    {
+      "case": "update-001",
+      "epoch": 1,
+      "encoding": "full",
+      "models": 0,
+      "variables": 58,
+      "clauses": 155,
+      "path": "cases/cnf/update-001-e1-full.cnf"
+    },
+    {
+      "case": "update-001",
+      "epoch": 1,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 32,
+      "clauses": 85,
+      "path": "cases/cnf/update-001-e1-anchor.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 273,
+      "clauses": 837,
+      "path": "cases/cnf/update-002-e0-full.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 137,
+      "clauses": 407,
+      "path": "cases/cnf/update-002-e0-anchor.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 1,
+      "encoding": "full",
+      "models": 0,
+      "variables": 188,
+      "clauses": 570,
+      "path": "cases/cnf/update-002-e1-full.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 1,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 69,
+      "clauses": 199,
+      "path": "cases/cnf/update-002-e1-anchor.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 2,
+      "encoding": "full",
+      "models": 0,
+      "variables": 195,
+      "clauses": 591,
+      "path": "cases/cnf/update-002-e2-full.cnf"
+    },
+    {
+      "case": "update-002",
+      "epoch": 2,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 76,
+      "clauses": 220,
+      "path": "cases/cnf/update-002-e2-anchor.cnf"
+    },
+    {
+      "case": "update-003",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 4,
+      "variables": 58,
+      "clauses": 162,
+      "path": "cases/cnf/update-003-e0-full.cnf"
+    },
+    {
+      "case": "update-003",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 4,
+      "variables": 34,
+      "clauses": 91,
+      "path": "cases/cnf/update-003-e0-anchor.cnf"
+    },
+    {
+      "case": "update-012",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 56,
+      "clauses": 149,
+      "path": "cases/cnf/update-012-e0-full.cnf"
+    },
+    {
+      "case": "update-012",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 9,
+      "clauses": 11,
+      "path": "cases/cnf/update-012-e0-anchor.cnf"
+    },
+    {
+      "case": "update-013",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 13,
+      "clauses": 17,
+      "path": "cases/cnf/update-013-e0-full.cnf"
+    },
+    {
+      "case": "update-013",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 5,
+      "clauses": 5,
+      "path": "cases/cnf/update-013-e0-anchor.cnf"
+    },
+    {
+      "case": "update-013",
+      "epoch": 1,
+      "encoding": "full",
+      "models": 0,
+      "variables": 13,
+      "clauses": 17,
+      "path": "cases/cnf/update-013-e1-full.cnf"
+    },
+    {
+      "case": "update-013",
+      "epoch": 1,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 5,
+      "clauses": 5,
+      "path": "cases/cnf/update-013-e1-anchor.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 0,
+      "variables": 254,
+      "clauses": 776,
+      "path": "cases/cnf/update-014-e0-full.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 0,
+      "variables": 68,
+      "clauses": 196,
+      "path": "cases/cnf/update-014-e0-anchor.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 1,
+      "encoding": "full",
+      "models": 1,
+      "variables": 173,
+      "clauses": 523,
+      "path": "cases/cnf/update-014-e1-full.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 1,
+      "encoding": "anchor",
+      "models": 1,
+      "variables": 117,
+      "clauses": 345,
+      "path": "cases/cnf/update-014-e1-anchor.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 2,
+      "encoding": "full",
+      "models": 1,
+      "variables": 173,
+      "clauses": 517,
+      "path": "cases/cnf/update-014-e2-full.cnf"
+    },
+    {
+      "case": "update-014",
+      "epoch": 2,
+      "encoding": "anchor",
+      "models": 1,
+      "variables": 131,
+      "clauses": 385,
+      "path": "cases/cnf/update-014-e2-anchor.cnf"
+    },
+    {
+      "case": "update-015",
+      "epoch": 0,
+      "encoding": "full",
+      "models": 2,
+      "variables": 147,
+      "clauses": 442,
+      "path": "cases/cnf/update-015-e0-full.cnf"
+    },
+    {
+      "case": "update-015",
+      "epoch": 0,
+      "encoding": "anchor",
+      "models": 2,
+      "variables": 60,
+      "clauses": 169,
+      "path": "cases/cnf/update-015-e0-anchor.cnf"
+    }
+  ],
+  "generic_upstream_solver_executed": false,
+  "summary_counterexample": {
+    "old_counts_B_T_C_Q": [
+      2,
+      2,
+      2,
+      1
+    ],
+    "old_defect": 2,
+    "after_same_addition_defects": [
+      5,
+      1
+    ]
+  },
+  "cpu_seconds": 2.055011154,
+  "peak_rss_kib": 96428
+}

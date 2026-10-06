@@ -1,0 +1,348 @@
+[
+  {
+    "key": "zmap",
+    "primary_record_or_author_full_text": "https://zakird.com/papers/zmap-retrospective.pdf",
+    "doi": "10.1145/3646547.3689012",
+    "checked_fields": {
+      "author": "Zakir Durumeric and David Adrian and Phillip Stephens and Eric Wustrow and J. Alex Halderman",
+      "title": "Ten Years of {ZMap}",
+      "year": "2024",
+      "booktitle": "Proceedings of the ACM Internet Measurement Conference",
+      "doi": "10.1145/3646547.3689012",
+      "url": "https://doi.org/10.1145/3646547.3689012"
+    },
+    "supported_use": "Target-generation and sharding history; no affine implementation compatibility inferred.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "veripb",
+    "primary_record_or_author_full_text": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2026.43",
+    "doi": "10.4230/LIPIcs.CP.2026.43",
+    "checked_fields": {
+      "author": "Ciaran McCreesh and Jakob Nordstr{\\\"o}m and Andy Oertel and Yong Kiam Tan",
+      "title": "Proof Logging for Projected Enumeration (and Counting?) Problems in {VeriPB}",
+      "year": "2026",
+      "booktitle": "32nd International Conference on Principles and Practice of Constraint Programming (CP 2026)",
+      "volume": "379",
+      "pages": "43:1--43:21",
+      "doi": "10.4230/LIPIcs.CP.2026.43",
+      "url": "https://doi.org/10.4230/LIPIcs.CP.2026.43",
+      "series": "Leibniz International Proceedings in Informatics (LIPIcs)",
+      "publisher": "Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik"
+    },
+    "supported_use": "Projected enumeration rules and CakePB implementation; counting discussion is not an evaluated universal counting frontend.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "certifying",
+    "primary_record_or_author_full_text": "https://www.cs.colostate.edu/~rmm/cert11.pdf",
+    "doi": "10.1016/j.cosrev.2010.09.009",
+    "checked_fields": {
+      "author": "Ross M. McConnell and Kurt Mehlhorn and Stefan N{\\\"a}her and Pascal Schweitzer",
+      "title": "Certifying Algorithms",
+      "year": "2011",
+      "journal": "Computer Science Review",
+      "volume": "5",
+      "number": "2",
+      "pages": "119--161",
+      "doi": "10.1016/j.cosrev.2010.09.009",
+      "url": "https://doi.org/10.1016/j.cosrev.2010.09.009"
+    },
+    "supported_use": "Checker/certificate separation and limited trusted code; not a new general certifying paradigm.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "cpog",
+    "primary_record_or_author_full_text": "https://arxiv.org/html/2501.12906v1",
+    "doi": "10.1613/JAIR.1.15958",
+    "checked_fields": {
+      "author": "Randal E. Bryant and Wojciech Nawrocki and Jeremy Avigad and Marijn J. H. Heule",
+      "title": "Certified Knowledge Compilation with Application to Formally Verified Model Counting",
+      "year": "2025",
+      "journal": "Journal of Artificial Intelligence Research",
+      "volume": "82",
+      "pages": "2057--2099",
+      "doi": "10.1613/JAIR.1.15958",
+      "url": "https://doi.org/10.1613/JAIR.1.15958"
+    },
+    "supported_use": "POG plus equivalence proof, graph sharing, Lean checker and weighted counter; stronger mechanization than this artifact.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "projected",
+    "primary_record_or_author_full_text": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAT.2025.8",
+    "doi": "10.4230/LIPIcs.SAT.2025.8",
+    "checked_fields": {
+      "author": "Randal E. Bryant and Yong Kiam Tan and Marijn J. H. Heule",
+      "title": "Certifying Projected Knowledge Compilation",
+      "year": "2025",
+      "booktitle": "28th International Conference on Theory and Applications of Satisfiability Testing (SAT 2025)",
+      "volume": "341",
+      "pages": "8:1--8:22",
+      "doi": "10.4230/LIPIcs.SAT.2025.8",
+      "url": "https://doi.org/10.4230/LIPIcs.SAT.2025.8",
+      "series": "Leibniz International Proceedings in Informatics (LIPIcs)",
+      "publisher": "Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik"
+    },
+    "supported_use": "Projection certificates and formally verified checking; no enumeration-only strawman.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "cd4",
+    "primary_record_or_author_full_text": "https://ojs.aaai.org/index.php/AAAI/article/view/16776",
+    "doi": "10.1609/aaai.v35i7.16776",
+    "checked_fields": {
+      "author": "Florent Capelli and Jean-Marie Lagniez and Pierre Marquis",
+      "title": "Certifying Top-Down Decision-{DNNF} Compilers",
+      "year": "2021",
+      "journal": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "volume": "35",
+      "number": "7",
+      "pages": "6244--6253",
+      "doi": "10.1609/aaai.v35i7.16776",
+      "url": "https://doi.org/10.1609/aaai.v35i7.16776"
+    },
+    "supported_use": "Certified top-down compilation, a relevant nonenumerative exact-counting route; not executed in this artifact.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "mice",
+    "primary_record_or_author_full_text": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAT.2022.30",
+    "doi": "10.4230/LIPIcs.SAT.2022.30",
+    "checked_fields": {
+      "author": "Johannes Klaus Fichte and Markus Hecher and Valentin Roland",
+      "title": "Proofs for Propositional Model Counting",
+      "year": "2022",
+      "booktitle": "25th International Conference on Theory and Applications of Satisfiability Testing (SAT 2022)",
+      "volume": "236",
+      "pages": "30:1--30:24",
+      "doi": "10.4230/LIPIcs.SAT.2022.30",
+      "url": "https://doi.org/10.4230/LIPIcs.SAT.2022.30",
+      "series": "Leibniz International Proceedings in Informatics (LIPIcs)",
+      "publisher": "Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik"
+    },
+    "supported_use": "Dedicated #SAT proof systems; not the only or universally strongest baseline.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "strength",
+    "primary_record_or_author_full_text": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAT.2024.5",
+    "doi": "10.4230/LIPIcs.SAT.2024.5",
+    "checked_fields": {
+      "author": "Olaf Beyersdorff and Johannes Klaus Fichte and Markus Hecher and Tim Hoffmann and Kaspar Kasche",
+      "title": "The Relative Strength of {\\#SAT} Proof Systems",
+      "year": "2024",
+      "booktitle": "27th International Conference on Theory and Applications of Satisfiability Testing (SAT 2024)",
+      "volume": "305",
+      "pages": "5:1--5:19",
+      "doi": "10.4230/LIPIcs.SAT.2024.5",
+      "url": "https://doi.org/10.4230/LIPIcs.SAT.2024.5",
+      "series": "Leibniz International Proceedings in Informatics (LIPIcs)",
+      "publisher": "Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik"
+    },
+    "supported_use": "Proof-system strength and representations must be separated from runtime or enumeration cost.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "ssat",
+    "primary_record_or_author_full_text": "https://www.ijcai.org/proceedings/2024/0206.pdf",
+    "doi": "10.24963/ijcai.2024/206",
+    "checked_fields": {
+      "author": "Che Cheng and Yun-Rong Luo and Jie-Hong R. Jiang",
+      "title": "Knowledge Compilation for Incremental and Checkable Stochastic Boolean Satisfiability",
+      "year": "2024",
+      "booktitle": "Proceedings of the Thirty-Third International Joint Conference on Artificial Intelligence (IJCAI-24)",
+      "pages": "1862--1872",
+      "doi": "10.24963/ijcai.2024/206",
+      "url": "https://doi.org/10.24963/ijcai.2024/206"
+    },
+    "supported_use": "Levelized dec-DNNF, reweighting/cofactoring and CPOG-derived SSAT checking; incrementality plus checkability predates this work.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "pbcount",
+    "primary_record_or_author_full_text": "https://arxiv.org/html/2412.14485v1",
+    "doi": "10.1609/aaai.v39i11.33240",
+    "checked_fields": {
+      "author": "Suwei Yang and Kuldeep S. Meel",
+      "title": "Towards Projected and Incremental Pseudo-Boolean Model Counting",
+      "year": "2025",
+      "journal": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "volume": "39",
+      "number": "11",
+      "pages": "11399--11407",
+      "doi": "10.1609/aaai.v39i11.33240",
+      "url": "https://doi.org/10.1609/aaai.v39i11.33240"
+    },
+    "supported_use": "ADD cache reuse for addition/removal of constraints; distinguishes ordinary incremental counting from safe-invariant elimination.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "approx",
+    "primary_record_or_author_full_text": "https://arxiv.org/abs/2406.11414",
+    "doi": "10.1007/978-3-031-65627-9_8",
+    "checked_fields": {
+      "author": "Yong Kiam Tan and Jiong Yang and Mate Soos and Magnus O. Myreen and Kuldeep S. Meel",
+      "title": "Formally Certified Approximate Model Counting",
+      "year": "2024",
+      "booktitle": "Computer Aided Verification (CAV 2024)",
+      "pages": "153--177",
+      "doi": "10.1007/978-3-031-65627-9_8",
+      "url": "https://doi.org/10.1007/978-3-031-65627-9_8",
+      "publisher": "Springer"
+    },
+    "supported_use": "Formally certified PAC counting is a different result contract from an exact deterministic defect, not an invalid method.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "dbtoaster",
+    "primary_record_or_author_full_text": "https://vldb.org/pvldb/vol5/p968_yanifahmad_vldb2012.pdf",
+    "doi": "10.14778/2336664.2336670",
+    "checked_fields": {
+      "author": "Yanif Ahmad and Oliver Kennedy and Christoph Koch and Milos Nikolic",
+      "title": "{DBToaster}: Higher-order Delta Processing for Dynamic, Frequently Fresh Views",
+      "year": "2012",
+      "journal": "Proceedings of the VLDB Endowment",
+      "volume": "5",
+      "number": "10",
+      "pages": "968--979",
+      "doi": "10.14778/2336664.2336670",
+      "url": "https://doi.org/10.14778/2336664.2336670"
+    },
+    "supported_use": "Higher-order relational deltas; do not claim novelty for delta algebra or incremental maintenance itself.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "kcmap",
+    "primary_record_or_author_full_text": "https://jair.org/index.php/jair/article/view/10311",
+    "doi": "10.1613/jair.989",
+    "checked_fields": {
+      "author": "Adnan Darwiche and Pierre Marquis",
+      "title": "A Knowledge Compilation Map",
+      "year": "2002",
+      "journal": "Journal of Artificial Intelligence Research",
+      "volume": "17",
+      "pages": "229--264",
+      "doi": "10.1613/jair.989",
+      "url": "https://doi.org/10.1613/jair.989"
+    },
+    "supported_use": "Compilation languages trade off succinctness, queries and transformations.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "isl",
+    "primary_record_or_author_full_text": "https://lirias.kuleuven.be/retrieve/114886/",
+    "doi": "10.1007/978-3-642-15582-6_49",
+    "checked_fields": {
+      "author": "Sven Verdoolaege",
+      "title": "{isl}: An Integer Set Library for the Polyhedral Model",
+      "year": "2010",
+      "booktitle": "Mathematical Software -- ICMS 2010",
+      "volume": "6327",
+      "pages": "299--302",
+      "doi": "10.1007/978-3-642-15582-6_49",
+      "url": "https://doi.org/10.1007/978-3-642-15582-6_49",
+      "publisher": "Springer"
+    },
+    "supported_use": "General integer-set infrastructure; no proof logging or performance claim for this artifact.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "barvinok",
+    "primary_record_or_author_full_text": "https://pubsonline.informs.org/doi/10.1287/moor.19.4.769",
+    "doi": "10.1287/moor.19.4.769",
+    "checked_fields": {
+      "author": "Alexander I. Barvinok",
+      "title": "A Polynomial Time Algorithm for Counting Integral Points in Polyhedra When the Dimension Is Fixed",
+      "year": "1994",
+      "journal": "Mathematics of Operations Research",
+      "volume": "19",
+      "number": "4",
+      "pages": "769--779",
+      "doi": "10.1287/moor.19.4.769",
+      "url": "https://doi.org/10.1287/moor.19.4.769"
+    },
+    "supported_use": "Fixed-dimensional lattice counting is established prior tractability, not a new contribution of the affine specialization.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "z3",
+    "primary_record_or_author_full_text": "https://link.springer.com/chapter/10.1007/978-3-540-78800-3_24",
+    "doi": "10.1007/978-3-540-78800-3_24",
+    "checked_fields": {
+      "author": "Leonardo de Moura and Nikolaj Bj{\\o}rner",
+      "title": "{Z3}: An Efficient {SMT} Solver",
+      "year": "2008",
+      "booktitle": "Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2008)",
+      "volume": "4963",
+      "pages": "337--340",
+      "doi": "10.1007/978-3-540-78800-3_24",
+      "url": "https://doi.org/10.1007/978-3-540-78800-3_24",
+      "publisher": "Springer"
+    },
+    "supported_use": "Actual optional unmodified native decision baseline, no checked #SAT proof claim.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "hsa",
+    "primary_record_or_author_full_text": "https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/kazemian",
+    "doi": null,
+    "checked_fields": {
+      "author": "Peyman Kazemian and George Varghese and Nick McKeown",
+      "title": "Header Space Analysis: Static Checking for Networks",
+      "year": "2012",
+      "booktitle": "9th USENIX Symposium on Networked Systems Design and Implementation (NSDI 12)",
+      "url": "https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/kazemian",
+      "publisher": "USENIX Association"
+    },
+    "supported_use": "Static symbolic network checking is operational context, distinct from per-epoch plan multiplicity.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "veriflow",
+    "primary_record_or_author_full_text": "https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/khurshid",
+    "doi": null,
+    "checked_fields": {
+      "author": "Ahmed Khurshid and Xuan Zou and Wenxuan Zhou and Matthew Caesar and P. Brighten Godfrey",
+      "title": "{VeriFlow}: Verifying Network-Wide Invariants in Real Time",
+      "year": "2013",
+      "booktitle": "10th USENIX Symposium on Networked Systems Design and Implementation (NSDI 13)",
+      "pages": "15--27",
+      "url": "https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/khurshid",
+      "publisher": "USENIX Association"
+    },
+    "supported_use": "Incremental forwarding-invariant checking; do not claim first incremental network verification.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "netplumber",
+    "primary_record_or_author_full_text": "https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/kazemian",
+    "doi": null,
+    "checked_fields": {
+      "author": "Peyman Kazemian and Michael Chang and Hongyi Zeng and George Varghese and Nick McKeown and Scott Whyte",
+      "title": "Real Time Network Policy Checking Using Header Space Analysis",
+      "year": "2013",
+      "booktitle": "10th USENIX Symposium on Networked Systems Design and Implementation (NSDI 13)",
+      "pages": "99--111",
+      "url": "https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/kazemian",
+      "publisher": "USENIX Association"
+    },
+    "supported_use": "Dependency-based incremental policy checking; not the exact masked multiset certificate here.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  },
+  {
+    "key": "zmap13",
+    "primary_record_or_author_full_text": "https://www.usenix.org/conference/usenixsecurity13/technical-sessions/paper/durumeric",
+    "doi": null,
+    "checked_fields": {
+      "author": "Zakir Durumeric and Eric Wustrow and J. Alex Halderman",
+      "title": "{ZMap}: Fast Internet-wide Scanning and Its Security Applications",
+      "year": "2013",
+      "booktitle": "22nd USENIX Security Symposium (USENIX Security 13)",
+      "url": "https://www.usenix.org/conference/usenixsecurity13/technical-sessions/paper/durumeric",
+      "publisher": "USENIX Association"
+    },
+    "supported_use": "Stateless traversal motivation, not compatibility, target authorization, or packet experiment evidence.",
+    "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
+  }
+]

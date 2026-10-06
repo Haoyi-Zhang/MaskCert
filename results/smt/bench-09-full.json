@@ -1,0 +1,80 @@
+{
+  "id": "bench-09-full",
+  "case": 9,
+  "route": "full",
+  "epoch": 0,
+  "expected_safe": true,
+  "guarantee": "trusted SMT safety decision; no certified count",
+  "construction_cpu_seconds": 0.00397478200000001,
+  "formula_bytes": 303713,
+  "timeout_ms": 10000,
+  "warmup": {
+    "status": "unknown",
+    "native_output": "unknown",
+    "model_counter": null,
+    "reason_unknown": "(:reason-unknown \"timeout\")",
+    "cpu_ns": 10107647554,
+    "wall_ns": 10107830882,
+    "solver_version": "4.13.3.0"
+  },
+  "repetitions": [
+    {
+      "status": "unknown",
+      "native_output": "unknown",
+      "model_counter": null,
+      "reason_unknown": "(:reason-unknown \"timeout\")",
+      "cpu_ns": 10175596883,
+      "wall_ns": 10178743228,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unknown",
+      "native_output": "unknown",
+      "model_counter": null,
+      "reason_unknown": "(:reason-unknown \"timeout\")",
+      "cpu_ns": 10195645958,
+      "wall_ns": 10192889510,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unknown",
+      "native_output": "unknown",
+      "model_counter": null,
+      "reason_unknown": "(:reason-unknown \"timeout\")",
+      "cpu_ns": 10187387866,
+      "wall_ns": 10190844259,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unknown",
+      "native_output": "unknown",
+      "model_counter": null,
+      "reason_unknown": "(:reason-unknown \"timeout\")",
+      "cpu_ns": 10131245503,
+      "wall_ns": 10134026353,
+      "solver_version": "4.13.3.0"
+    },
+    {
+      "status": "unknown",
+      "native_output": "unknown",
+      "model_counter": null,
+      "reason_unknown": "(:reason-unknown \"timeout\")",
+      "cpu_ns": 10156215818,
+      "wall_ns": 10176233771,
+      "solver_version": "4.13.3.0"
+    }
+  ],
+  "status_counts": {
+    "sat": 0,
+    "unsat": 0,
+    "unknown": 5
+  },
+  "cpu_median_s": 10.175596883,
+  "cpu_q1_s": 10.156215818,
+  "cpu_q3_s": 10.187387866,
+  "anchor_cost_timed": false,
+  "semantic_result_verified": true,
+  "cpu_seconds": 60.970069905,
+  "peak_rss_kib": 208736,
+  "workers": 1
+}

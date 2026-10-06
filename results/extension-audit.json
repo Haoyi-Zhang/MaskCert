@@ -1,0 +1,221 @@
+{
+  "all_checks_passed": true,
+  "observation_kind": "audit_of_frozen_new_results_not_a_new_benchmark",
+  "update_cases": 96,
+  "prefix_comparisons": 688,
+  "witnesses": 56,
+  "actual_transcript_corruptions": 438,
+  "boolean_encodings": 28,
+  "boolean_backend_status": "encoded and finite-validated; upstream certified tools not run",
+  "batched_cases": [
+    {
+      "id": "bench-00",
+      "defects": [
+        0
+      ],
+      "full_queries": 544,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-01",
+      "defects": [
+        0
+      ],
+      "full_queries": 1056,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-02",
+      "defects": [
+        0
+      ],
+      "full_queries": 2080,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-03",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-04",
+      "defects": [
+        0
+      ],
+      "full_queries": 7712,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-05",
+      "defects": [
+        0
+      ],
+      "full_queries": 130,
+      "update_queries": 18
+    },
+    {
+      "id": "bench-06",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-07",
+      "defects": [
+        0
+      ],
+      "full_queries": 2080,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-08",
+      "defects": [
+        0
+      ],
+      "full_queries": 8320,
+      "update_queries": 1152
+    },
+    {
+      "id": "bench-09",
+      "defects": [
+        0
+      ],
+      "full_queries": 33280,
+      "update_queries": 4608
+    },
+    {
+      "id": "bench-10",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-11",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-12",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-13",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-14",
+      "defects": [
+        0
+      ],
+      "full_queries": 520,
+      "update_queries": 72
+    },
+    {
+      "id": "bench-15",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 288
+    },
+    {
+      "id": "bench-16",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 1152
+    },
+    {
+      "id": "bench-17",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 2304
+    },
+    {
+      "id": "bench-18",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 4608
+    },
+    {
+      "id": "bench-19",
+      "defects": [
+        0
+      ],
+      "full_queries": 4128,
+      "update_queries": 9216
+    }
+  ],
+  "measurements_per_case": 6,
+  "batches_per_measurement": 5,
+  "transfer_cases": [
+    {
+      "id": "split",
+      "defects": [
+        0
+      ],
+      "full_queries": 518144,
+      "update_queries": 12288
+    },
+    {
+      "id": "remove",
+      "defects": [
+        44738560
+      ],
+      "full_queries": 509952,
+      "update_queries": 4096
+    },
+    {
+      "id": "revoke",
+      "defects": [
+        1024
+      ],
+      "full_queries": 514048,
+      "update_queries": 6144
+    }
+  ],
+  "transfer_repeats": 3,
+  "smt_timed_status_counts": {
+    "full": {
+      "sat": 0,
+      "unsat": 95,
+      "unknown": 5
+    },
+    "reduced": {
+      "sat": 0,
+      "unsat": 100,
+      "unknown": 0
+    }
+  },
+  "smt_finite_comparisons": 48,
+  "legacy_smt_semantic_result_verified_field": "meant no incorrect SAT answer observed; UNKNOWN is NOT a completed decision",
+  "largest_K_full_over_warm_cpu_ratio": 60.808785576743844,
+  "large_edit_full_over_warm_cpu_ratio": 0.36231832635500827,
+  "upstream_certified_counting_pipeline_executed": false,
+  "cpu_seconds": 25.362029297,
+  "peak_rss_kib": 244440,
+  "workers": 1
+}

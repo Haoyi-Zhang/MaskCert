@@ -1,0 +1,8 @@
+{
+  "observation_kind": "single_call_timer_pilot_not_final_measurements",
+  "retained_case_count": 20,
+  "observed_problem": "Several single-call process CPU deltas were zero or near a 4-ms quantum; a speedup ratio was undefined.",
+  "repair": "Keep these observations. Re-measure the same unchanged case selection in calibrated batches of at least 50 ms CPU per operation, capped at 4096 iterations; retain five full batch timings and divide by iteration count. Cold and warm paths retain their explicit meanings.",
+  "changes_to_inputs_or_selected_cases": false,
+  "claim": "No favorable speedup was required. The pilot is not the paper's final performance table."
+}

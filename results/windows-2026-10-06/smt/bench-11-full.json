@@ -1,0 +1,94 @@
+{
+  "id": "bench-11-full",
+  "case": 11,
+  "route": "full",
+  "epoch": 0,
+  "expected_safe": true,
+  "guarantee": "trusted SMT safety decision; no certified count",
+  "construction_cpu_seconds": 0.0,
+  "formula_bytes": 6269,
+  "timeout_ms": 10000,
+  "warmup": {
+    "status": "unsat",
+    "native_output": "unsat",
+    "model_counter": null,
+    "reason_unknown": null,
+    "cpu_ns": 15625000,
+    "wall_ns": 17816800,
+    "solver_version": "Z3 5.1.0.0"
+  },
+  "repetitions": [
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 15625000,
+      "wall_ns": 16210200,
+      "solver_version": "Z3 5.1.0.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 15625000,
+      "wall_ns": 16942200,
+      "solver_version": "Z3 5.1.0.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 15625000,
+      "wall_ns": 17163200,
+      "solver_version": "Z3 5.1.0.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 15625000,
+      "wall_ns": 16632100,
+      "solver_version": "Z3 5.1.0.0"
+    },
+    {
+      "status": "unsat",
+      "native_output": "unsat",
+      "model_counter": null,
+      "reason_unknown": null,
+      "cpu_ns": 15625000,
+      "wall_ns": 17264600,
+      "solver_version": "Z3 5.1.0.0"
+    }
+  ],
+  "status_counts": {
+    "sat": 0,
+    "unsat": 5,
+    "unknown": 0
+  },
+  "cpu_median_s": 0.015625,
+  "cpu_q1_s": 0.015625,
+  "cpu_q3_s": 0.015625,
+  "anchor_cost_timed": false,
+  "no_incorrect_sat_answer_observed": true,
+  "all_timed_decisions_completed": true,
+  "cpu_seconds": 0.125,
+  "peak_rss_kib": null,
+  "workers": 1,
+  "host": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+  },
+  "resource_controls": {
+    "posix_cpu_limit": false,
+    "address_space_cap": false,
+    "alarm": false,
+    "affinity": false,
+    "outer_wall_limit_seconds": 120,
+    "peak_rss_measured": false
+  }
+}

@@ -83,7 +83,7 @@ for item in base_cases:
 
 if not args.regenerate:
     cases=json.loads((ROOT/'cases'/'validation.json').read_text())
-safe=unsafe=0; checks=[]
+safe=unsafe=0; checks=[]; prefix_transcript_checks=0
 for item in cases:
     spec,plan=item['declaration'],item['plan']; n=spec['n']
     exact,witness=enumerate_counters(spec,plan)
@@ -95,6 +95,11 @@ for item in cases:
     counts['plan_oracles']+=1
     for prefix in (0,n//2,n):
         assert defects(spec,plan,prefix)==enumerate_counters(spec,plan,prefix)[0]
+        prefix_stream=io.StringIO()
+        write_certificate(spec,plan,prefix_stream,prefix)
+        prefix_answer=verify(spec,plan,io.StringIO(prefix_stream.getvalue()),prefix)
+        assert list(prefix_answer.defects)==enumerate_counters(spec,plan,prefix)[0]
+        prefix_transcript_checks+=1
         counts['prefix_oracles']+=1
     if witness:
         before=io.StringIO(); through=io.StringIO()
@@ -168,6 +173,7 @@ if args.regenerate:
 (ROOT/'results'/'feistel-cases.json').write_text(json.dumps(feistel,indent=2)+'\n')
 (ROOT/'results'/'ablations.json').write_text(json.dumps(ablations,indent=2)+'\n')
 finish('validation.json',dict(seed=110300,counts=counts,safe=safe,unsafe=unsafe,
+     prefix_transcript_checks=prefix_transcript_checks,
      affine_case_records=len(cases),all_checks_passed=True,
      obligation_count=sum(v for k,v in counts.items() if k!='feistel_point_checks')),
      args.out)

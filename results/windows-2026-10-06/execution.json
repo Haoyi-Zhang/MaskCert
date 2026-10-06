@@ -1,0 +1,663 @@
+{
+  "commands": [
+    {
+      "script": "validate_smt.py",
+      "arguments": [],
+      "exit_code": 0,
+      "wall_seconds": 0.6189854999975068
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "0"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.509674599998107
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "1"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.8588821000012103
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.382568400003947
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "3"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.850449600002321
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "4"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 6.333541099993454
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "5"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.167668000001868
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "6"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.657180900001549
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "7"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.061425199994119
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "8"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.745744100000593
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "9"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 10.674539499996172
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "10"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.683988600001612
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "11"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.234855800001242
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "12"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.586622199996782
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "13"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.7664096000007703
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "14"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.030946699997003
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "15"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.579992900005891
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "16"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.788592799995968
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "17"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.31946820000303
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "18"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.5500030999974115
+    },
+    {
+      "script": "benchmark_updates.py",
+      "arguments": [
+        "--case",
+        "19"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 6.500945100000536
+    },
+    {
+      "script": "benchmark_transfer.py",
+      "arguments": [
+        "--case",
+        "split"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 37.35949690000416
+    },
+    {
+      "script": "benchmark_transfer.py",
+      "arguments": [
+        "--case",
+        "remove"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 36.55528399999457
+    },
+    {
+      "script": "benchmark_transfer.py",
+      "arguments": [
+        "--case",
+        "revoke"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 37.194972700002836
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "0",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2356770999977016
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "0",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.20887930000026245
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "1",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.30860799999936717
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "1",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.20898370000213617
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "2",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.550184799998533
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "2",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2473740000059479
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "3",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.5524420000001555
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "3",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.3279661999986274
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "4",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 6.476308400000562
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "4",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.5260255000030156
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "5",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.1952605999977095
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "5",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.1799659000025713
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "6",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.24263300000166055
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "6",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.17917180000222288
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "7",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.5384434000006877
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "7",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.23412150000513066
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "8",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 9.606929699999455
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "8",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.4915716999967117
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "9",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 60.842173700002604
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "9",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.805174300003273
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "10",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.22706749999633757
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "10",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.19069379999564262
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "11",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.22743199999968056
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "11",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.1980632999984664
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "12",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.22075610000320012
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "12",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.1925494000024628
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "13",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.23446249999688007
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "13",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.18206669999926817
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "14",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2560010000015609
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "14",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.17496870000468334
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "15",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.5425489999979618
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "15",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.29884470000251895
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "16",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.5696241000041482
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "16",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.38930830000026617
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "17",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.5279508000021451
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "17",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.5052433000018937
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "18",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.5554860999982338
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "18",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.924181000002136
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "19",
+        "--route",
+        "full"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.54185839999991
+    },
+    {
+      "script": "benchmark_smt.py",
+      "arguments": [
+        "--case",
+        "19",
+        "--route",
+        "reduced"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.3762928000069223
+    }
+  ],
+  "planned_commands": 64,
+  "all_commands_succeeded": true,
+  "platform": "win32",
+  "native_library": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\repair_workspace\\dependencies\\z3\\z3\\lib\\libz3.dll",
+  "posix_resource_caps": false,
+  "fresh_output": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\repair_workspace\\experiments\\P100\\artifact\\results"
+}

@@ -1,0 +1,22 @@
+c mask-aware exact local-defect tokens; bidirectional gates
+c input i 2
+c input p 3 4 5
+c input q 6 7 8
+p cnf 13 17
+1 0
+-9 -4 0
+-9 -3 0
+9 4 3 0
+-10 -5 0
+-10 9 0
+10 5 -9 0
+-11 -7 0
+-11 -6 0
+11 7 6 0
+-12 -8 0
+-12 11 0
+12 8 -11 0
+-13 10 0
+-13 12 0
+13 -10 -12 0
+-1 0
