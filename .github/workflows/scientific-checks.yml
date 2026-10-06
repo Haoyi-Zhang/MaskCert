@@ -23,18 +23,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p ../scientific-output
+          mkdir -p "$RUNNER_TEMP/maskcert-scientific"
           ulimit -v 2560000
           ulimit -t 900
           timeout --signal=TERM --kill-after=10s 900s python -B scripts/reproduce.py \
-            --report ../scientific-output/recheck.json \
-            --raw-output ../scientific-output/raw \
-            2>&1 | tee ../scientific-output/driver.txt
+            --report "$RUNNER_TEMP/maskcert-scientific/recheck.json" \
+            --raw-output "$RUNNER_TEMP/maskcert-scientific/raw" \
+            2>&1 | tee "$RUNNER_TEMP/maskcert-scientific/driver.txt"
       - name: Retain raw outputs even when a scientific gate fails
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: scientific-output
-          path: ../scientific-output/
-          if-no-files-found: warn
+          path: ${{ runner.temp }}/maskcert-scientific/
+          if-no-files-found: error
           retention-days: 14

@@ -28,14 +28,9 @@ python scripts/reproduce.py --full
 `--benchmarks` additionally reruns all twenty six-path batched inputs and the
 three original-large-input transfer experiments. `--smt` additionally runs the
 48 finite native-solver comparisons and forty full/reduced SMT timing
-configurations. `--full` combines both additions. Run
-`python scripts/prepare_data.py` first in this compact upload view to restore
-the original large input and certificate paths. The archived Linux SMT route
-used an unmodified Linux x86-64 Z3 shared library, with its MIT notices.
-This compact view omits that binary; for fresh native runs explicitly select an
-official platform-compatible library with `Z3_LIBRARY_PATH` as documented in
-`third_party/z3/README.md`. Native SMT is not a standard-library-only or
-platform-independent route. The default
+configurations. `--full` combines both additions. The archived Linux SMT route
+uses the included unmodified Linux x86-64 Z3 shared library, with its MIT notices;
+it is not a standard-library-only or platform-independent route. The default
 correctness path does not load that library. SMT results are trusted solver
 decisions, not certified model counts. UNKNOWN is retained as unfinished, not
 accepted as a safe decision; fresh timing outcomes need not have the same

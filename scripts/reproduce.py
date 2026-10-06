@@ -7,6 +7,7 @@ native Z3 comparison. --full selects both. No paper or network dependency.
 from __future__ import annotations
 import argparse, ast, hashlib, json, os, re, resource, shutil, signal, subprocess, sys, tempfile, time
 from pathlib import Path
+from restore_inputs import restore_inputs
 ROOT=Path(__file__).resolve().parents[1]
 TIMEOUT_SECONDS=120
 
@@ -151,6 +152,9 @@ def main():
             ap.error('--raw-output must be a non-existing directory outside the source extraction')
         args.raw_output.mkdir(parents=True,exist_ok=False)
     if hasattr(os,'sched_setaffinity'):os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
+    # Materialize only omitted frozen files before the source snapshot/copy.
+    # Existing files are byte-compared and never overwritten by the bootstrap.
+    restore_inputs(ROOT)
     before=snapshot();start=time.monotonic();cpu=time.process_time()
     usage0=resource.getrusage(resource.RUSAGE_CHILDREN);reports=[]
     with tempfile.TemporaryDirectory(prefix='mask-aware-recheck-') as temporary:
