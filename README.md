@@ -17,57 +17,6 @@ not a certified model counter. The historical bundled Linux library is not used
 on Windows; the current Windows run used `z3-solver` 5.1.0.0 `libz3.dll`.
 No CPOG/d4/VeriPB/CakePB pipeline was run.
 
-## Compact upload preparation
-
-This standalone upload view keeps code, tests, proofs, documentation, examples,
-small inputs, summaries, and all execution logs as ordinary files. The 29 large
-scientific files (at least 256 KiB each) are stored losslessly in
-`data/scientific-data.zip`: 357,547,040 original bytes in a 2,710,531-byte archive.
-The archive uses ZIP LZMA; use the supplied Python extractor rather than a ZIP
-viewer that lacks that compression method. Python 3.10+ with its standard
-`lzma` module is sufficient; there is no download or dependency installation.
-
-Before a data audit, figure export, or scientific reproduction, run once from
-this repository root:
-
-```sh
-python scripts/prepare_data.py
-```
-
-This restores the exact original relative paths and bytes, including the
-separate historical Linux and current Windows inputs and certificates.
-Windows CRLF and Linux LF are not normalized. Every file under the current
-Windows result directory is supplied either directly or in the archive;
-negative cases, timeout UNKNOWN records, empty stderr logs, pilots, interrupted
-attempts, and inherited failed-run observations are retained. Nothing is
-regenerated to stand in for saved evidence. Expanded data need about 358 MB
-of additional disk space and are ignored by Git to avoid committing duplicates.
-
-The extractor checks member paths and symlinks stay inside the destination,
-refuses differing existing evidence, and accepts an identical second run.
-To prepare another artifact root, copy this view there and run the same command,
-or use `python scripts/prepare_data.py --dest /absolute/path/to/artifact`.
-The latter restores large files only; it does not copy code or small data.
-`python -m zipfile -l data/scientific-data.zip` lists all archived paths.
-Repository-integrity CI and the small `unittest` suite need no preparation.
-
-The optional 27,751,664-byte historical Linux `libz3.so.4` is not redistributed
-in this compact view. Its acquisition history and licensing notices remain in
-`third_party/z3/`. For new native SMT runs, select an official platform-compatible
-Z3 library using the existing adapter's `Z3_LIBRARY_PATH` environment variable;
-see [the dependency instructions](third_party/z3/README.md). No new DLL is bundled.
-The core checker, default Linux reproduction, and data extraction do not load Z3.
-Archived native results remain available without a native library.
-
-After preparation, the Linux reproduction commands below use their original
-paths unchanged. On Windows, the portable small contract suite can be run with
-`python -m unittest discover -s tests -v`. The referenced
-`repair-2026-10-06/run_local_checks.py` is a complete-project companion, not part
-of this standalone artifact; `scripts/reproduce.py` remains Linux-only.
-Paper building also needs the separate paper directory. Existing audit/recovery
-documents and result summaries retain their source-era meaning; compact
-packaging does not renew scientific, authorship, or submission certification.
-
 ## Current measurement set
 
 `results/windows-2026-10-06/` is the single current directory for the completed
@@ -180,6 +129,20 @@ speedup. Fresh timeout rates are observations, not required to equal the old
 rate. The source extraction is internally checked for non-mutation. Random
 temporary-directory text in an OSError is normalized only during result
 comparison; errno, filename and the remainder of the error must still agree.
+
+To retain actual child standard output and standard error, including a failed
+or timed-out child, add `--raw-output ../mask-aware-raw` with a new directory
+outside the repository. The default also executes `finite_repair_checks.py`.
+That suite includes 1,152 direct mixed-modulus intersection comparisons on
+short owned windows, including the `2^32` endpoint and moduli 61--64; these
+do not enumerate the large counter domain.
+
+The prepared `scientific-checks.yml` runs this standard-library-only default
+from the flat artifact repository on Ubuntu 24.04 on pushes to `main`. It
+retains raw streams with an always-run upload step. A 900-second whole-command
+wall bound and CPU limit, 2,500-MiB address-space bound and 20-minute job limit
+complement the existing per-child bounds. No timings or native solver sweeps
+are requested by that workflow. Its presence is not an executed remote run.
 
 Running individual generator/experiment scripts directly writes fresh result
 files in the current working repository. Use the driver to preserve the

@@ -88,7 +88,7 @@ Knowledge Compilation for Incremental and Checkable Stochastic Boolean Satisfiab
 
 Primary record: https://www.ijcai.org/proceedings/2024/0206.pdf
 
-Supported use: Levelized dec-DNNF, reweighting/cofactoring and CPOG-derived SSAT checking; incrementality plus checkability predates this work.
+Supported use: Levelized dec-DNNF, reweighting/cofactoring and CPOG-derived SSAT checking; incrementality plus checkability predates this work. Theorem 3 permits reweighting and cofactoring for the unpruned representation; Theorem 4 retains reweighting but not arbitrary cofactoring after pruning.
 
 Primary publication record and relevant passages; not a machine Crossref audit or full independent replication.
 

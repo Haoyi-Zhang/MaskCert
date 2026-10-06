@@ -13,8 +13,8 @@ import json
 import random
 from casegen import mkrow, spans_from_bits
 from pcs.model import Invalid, loads, MAX_ROWS
-from pcs.producer import write_certificate, floor_transcript, count
-from pcs.checker import TranscriptReader, masked
+from pcs.producer import write_certificate, floor_transcript, count, intersect_rows
+from pcs.checker import TranscriptReader, masked, lattice
 from pcs.oracle import enumerate_counters, replay_audit
 from pcs.boolean_encoding import encode_full, encode_update
 from pcs.update_checker import establish_anchor
@@ -77,6 +77,38 @@ def main():
             arithmetic.append({'n': n, 'trial': trial, 'first': first,
                                'step': delta, 'length': length, 'mask': mask,
                                'count': checked, 'floor_queries': reader.calls})
+
+    # Directly enumerate short owned source windows, including at the 32-bit
+    # endpoint. Exercise mixed moduli near the supported 64-modulus bound;
+    # no explicit oracle is asked to enumerate a large domain.
+    intersections = []
+    for n in (7, 65, 1 << 32):
+        window = max(0, n - 128)
+        for left_step, right_step in ((1, 64), (61, 64), (64, 61), (63, 64),
+                                      (32, 64), (64, 64), (31, 63), (8, 61)):
+            for trial in range(16):
+                lo1, lo2 = rng.randrange(window, n + 1), rng.randrange(window, n + 1)
+                hi1, hi2 = rng.randrange(lo1, n + 1), rng.randrange(lo2, n + 1)
+                left = mkrow(0, lo1, hi1, left_step, rng.randrange(left_step), [[0, n]])
+                right = mkrow(0, lo2, hi2, right_step, rng.randrange(right_step), [[0, n]])
+                if trial % 2 == 0:
+                    # Half the row pairs have a known common point, avoiding
+                    # an almost-entirely empty-intersection random battery.
+                    point = rng.randrange(window, n)
+                    lo1, lo2 = rng.randrange(window, point + 1), rng.randrange(window, point + 1)
+                    hi1, hi2 = rng.randrange(point + 1, n + 1), rng.randrange(point + 1, n + 1)
+                    left = mkrow(0, lo1, hi1, left_step, point % left_step, [[0, n]])
+                    right = mkrow(0, lo2, hi2, right_step, point % right_step, [[0, n]])
+                for prefix in (0, rng.randrange(window, n + 1), n):
+                    expected = [i for i in range(max(lo1, lo2), min(hi1, hi2, prefix))
+                                if i % left_step == left['residue']
+                                and i % right_step == right['residue']]
+                    for progression in (intersect_rows(left, right, prefix),
+                                        lattice([left, right], prefix)):
+                        first, step, length = progression
+                        assert [first + step * j for j in range(length)] == expected
+                    intersections.append({'n': n, 'left': left, 'right': right,
+                                          'prefix': prefix, 'intersection': expected})
 
     encoding_records = []
     assignments = 0
@@ -143,6 +175,9 @@ def main():
         'all_checks_passed': True, 'nonfinite_rejections': parser_checks,
         'finite_float_schema_rejected': True,
         'large_integer_progression_cases': arithmetic,
+        'mixed_modulus_intersection_cases': intersections,
+        'mixed_modulus_intersections_compared': len(intersections),
+        'mixed_modulus_nonempty_intersections': sum(bool(r['intersection']) for r in intersections),
         'prefix_encodings': encoding_records,
         'prefix_encodings_compared': len(encoding_records),
         'primary_assignments_checked': assignments,

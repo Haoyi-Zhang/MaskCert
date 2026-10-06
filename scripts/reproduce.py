@@ -72,14 +72,28 @@ def compare_bytes(staged,relative):
     if digest(ROOT/relative)!=digest(staged/relative):raise RuntimeError('exact evidence mismatch: '+relative)
 
 
-def run(staged,script,*args):
+def run(staged,script,*args,raw_output=None):
     command=[sys.executable,str(staged/'scripts'/script),*map(str,args)]
     start=time.monotonic()
     child=subprocess.Popen(command,cwd=staged,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
                            start_new_session=True,env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'})
+    timed_out=False
     try:stdout,stderr=child.communicate(timeout=TIMEOUT_SECONDS)
     except subprocess.TimeoutExpired:
         os.killpg(child.pid,signal.SIGKILL);stdout,stderr=child.communicate()
+        timed_out=True
+    if raw_output is not None:
+        # Preserve actual streams before any semantic comparison or failure.
+        stem=script.removesuffix('.py')+''.join('-'+str(a) for a in args)
+        stem=re.sub(r'[^A-Za-z0-9_.-]','_',stem)
+        for suffix,value in [('stdout.txt',stdout),('stderr.txt',stderr)]:
+            with (raw_output/(stem+'.'+suffix)).open('x',encoding='utf-8') as stream:
+                stream.write(value)
+        with (raw_output/(stem+'.command.json')).open('x',encoding='utf-8') as stream:
+            json.dump({'command':command,'returncode':child.returncode,
+                       'timed_out':timed_out,'wall_seconds':time.monotonic()-start},stream,indent=2)
+            stream.write('\n')
+    if timed_out:
         raise RuntimeError(f'{script} exceeded outer {TIMEOUT_SECONDS}s wall bound\n{stdout}\n{stderr}')
     if child.returncode:
         raise RuntimeError(f'{script} {args} exited {child.returncode}\n{stdout}\n{stderr}')
@@ -119,6 +133,7 @@ def compare_transfer(staged,name):
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--report',type=Path,help='new report file OUTSIDE source extraction')
+    ap.add_argument('--raw-output',type=Path,help='new directory OUTSIDE source extraction for actual child streams, including failures')
     ap.add_argument('--quick',action='store_true',help='skip inherited boundary regeneration; not a complete core rerun')
     ap.add_argument('--benchmarks',action='store_true',help='fresh 20-case batching and three retained-input transfers')
     ap.add_argument('--smt',action='store_true',help='optional native Z3: finite validation and 40 solver configurations')
@@ -130,16 +145,23 @@ def main():
         args.report=args.report.resolve()
         if args.report.exists() or args.report.is_relative_to(ROOT.resolve()):
             ap.error('--report must be a non-existing file outside the source extraction')
+    if args.raw_output:
+        args.raw_output=args.raw_output.resolve()
+        if args.raw_output.exists() or args.raw_output.is_relative_to(ROOT.resolve()):
+            ap.error('--raw-output must be a non-existing directory outside the source extraction')
+        args.raw_output.mkdir(parents=True,exist_ok=False)
     if hasattr(os,'sched_setaffinity'):os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
     before=snapshot();start=time.monotonic();cpu=time.process_time()
     usage0=resource.getrusage(resource.RUSAGE_CHILDREN);reports=[]
     with tempfile.TemporaryDirectory(prefix='mask-aware-recheck-') as temporary:
         staged=Path(temporary)/'artifact'
         shutil.copytree(ROOT,staged,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+        def checked_run(script,*arguments):
+            return run(staged,script,*arguments,raw_output=args.raw_output)
         # These audits run on frozen inputs/results BEFORE any staged remeasurement.
         for script,result in [('audit_evidence.py','results/evidence-map.json'),
                               ('audit_extension.py','results/extension-audit.json')]:
-            reports.append(run(staged,script));compare_json(staged,result)
+            reports.append(checked_run(script));compare_json(staged,result)
         compare_bytes(staged,'docs/evidence-map.md')
         commands=[('audit_identity.py','identity-audit.json'),('audit_dependencies.py','dependency-audit.json'),
                   ('pilot.py','pilot.json'),('validate.py','validation.json')]
@@ -149,7 +171,9 @@ def main():
                      ('test_update_contract.py','update-contract.json'),('validate_boolean.py','boolean-validation.json'),
                      ('generate_update_examples.py','update-examples.json')]
         for script,result in commands:
-            reports.append(run(staged,script));compare_json(staged,'results/'+result)
+            reports.append(checked_run(script));compare_json(staged,'results/'+result)
+        # Additional finite obligations have no frozen timing/result to match.
+        reports.append(checked_run('finite_repair_checks.py'))
         exact=['results/validation-cases.json','results/feistel-cases.json','results/ablations.json',
                'results/prefix-defect.csv','cases/boundary.json','cases/exact-limit.json','cases/updates.json']
         if not args.quick:exact.append('results/boundary-certificate.jsonl')
@@ -158,19 +182,19 @@ def main():
         for relative in exact:compare_bytes(staged,relative)
         if args.benchmarks:
             for j in range(20):
-                reports.append(run(staged,'benchmark_updates.py','--case',j));compare_benchmark(staged,j)
+                reports.append(checked_run('benchmark_updates.py','--case',j));compare_benchmark(staged,j)
             for name in ('split','remove','revoke'):
-                reports.append(run(staged,'benchmark_transfer.py','--case',name));compare_transfer(staged,name)
+                reports.append(checked_run('benchmark_transfer.py','--case',name));compare_transfer(staged,name)
         fresh_smt_counts=None
         if args.smt:
-            reports.append(run(staged,'validate_smt.py'))
+            reports.append(checked_run('validate_smt.py'))
             finite=json.loads((staged/'results/smt-validation.json').read_text())
             if not finite['all_checks_passed'] or finite['actual_comparisons']!=48:
                 raise RuntimeError('native finite solver validation failed')
             fresh_smt_counts={r:{s:0 for s in ('sat','unsat','unknown')} for r in ('full','reduced')}
             for j in range(20):
                 for route in ('full','reduced'):
-                    reports.append(run(staged,'benchmark_smt.py','--case',j,'--route',route))
+                    reports.append(checked_run('benchmark_smt.py','--case',j,'--route',route))
                     rel=f'results/smt/bench-{j:02d}-{route}.json'
                     new=json.loads((staged/rel).read_text())
                     if not new['no_incorrect_sat_answer_observed']:raise RuntimeError('wrong native solver answer')
