@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "cpu_seconds": 0.029383099, "examples": {"safe": {"accepted": true, "defects": [0]}, "unsafe": {"accepted": false, "defects": [1]}}, "peak_rss_kib": 111352, "provenance": "same small API-contract plans; not added as independent performance workloads", "witness": {"counter": 2, "epoch": 0, "kind": "omission", "rows": [], "target": 17}, "workers": 1}

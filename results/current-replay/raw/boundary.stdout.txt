@@ -1,0 +1,3 @@
+{"stage": "produced", "cpu_seconds": 3.601911911}
+{"stage": "checked", "cpu_seconds": 6.4363802979999996}
+{"all_checks_passed": true, "case_records": 2, "cpu_seconds": 15.639324927999999, "exact": {"defects": [0], "enumeration_cpu_seconds": 2.9521296479999997, "n": 1048576, "replay_cpu_seconds": 2.4136544499999992, "rows": 2}, "peak_rss_kib": 111352, "symbolic": {"certificate_bytes": 32816640, "checker_cpu_seconds": 6.4363802979999996, "defects": [0], "euclidean_steps": 1372994, "exclusions": 1024, "floor_calls": 514048, "guard_intervals": 1024, "n": 4294967296, "new_shards": 64, "old_shards": 61, "producer_cpu_seconds": 3.601911911, "rows": 125}, "workers": 1}

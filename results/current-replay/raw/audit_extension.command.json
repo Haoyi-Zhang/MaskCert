@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "/tmp/mask-aware-recheck-gbnzh5a5/artifact/scripts/audit_extension.py"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 35.599708431
+}

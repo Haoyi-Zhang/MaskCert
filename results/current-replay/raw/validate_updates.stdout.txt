@@ -1,0 +1,1 @@
+{"observation_kind": "new_safe_anchor_validation", "all_checks_passed": true, "cases_attempted": 96, "cases_retained": 96, "cases_compared": 96, "safe_new_plans": 40, "unsafe_new_plans": 56, "prefix_comparisons": 688, "least_witness_comparisons": 56, "actual_corruption_calls": 438, "pointwise_algebra_checks": 774, "cpu_seconds": 7.753241371, "peak_rss_kib": 111352}

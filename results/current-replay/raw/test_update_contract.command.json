@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "/tmp/mask-aware-recheck-gbnzh5a5/artifact/scripts/test_update_contract.py"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 0.7383296370000068
+}

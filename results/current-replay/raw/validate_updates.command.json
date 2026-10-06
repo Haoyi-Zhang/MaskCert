@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "/tmp/mask-aware-recheck-gbnzh5a5/artifact/scripts/validate_updates.py"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 7.928122368999993
+}

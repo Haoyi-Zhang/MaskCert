@@ -1,0 +1,27 @@
+test_bounded_readers (test_contract.ContractTests.test_bounded_readers) ... ok
+test_context_is_external (test_contract.ContractTests.test_context_is_external) ... ok
+test_empty_singleton (test_contract.ContractTests.test_empty_singleton) ... ok
+test_existing_output_preserved (test_contract.ContractTests.test_existing_output_preserved) ... ok
+test_minimal_witness_mutations (test_contract.ContractTests.test_minimal_witness_mutations) ... ok
+test_prefix_must_be_requested (test_contract.ContractTests.test_prefix_must_be_requested) ... ok
+test_safe_not_raw_partition (test_contract.ContractTests.test_safe_not_raw_partition) ... ok
+test_unsafe_is_not_malformed (test_contract.ContractTests.test_unsafe_is_not_malformed) ... ok
+test_bootstrap_precedes_snapshot_and_children (test_restore_inputs.RestoreTests.test_bootstrap_precedes_snapshot_and_children) ... ok
+test_compressed_size_limit_refused (test_restore_inputs.RestoreTests.test_compressed_size_limit_refused) ... ok
+test_decoder_dictionary_limit_refused (test_restore_inputs.RestoreTests.test_decoder_dictionary_limit_refused) ... ok
+test_duplicate_member_refused (test_restore_inputs.RestoreTests.test_duplicate_member_refused) ... ok
+test_existing_directory_is_not_a_file (test_restore_inputs.RestoreTests.test_existing_directory_is_not_a_file) ... ok
+test_existing_symlink_refused (test_restore_inputs.RestoreTests.test_existing_symlink_refused) ... ok
+test_non_directory_parent_refused (test_restore_inputs.RestoreTests.test_non_directory_parent_refused) ... ok
+test_path_traversal_member_refused (test_restore_inputs.RestoreTests.test_path_traversal_member_refused) ... ok
+test_restore_exact_bytes_and_idempotence (test_restore_inputs.RestoreTests.test_restore_exact_bytes_and_idempotence) ... ok
+test_same_size_existing_mismatch_blocks_every_write (test_restore_inputs.RestoreTests.test_same_size_existing_mismatch_blocks_every_write) ... ok
+test_size_manifest_mismatch_refused (test_restore_inputs.RestoreTests.test_size_manifest_mismatch_refused) ... ok
+test_symlink_member_refused (test_restore_inputs.RestoreTests.test_symlink_member_refused) ... ok
+test_uncompressed_size_limit_refused (test_restore_inputs.RestoreTests.test_uncompressed_size_limit_refused) ... ok
+test_wrong_compression_refused (test_restore_inputs.RestoreTests.test_wrong_compression_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.042s
+
+OK

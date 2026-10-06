@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "cpu_seconds": 0.24729265299999997, "discovered_tests": 22, "errors": 0, "expected_failures": 0, "failures": 0, "peak_rss_kib": 111352, "skipped": 0, "tests": 22, "unexpected_successes": 0, "workers": 1}

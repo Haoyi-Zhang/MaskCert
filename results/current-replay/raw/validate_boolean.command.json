@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "/tmp/mask-aware-recheck-gbnzh5a5/artifact/scripts/validate_boolean.py"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 5.092927345000007
+}

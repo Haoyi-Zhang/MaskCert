@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "cpu_seconds": 0.04133218699999999, "defect_at_prefix_50": 12, "examples": 2, "least_witness": {"counter": 2, "epoch": 0, "kind": "omission", "rows": [], "target": 17}, "observation_kind": "repair_recheck", "peak_rss_kib": 111352, "prefix_defect": [0, 1, 1, 1, 2], "workers": 1}
