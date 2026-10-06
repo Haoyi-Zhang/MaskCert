@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse, ast, hashlib, json, os, re, resource, shutil, signal, subprocess, sys, tempfile, time
 from pathlib import Path
 from restore_inputs import restore_inputs
+from regress import discover_suite, validate_summary
 ROOT=Path(__file__).resolve().parents[1]
 TIMEOUT_SECONDS=120
 
@@ -66,6 +67,14 @@ def compare_json(staged,relative):
             raise RuntimeError('missing inherited prefix transcript checks')
         if 'prefix_transcript_checks' not in x:
             y.pop('prefix_transcript_checks')
+    if relative == 'results/regression.json':
+        # Test inventory is current-source metadata, not the frozen eight-test
+        # observation. Require the complete current suite and clean outcomes.
+        validate_summary(y, discover_suite(ROOT).countTestCases())
+        x['tests'] = y['tests']  # In-memory reconciliation; never rewrite history.
+        for field in ('discovered_tests', 'skipped', 'expected_failures', 'unexpected_successes'):
+            if field not in x:
+                y.pop(field)
     if scientific(x)!=scientific(y):raise RuntimeError('scientific field mismatch: '+relative)
 
 

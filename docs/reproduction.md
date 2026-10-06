@@ -9,6 +9,11 @@ python scripts/reproduce.py
 ```
 
 This is the default correctness recheck, not a fresh rerun of all timing batches.
+The distribution stores larger frozen inputs and results losslessly in
+`data/frozen-material.zip`. The driver restores absent files before taking its
+non-mutation snapshot; an existing file with different bytes is refused. The
+bundle also carries the unmodified optional Linux Z3 library and its retained
+license notices. Restoration runs no source program or native library.
 It stages a private temporary copy and audits both the frozen original evidence
 and the extension evidence before any new measurements are written in that copy.
 It then reruns the original pilot, 303-plan validation, large boundary, regression,
@@ -16,6 +21,13 @@ examples and repair contract, followed by safe-anchor updates, public update
 contracts, exact Boolean encodings and update examples. It compares exact inputs,
 certificates and timing-independent scientific fields. No source result file is
 an output destination, and no new time or RSS is relabeled as an old observation.
+
+The frozen regression record remains the original eight-test observation. Fresh
+regression summaries must match current source discovery (currently eight
+contract tests plus fourteen restore-input tests), with zero failures, errors,
+skips, expected failures and unexpected successes. Only this test-inventory
+metadata is reconciled; other scientific-result and exact-evidence comparisons
+remain unchanged.
 
 The current implementation has these explicit additional modes:
 

@@ -130,6 +130,13 @@ rate. The source extraction is internally checked for non-mutation. Random
 temporary-directory text in an OSError is normalized only during result
 comparison; errno, filename and the remainder of the error must still agree.
 
+`results/regression.json` preserves the original eight contract-test observation.
+The current regression discovery also includes fourteen restore-input tests
+(22 tests in total). The driver checks the exact current discovered count and
+requires zero failures, errors, skips, expected failures and unexpected successes.
+This test-inventory reconciliation does not rewrite the historical result or
+relax comparisons of deterministic scientific results, inputs or transcripts.
+
 To retain actual child standard output and standard error, including a failed
 or timed-out child, add `--raw-output ../mask-aware-raw` with a new directory
 outside the repository. The default also executes `finite_repair_checks.py`.
