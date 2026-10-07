@@ -66,6 +66,18 @@ than all old/new row pairs. Input parsing, matching and anchor storage still
 scale with the full input. The old and new policies may differ; affine context,
 epoch count/order and trusted history may not change.
 
+Update least-fault localization now prepares validated, immutable policy masks
+and exact removed/added row occurrences once per call. It evaluates the full
+defect vector before choosing an epoch, then evaluates only that epoch at each
+binary-search prefix. Certificate generation, transcript order, independent
+checkers and history-first diagnostic positions are unchanged. The three
+`tests/test_update_localization.py` methods use owned small declarations and a
+direct pointwise definition; run `python -B tests/test_update_localization.py -v`.
+Ordinary discovery includes them (25 current methods; the historical eight-test
+and earlier 22-test records remain observations of their original sources).
+Retained Linux timings precede this localization change; no new timing gain is
+claimed, including cold setup and large-edit crossover cases.
+
 An immutable in-process SafeAnchor is obtained by checking the old full
 certificate. It is not a serialized authentication token. Unsafe or prefix-only
 bases cannot establish it. Cold CLI invocations recheck the old base every time;
@@ -132,7 +144,7 @@ comparison; errno, filename and the remainder of the error must still agree.
 
 `results/regression.json` preserves the original eight contract-test observation.
 The current regression discovery also includes fourteen restore-input tests
-(22 tests in total). The driver checks the exact current discovered count and
+(22 tests before localization, 25 currently). The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
 relax comparisons of deterministic scientific results, inputs or transcripts.

@@ -6,6 +6,7 @@ turn a full verified-safe transcript into a trusted in-process anchor.
 from __future__ import annotations
 from collections import defaultdict, deque
 import json
+from types import MappingProxyType
 from typing import TextIO
 from .model import Invalid, integer, validate
 from .producer import (count, floor_value, floor_transcript, intersect_rows,
@@ -106,20 +107,71 @@ def write_update(old_spec: dict, old_plan: dict, spec: dict, plan: dict,
     return ds
 
 
+def _localization_data(old_spec, old_plan, spec, plan):
+    """One call-local validated snapshot; preserve row occurrences, not values."""
+    removed, added = changed_rows(old_spec, old_plan, spec, plan)
+    def mask(xs):
+        return tuple(tuple(span) for span in xs)
+    def frozen(row):
+        return MappingProxyType({**row, 'guard': mask(row['guard'])})
+    epochs = []
+    for epoch, policy in enumerate(spec['epochs']):
+        old_policy = old_spec['epochs'][epoch]
+        U = mask(subtract(old_policy['allow'], old_policy['exclude']))
+        V = mask(subtract(policy['allow'], policy['exclude']))
+        epochs.append((U, V, mask(subtract(V, U)), mask(overlap(U, V)),
+                       tuple(frozen(old_plan['future'][j]) for j in removed
+                             if old_plan['future'][j]['epoch'] == epoch),
+                       tuple(frozen(plan['future'][j]) for j in added
+                             if plan['future'][j]['epoch'] == epoch)))
+    return tuple(epochs)
+
+
+def _localization_defect(n, a, b, data, prefix):
+    U, V, born, common, R, A = data
+    def c(grid, masks):
+        # Retain the full-mask shortcut for the immutable tuple representation.
+        if len(masks) == 1 and tuple(masks[0]) == (0, n):
+            return grid[2]
+        return count(grid, masks, n, a, b, floor_value)
+    value = 0 if U == V else c((0, 1, prefix), U) + c((0, 1, prefix), V) - 2 * c((0, 1, prefix), common)
+    for row in R:
+        grid = progression(row, prefix)
+        value -= c(grid, row['guard'])
+        value += 2 * c(grid, overlap(row['guard'], V))
+    for row in A:
+        grid = progression(row, prefix)
+        value += c(grid, row['guard'])
+        value -= 2 * c(grid, overlap(row['guard'], born))
+    for j, row in enumerate(A):
+        for other in A[j+1:]:
+            grid = intersect_rows(row, other, prefix)
+            if grid[2]:
+                value += 2 * c(grid, overlap(overlap(row['guard'], other['guard']), V))
+    for row in A:
+        for other in R:
+            grid = intersect_rows(row, other, prefix)
+            if grid[2]:
+                value -= 2 * c(grid, overlap(overlap(row['guard'], other['guard']), V))
+    return value
+
+
 def locate_update(old_spec: dict, old_plan: dict, spec: dict, plan: dict):
-    ds = update_defects(old_spec, old_plan, spec, plan)
+    data = _localization_data(old_spec, old_plan, spec, plan)
+    n, a, b = (spec[k] for k in ('n', 'a', 'b'))
+    ds = [_localization_defect(n, a, b, item, n) for item in data]
     if not any(ds):
         return None
     epoch = next(j for j, value in enumerate(ds) if value)
     low, high = 0, spec['n']
     while high - low > 1:
         middle = (low + high) // 2
-        if update_defects(old_spec, old_plan, spec, plan, middle)[epoch]:
+        if _localization_defect(n, a, b, data[epoch], middle):
             high = middle
         else:
             low = middle
     target = (spec['a'] * low + spec['b']) % spec['n']
-    desired = subtract(spec['epochs'][epoch]['allow'], spec['epochs'][epoch]['exclude'])
+    desired = data[epoch][1]
     wanted = any(lo <= target < hi for lo, hi in desired)
     hits = []
     for j, row in enumerate(spec['history'] + plan['future']):
