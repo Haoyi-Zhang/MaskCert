@@ -9,8 +9,8 @@ from .model import (Invalid, validate, integer, keys, loads,
                     MAX_FLOOR_STEPS, MAX_TRANSCRIPT_INTEGER)
 
 
-def meet(left,right):
-    # Endpoint sweep rather than the producer's two-pointer intersection.
+def _meet_sorted(left,right):
+    # Endpoint sweep retained for unordered spans and iterator callers.
     events=[]
     for source,spans in enumerate((left,right)):
         for l,h in spans:
@@ -24,6 +24,43 @@ def meet(left,right):
             else: result.append([previous,point])
         while i<len(events) and events[i][0]==point:
             _,source,delta=events[i]; active[source]+=delta; i+=1
+        previous=point
+    return result
+
+
+def _ordered_endpoints(spans):
+    endpoints=[]; previous=None
+    for low,high in spans:
+        if low>high or (previous is not None and low<previous):
+            return None
+        endpoints.extend((low,high)); previous=high
+    return endpoints
+
+
+def meet(left,right):
+    # The strict parser and preceding sweeps produce ordered endpoint streams.
+    # Merge those streams without allocating and sorting tagged event tuples.
+    # This remains an active-count sweep, not the producer's interval overlap.
+    if type(left) not in (list,tuple) or type(right) not in (list,tuple):
+        return _meet_sorted(left,right)
+    if not left or not right:
+        return []
+    xs=_ordered_endpoints(left); ys=_ordered_endpoints(right)
+    if xs is None or ys is None:
+        return _meet_sorted(left,right)
+    i=j=0; active_left=active_right=0; previous=None; result=[]
+    while i<len(xs) or j<len(ys):
+        if i==len(xs): point=ys[j]
+        elif j==len(ys): point=xs[i]
+        else: point=min(xs[i],ys[j])
+        if (previous is not None and previous<point
+            and active_left==1 and active_right==1):
+            if result and result[-1][1]==previous: result[-1][1]=point
+            else: result.append([previous,point])
+        while i<len(xs) and xs[i]==point:
+            active_left+=1 if i%2==0 else -1; i+=1
+        while j<len(ys) and ys[j]==point:
+            active_right+=1 if j%2==0 else -1; j+=1
         previous=point
     return result
 

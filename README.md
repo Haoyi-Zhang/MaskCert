@@ -73,10 +73,23 @@ binary-search prefix. Certificate generation, transcript order, independent
 checkers and history-first diagnostic positions are unchanged. The three
 `tests/test_update_localization.py` methods use owned small declarations and a
 direct pointwise definition; run `python -B tests/test_update_localization.py -v`.
-Ordinary discovery includes them (25 current methods; the historical eight-test
+Ordinary discovery includes them (31 current methods including six mask-sweep
+regressions; the historical eight-test
 and earlier 22-test records remain observations of their original sources).
 Retained Linux timings precede this localization change; no new timing gain is
 claimed, including cold setup and large-edit crossover cases.
+
+The checker's mask intersection still uses an active-count endpoint sweep,
+independent of the producer's interval overlap. For ordered spans it merges
+the two endpoint streams without sorting tagged events, and returns an empty
+intersection immediately for an empty mask. Unordered spans and iterator
+callers retain the generic sorted sweep. Floor queries, certificate record
+order, limits, defect values, and canonical diagnostics are unchanged.
+`tests/test_mask_sweep.py` adds six portable, self-contained methods with
+pointwise mask/defect oracles and full/update corruption controls. Ordinary
+regression discovery includes this file. The retained Windows and Linux
+timings are observations of their original sources, not measurements of this
+mask-sweep change; the large-edit and cold-anchor losses remain retained.
 
 An immutable in-process SafeAnchor is obtained by checking the old full
 certificate. It is not a serialized authentication token. Unsafe or prefix-only
@@ -144,7 +157,8 @@ comparison; errno, filename and the remainder of the error must still agree.
 
 `results/regression.json` preserves the original eight contract-test observation.
 The current regression discovery also includes fourteen restore-input tests
-(22 tests before localization, 25 currently). The driver checks the exact current discovered count and
+(22 tests before localization, 31 currently including six mask-sweep methods).
+The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
 relax comparisons of deterministic scientific results, inputs or transcripts.
