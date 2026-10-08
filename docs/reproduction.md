@@ -2,7 +2,7 @@
 
 ## Core and extension correctness
 
-From the standalone artifact root, with ordinary Python (not `python -O`):
+From the standalone artifact root on Linux, with Python 3.10+ (not `python -O`):
 
 ```sh
 python scripts/reproduce.py
@@ -23,11 +23,21 @@ certificates and timing-independent scientific fields. No source result file is
 an output destination, and no new time or RSS is relabeled as an old observation.
 
 The frozen regression record remains the original eight-test observation. Fresh
-regression summaries must match current source discovery (currently eight
-contract tests plus fourteen restore-input tests), with zero failures, errors,
+regression summaries must match current source discovery (31 methods: eight
+contract, fourteen restore-input, three update-localization and six mask-sweep
+tests), with zero failures, errors,
 skips, expected failures and unexpected successes. Only this test-inventory
 metadata is reconciled; other scientific-result and exact-evidence comparisons
 remain unchanged.
+
+For the narrower portable finite unit route, including Windows, use the
+standard-library `unittest` command and private temporary-directory setup in
+the [artifact README](../README.md#non-overwriting-scientific-reproduction).
+It runs the current unit inventory without restoring the frozen bundle or
+running the Linux correctness campaign, benchmarks or native SMT. It supplies
+no outer wall timeout or POSIX resource controls and measures neither CPU usage
+nor peak RSS. Record any skipped test explicitly; a skip is not a passed check.
+The Linux driver is not a Windows substitute for this unit route.
 
 The current implementation has these explicit additional modes:
 
@@ -89,10 +99,8 @@ python artifact/scripts/audit_paper.py --paper paper --out paper/reference-use-a
 
 Both exporters use only the Python standard library. TeX packages are listed in
 `paper/README.md`. Compilation and figure export are separate from the science
-recheck. The coordinator's pre-integration compilation has thirteen main pages
-and five protocol pages. The package PDFs remain preserved older twelve/five-page
-snapshots; this experiment-integration revision has not been compiled. The old
-six/two description refers only to the recovered scientific basis. Current
+recheck. The manuscript and separate protocol use the supplied IEEE template;
+compilation is separate from measurement and does not rerun the experiments. Current
 extension tables and fragment/edit plot data use the explicitly selected Windows
 directory; omitting `--results` retains the historical Linux export.
 

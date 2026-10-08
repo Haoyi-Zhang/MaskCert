@@ -107,18 +107,33 @@ are part of validation: do not use `python -O`. From this repository root:
 python scripts/reproduce.py
 ```
 
-For a scoped Windows finite recheck, run from the complete project root:
+For a narrower portable finite unit recheck, use the shipped tests through
+Python's standard-library `unittest` entrypoint. From the artifact root in a
+fresh Windows PowerShell session:
 
-```sh
-python repair-2026-10-06/run_local_checks.py
+```powershell
+$private = Join-Path ([IO.Path]::GetTempPath()) ('P100-owned-tests-' + [guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Path $private | Out-Null
+$env:TEMP = $private
+$env:TMP = $private
+$env:PCS_RESTORE_FIXTURE_PARENT = Join-Path $private 'restore-fixtures'
+python -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-This route stages all fresh outputs and CLI temporary files below that repair
-directory, records the actual host, and applies a 120-second outer wall bound
-per child. It does not apply POSIX CPU, memory, alarm or affinity limits and
-does not measure peak RSS. It does not load the received Linux Z3 library,
-install dependencies, contact a network, compile the paper, or rerun timing
-sweeps/native SMT. The Linux driver and archived observations remain separate.
+The 31 current methods cover eight contract, fourteen restore-input, three
+update-localization and six mask-sweep tests. They use owned finite integer
+declarations, in-memory certificates and small private temporary files/archive
+fixtures; the restore fixtures are retained below the selected private path.
+This command supplies no outer wall timeout, POSIX CPU, memory, alarm or
+affinity limits, and measures neither CPU usage nor peak RSS. It does not load
+the Linux Z3 library, install dependencies, contact a network, compile the
+paper, rerun timing/native SMT sweeps, or replay the complete correctness
+campaign. A Windows symlink-creation restriction can cause a reported skip;
+record that outcome rather than counting it as a passed check. The Linux
+driver and archived observations remain separate.
+
+The Linux correctness driver also runs the inherited validator and additional
+finite suites; these are not part of the portable unit command above.
 The repaired inherited validator adds 909 actual prefix-transcript checks;
 the archived 909 prefix comparisons used producer/counter-oracle defects.
 Additional checks in `scripts/finite_repair_checks.py` cover 40 prefix CNFs
@@ -127,7 +142,7 @@ integer widths up to a 32-bit domain, nonfinite JSON overflow rejection, and
 200 selected maximum-row boundary assignments. These are not new operational
 workloads or proof-assistant verification. Original result files are unchanged.
 
-The default rechecks the frozen evidence and measurement summaries, original
+The Linux default rechecks the frozen evidence and measurement summaries, original
 arithmetic/oracles/large certificate, new 96-case updates, Boolean semantics,
 public CLI and anchor contracts. Each scientific child is restricted to one
 affinity CPU, 2,500 MiB of virtual address space, a 115-second alarm and
@@ -156,8 +171,8 @@ temporary-directory text in an OSError is normalized only during result
 comparison; errno, filename and the remainder of the error must still agree.
 
 `results/regression.json` preserves the original eight contract-test observation.
-The current regression discovery also includes fourteen restore-input tests
-(22 tests before localization, 31 currently including six mask-sweep methods).
+The current regression discovery includes eight contract, fourteen restore-input,
+three update-localization and six mask-sweep methods (31 total).
 The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
