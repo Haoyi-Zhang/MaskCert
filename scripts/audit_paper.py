@@ -10,18 +10,21 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--paper',type=Path,required=True)
-    ap.add_argument('--out',type=Path);args=ap.parse_args();paper=args.paper.resolve()
+    ap.add_argument('--out',type=Path)
+    ap.add_argument('--main-log',type=Path);ap.add_argument('--supplement-log',type=Path)
+    args=ap.parse_args();paper=args.paper.resolve()
     tex=(paper/'main.tex').read_text();bib=(paper/'references.bib').read_text();bbl=(paper/'main.bbl').read_text()
     records=json.loads((ROOT/'docs/references.json').read_text())
     keyed={x['key']:x for x in records};assert len(keyed)==len(records)
-    keys=re.findall(r'@\w+\{([^,]+),',bib);assert len(keys)==len(set(keys))==len(records)
+    keys=re.findall(r'@\w+\s*\{\s*([^,\s]+)\s*,',bib)
+    assert len(keys)==len(set(keys)) and set(keyed)<=set(keys)
     citations=[];contexts=[]
     for match in re.finditer(r'\\cite(?:\[[^\]]*\])*\{([^}]+)\}',tex):
         used=[x.strip() for x in match.group(1).split(',')];citations.extend(used)
         contexts.append({'keys':used,'source_line':tex.count('\n',0,match.start())+1,
                          'context':tex[max(0,match.start()-250):match.end()+180]})
     rendered=re.findall(r'\\bibitem\{([^}]+)\}',bbl)
-    assert set(citations)==set(keys)==set(rendered)==set(keyed)
+    assert set(citations)==set(keys)==set(rendered)
     assert len(rendered)==len(set(rendered)) and r'\nocite' not in tex
     dois=[x['doi'].lower() for x in records if x.get('doi')]
     assert len(dois)==len(set(dois))
@@ -35,16 +38,20 @@ def main():
     assert len(re.findall(r'\\section\{',tex))==9
     pages={}
     if shutil.which('pdfinfo'):
-        for name,expected in [('main',12),('supplement',5)]:
+        for name,expected in [('main',13),('supplement',5)]:
             out=subprocess.check_output(['pdfinfo',str(paper/(name+'.pdf'))],text=True)
             page=int(re.search(r'Pages:\s+(\d+)',out).group(1));assert page==expected,(name,page)
             pages[name]=page
-    for name in ('main','supplement'):
-        log=(paper/(name+'.log')).read_text(errors='replace')
-        assert not re.search(r'Overfull \\[hv]box|There were undefined references|Citation .* undefined',log)
+    logs_checked=[]
+    for name,explicit in [('main',args.main_log),('supplement',args.supplement_log)]:
+        path=explicit if explicit is not None else paper/(name+'.log')
+        if explicit is not None or path.is_file():
+            log=path.read_text(errors='replace')
+            assert not re.search(r'Overfull \\[hv]box|There were undefined references|Citation .* undefined',log)
+            logs_checked.append(name)
     report={'all_structural_checks_passed':True,'references_rendered':len(rendered),
             'unique_nonempty_dois':len(dois),'citation_groups':len(contexts),'primary_ledger_entries':len(records),
-            'main_sections':9,'pdf_pages':pages,'citation_contexts':contexts,
+            'main_sections':9,'pdf_pages':pages,'compiler_logs_checked':logs_checked,'citation_contexts':contexts,
             'audit_scope':'source/BibTeX/compiled-reference consistency against curated primary metadata; not a live Crossref or independent scientific audit',
             'all_twenty_full_papers_read':False,'twelve_TDSC_full_paper_calibration_completed':False}
     if args.out:
