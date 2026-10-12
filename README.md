@@ -312,7 +312,7 @@ human review or a journal-acceptance guarantee.
 ## Vector prefix-defect figure
 
 The optional `requirements-figures.txt` dependency applies only to figure
-rendering. Run `python -B scripts/plot_figures.py` to read
+rendering. Run `python -B figures/draw_prefix_defect.py` to read
 `results/prefix-defect.csv` and write `figures/prefix-defect.pdf`.
 It preserves the five exact integer values and the post-step convention, runs no
 schedule or counting experiment, and imports no certificate producer or checker.
