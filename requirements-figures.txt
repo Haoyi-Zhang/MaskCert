@@ -1,0 +1,2 @@
+# Optional vector-figure rendering only; the scientific dependencies are unchanged.
+matplotlib>=3.8,<4

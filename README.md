@@ -308,3 +308,21 @@ paper footnotes. Arguments, code, experiments and writing used substantive
 generative-AI assistance, not language polishing alone. Mathematical proofs and
 finite executable checks are not proof-assistant verification, independent
 human review or a journal-acceptance guarantee.
+
+## Vector prefix-defect figure
+
+The optional `requirements-figures.txt` dependency applies only to figure
+rendering. Run `python -B scripts/plot_figures.py` to read
+`results/prefix-defect.csv` and write `figures/prefix-defect.pdf`.
+It preserves the five exact integer values and the post-step convention, runs no
+schedule or counting experiment, and imports no certificate producer or checker.
+Identical bytes are copied to an existing sibling paper's `figures/`; use
+`--out` and `--paper-dir` for other destinations. The existing measured
+fragment/edit figure producer remains separate and unchanged.
+
+Windows Times New Roman regular/italic files are used when available.
+On other systems, `FIGURE_FONT_DIR` may point to legally available `times.ttf`
+and `timesi.ttf`; otherwise Matplotlib's bundled Times-compatible STIX serif
+is used. Proprietary fonts are not copied into the artifact.
+Fonts are embedded and all figure paths and text remain vector. The figure
+command does not alter the raw results, security checks, or retained measurements.
