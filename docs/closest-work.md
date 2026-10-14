@@ -13,7 +13,7 @@ and technical passages in `references.json`; they are not external peer review.
 | CPOG, JAIR 2025 | Shared partitioned-operation graph with equivalence evidence; Lean formalization of checking/counting | Stronger mechanized assurance and generality. Do not call it an enumeration-only baseline or claim a lower bound against it. Compare exact input translation and trust boundaries, not unmeasured speed. |
 | Projected knowledge compilation, SAT 2025 | Certificates for projected compilation rather than only unprojected formulas | Projection cannot be dismissed as unsupported by current certified frameworks. Our bidirectional deterministic-auxiliary CNF avoids a projection ambiguity, but is not a new general projection rule. |
 | VeriPB projected enumeration, CP 2026 | Count/enumeration-compatible reasoning with strengthening/deletion; enumeration implemented through VeriPB and verified CakePB; counting discussion | Correct the formal LIPIcs identity to volume 379, 43:1–43:21. Do not attribute a tested universal exact counter to the counting discussion, or weaken its formal enumeration assurance to our Python testing. |
-| Certified top-down decision-DNNF, AAAI 2021 | Certification of top-down compiler output | A direct general baseline line; arithmetic transcripts do not supersede it. |
+| Certified top-down decision-DNNF, AAAI 2021 | Annotated compiler-output certificates; equivalence requires input entailment of learned clauses | A direct general baseline line. The learned-clause check must preserve models, rather than just satisfiability, as explained by CPOG Section 2. Arithmetic transcripts do not supersede this route. |
 | #SAT proof systems, SAT 2022 and 2024 | Model-count proof systems and relative proof-strength results | Our Feistel construction shows an encoding boundary, not a separation between these systems or a universal exponential lower bound. |
 | Incremental/checkable SSAT, IJCAI 2024 | Reweighting and cofactoring on levelized dec-DNNFs; arbitrary cofactoring requires unpruned graphs (Theorems 3--4); CPOG-derived stochastic checks | Prior incremental certified reuse exists. The paper does not claim to invent reusable checked compilation. Our exact-coverage substitution and editable policy are different premises, not blanket superiority. |
 | Incremental projected pseudo-Boolean counting, AAAI 2025 | Constraint-level cache reuse and projected counting | Old/new reuse is established. The new removed-mass Boolean restriction removes unchanged-row *count requests*, rather than claiming ordinary caching is novel. |
@@ -27,9 +27,12 @@ and technical passages in `references.json`; they are not external peer review.
 The manuscript contains a claim-specific comparison, a proof that the exact
 application defect equals the model count of a deterministic-auxiliary CNF,
 finite checks of the encoder, exported full and reduced CNFs, and measured
-sizes for the identical 20 inputs. The native generic baseline is unmodified
-Z3 4.13.3.0 on full/reduced QF_LIA safety formulas, with raw timeouts and model
-checks. This is a separately labelled trusted decision experiment.
+sizes for the identical 20 inputs. Native decision measurements use unmodified
+Z3 on full/reduced QF_LIA safety formulas, with raw timeouts and model checks.
+The retained Linux observations use Z3 4.13.3.0; the Windows observations use
+the Z3 5.1.0.0 C library. Platforms and observations are reported separately,
+including context creation, parsing and solving. These are trusted decision
+experiments, separate from Boolean count certification and arithmetic checking.
 
 ## Uncompleted empirical comparison
 

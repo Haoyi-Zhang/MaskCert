@@ -102,7 +102,8 @@
       "doi": "10.1609/aaai.v35i7.16776",
       "url": "https://doi.org/10.1609/aaai.v35i7.16776"
     },
-    "supported_use": "Certified top-down compilation, a relevant nonenumerative exact-counting route; not executed in this artifact.",
+    "supported_use": "Annotated decision-DNNF compilation certificates, a relevant nonenumerative exact-counting route; not executed in this artifact.",
+    "technical_scope": "Equivalence requires the input CNF to entail the learned clauses, as stated in syntactic-equivalence condition (i) and Theorem 1 (published pp.6247–6248). A satisfiability-preserving clause check alone does not establish that premise; the model-preserving distinction and an RUP-based check are explained by CPOG, Section 2.",
     "verification": "Primary publication record and relevant passages; not a machine Crossref audit or full independent replication."
   },
   {
