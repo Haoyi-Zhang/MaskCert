@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-14T17:54:28.832814+00:00",
+  "host": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "cpu": {
+      "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+      "NumberOfCores": 12,
+      "NumberOfLogicalProcessors": 20
+    }
+  },
+  "resource_controls": {
+    "per_child_wall_seconds": 120,
+    "sequential_children": true,
+    "posix_cpu_cap": false,
+    "memory_cap": false,
+    "affinity": false,
+    "peak_rss_measured": false
+  },
+  "source_files": {
+    "src/pcs/model.py": "7504d6913136d5b6ea5174a3c6e455fb5e03fc438ff938c749ce4ffea0466358",
+    "src/pcs/checker.py": "71a96945c881cd7375750c896ab7dd715d8542b77e9b262d4ba99a7722b2850c",
+    "src/pcs/update_checker.py": "17378f8fc4e89c2fea21990838d90c579532d7558c41fc052f4e2751e89a1b9e",
+    "src/pcs/producer.py": "d47c06dc0c263c2178ca8e4a75f7f9479382753bd6972b0c1bf31c4f8de5969d",
+    "src/pcs/update_producer.py": "6b896e74a78913283aa26eeb4b57f5ba6521143f750e2d4a230795e09b9316d8",
+    "scripts/benchmark_updates.py": "ea552c711538927d09123a361c6a05bb19de21c2eb6f15d2f3f058262526bb2e",
+    "scripts/benchmark_transfer.py": "37bda05e6a4a35f8c321e4550aabc073e3a2476a7940f63d68d8f66c94570ff4"
+  },
+  "inputs": "cases/update-bench and cases/transfer in this artifact",
+  "native_solver_remeasured": false,
+  "network_experiments": false
+}

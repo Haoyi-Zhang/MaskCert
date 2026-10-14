@@ -6,8 +6,7 @@ This repository accompanies the research manuscript and its Artifact Protocol.
 It contains full certificates, safe-anchor updates, exact
 Boolean encodings, finite validation, preserved original observations, and new
 matched-input experiments.
-The broad originating sharding brief was scientifically narrowed to this same
-guarded affine model; the incompatible pcs-v2 replacement is not included.
+The supported plan language is the guarded affine model described below.
 
 Default science is self-contained and standard-library-only. It does not require
 the paper directory, a network connection, GPU, account, private cache, LLM API,
@@ -17,7 +16,15 @@ not a certified model counter. The historical bundled Linux library is not used
 on Windows; the current Windows run used `z3-solver` 5.1.0.0 `libz3.dll`.
 No CPOG/d4/VeriPB/CakePB pipeline was run.
 
-## Current measurement set
+## Measurements
+
+`results/runtime/` contains the 23-command arithmetic campaign on the
+ordered-endpoint checker: 20 six-path update inputs and three streaming
+transfer cases. All command exits were zero. The input objects match
+`cases/update-bench/` and `cases/transfer/`; platform details, actual command
+records and raw streams are retained alongside the measurements. The main
+arithmetic tables and fragment/edit plots use this directory. The optional
+native solver was not remeasured in this campaign.
 
 `results/windows-2026-10-06/` is the single current directory for the completed
 64-command Windows campaign: one 48-query finite native SMT suite, 20 update
@@ -29,7 +36,7 @@ See that directory's README and `platform.json` for the exact platform, solver
 version, CPU-resolution limits, input/formula locations and scientific results.
 All original `results/update-bench/`, `results/transfer/` and `results/smt/`
 observations remain historical Linux measurements, not Windows results.
-Current paper extension tables and fragment/edit plot data use the Windows set.
+The separate paper SMT table uses this native Windows set.
 
 ## What the checker establishes
 
@@ -73,8 +80,8 @@ binary-search prefix. Certificate generation, transcript order, independent
 checkers and history-first diagnostic positions are unchanged. The three
 `tests/test_update_localization.py` methods use owned small declarations and a
 direct pointwise definition; run `python -B tests/test_update_localization.py -v`.
-Ordinary discovery includes them (31 current methods including six mask-sweep
-regressions; the historical eight-test
+Ordinary discovery includes them (42 methods including six mask-sweep and
+eleven local item-consumption regressions; the historical eight-test
 and earlier 22-test records remain observations of their original sources).
 Retained Linux timings precede this localization change; no new timing gain is
 claimed, including cold setup and large-edit crossover cases.
@@ -87,9 +94,31 @@ callers retain the generic sorted sweep. Floor queries, certificate record
 order, limits, defect values, and canonical diagnostics are unchanged.
 `tests/test_mask_sweep.py` adds six portable, self-contained methods with
 pointwise mask/defect oracles and full/update corruption controls. Ordinary
-regression discovery includes this file. The retained Windows and Linux
-timings are observations of their original sources, not measurements of this
-mask-sweep change; the large-edit and cold-anchor losses remain retained.
+regression discovery includes this file. The arithmetic campaign in
+`results/runtime/` measures this mask-sweep implementation. The older Windows
+and Linux observations remain separate. Large-edit losses and cold-anchor
+costs are included in the reported data.
+
+## Admitted local item consumption
+
+`src/pcs/admission.py` consumes an immutable `SafeAnchor`, not the original
+mutable plan or a serialized acceptance flag. `future_emissions(anchor)`
+visits the future congruence progressions and yields guarded integer items.
+It leaves declared history untouched. Establish the anchor by checking a
+full zero-defect certificate, or advance it by checking a full zero-defect
+update. Unsafe updates create no successor capability.
+
+`results/admission.json` records actual consumption of all 96 retained base
+cases and the 40 accepted updated futures. Declared history plus consumed
+items agrees with pointwise policy membership. The 56 unsafe updates were
+blocked. Eleven regression methods also cover caller mutation, raw acceptance
+flags, prefix-only evidence, corrupted evidence and explicit replay.
+Each iterator represents one traversal. `LocalConsumer` is the single-threaded
+admission interface: it fences the
+stream before a requested replacement, and holds it when checking fails.
+Once consumption has begun, replacement requires a newly declared history.
+Durable once-only execution, observed history and external operations are separate application concerns;
+this consumer performs no network operation or address mapping.
 
 An immutable in-process SafeAnchor is obtained by checking the old full
 certificate. It is not a serialized authentication token. Unsafe or prefix-only
@@ -120,8 +149,8 @@ $env:PCS_RESTORE_FIXTURE_PARENT = Join-Path $private 'restore-fixtures'
 python -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-The 31 current methods cover eight contract, fourteen restore-input, three
-update-localization and six mask-sweep tests. They use owned finite integer
+The 42 methods cover eight contract, fourteen restore-input, three
+update-localization, six mask-sweep and eleven item-consumption tests. They use owned finite integer
 declarations, in-memory certificates and small private temporary files/archive
 fixtures; the restore fixtures are retained below the selected private path.
 This command supplies no outer wall timeout, POSIX CPU, memory, alarm or
@@ -172,7 +201,8 @@ comparison; errno, filename and the remainder of the error must still agree.
 
 `results/regression.json` preserves the original eight contract-test observation.
 The current regression discovery includes eight contract, fourteen restore-input,
-three update-localization and six mask-sweep methods (31 total).
+three update-localization, six mask-sweep and eleven item-consumption methods
+(42 total).
 The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
@@ -276,6 +306,8 @@ timeout. Unsupported input is never reported as a semantic coverage fault.
 | Historical Linux: split/remove/revoke transfers of the original large input | `cases/transfer/`, `results/transfer/` |
 | Historical Linux Z3 4.13.3.0: 48 finite and 40 timed native SMT configurations | `results/smt-validation.json`, `cases/smt/`, `results/smt/` |
 | Current Windows Z3 5.1.0.0: all 64 commands and corresponding fresh outputs | `results/windows-2026-10-06/README.md`, `results/windows-2026-10-06/execution.json` |
+| Ordered-endpoint arithmetic: 23 actual commands and raw measurements | `results/runtime/README.md`, `results/runtime/execution.json` |
+| Local integer-item consumption: 96 bases, 40 safe and 56 unsafe updates | `results/admission.json`, `tests/test_admission.py` |
 | Frozen timing-statistic and transcript audit | `scripts/audit_extension.py`, `results/extension-audit.json` |
 | All mathematical arguments | `proofs/arguments.md`, `proofs/safe-anchor.md`, `proofs/boolean-encoding.md` |
 | Reference identities and claim-specific uses | `docs/references.json`, `docs/reference-audit.md`, `docs/closest-work.md` |
@@ -300,11 +332,7 @@ parsimonious CNF mapping and the actual native SMT experiment are explicitly
 different deliverables. The broad twelve-same-journal-paper calibration and
 live TDSC portal rules have not been substantively verified.
 
-The names, affiliations and email addresses of Haoyi Zhang and Huaijin Ran
-have been human-confirmed. No corresponding-author role, institutional agreement
-or submission authorization is inferred from that confirmation. Collaboration
-and development provenance are documented here rather than in recovery-status
-paper footnotes. Arguments, code, experiments and writing used substantive
+Arguments, code, experiments and writing used substantive
 generative-AI assistance, not language polishing alone. Mathematical proofs and
 finite executable checks are not proof-assistant verification, independent
 human review or a journal-acceptance guarantee.

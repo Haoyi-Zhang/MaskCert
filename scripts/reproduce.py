@@ -187,6 +187,16 @@ def main():
             reports.append(checked_run(script));compare_json(staged,'results/'+result)
         # Additional finite obligations have no frozen timing/result to match.
         reports.append(checked_run('finite_repair_checks.py'))
+        reports.append(checked_run('validate_admission.py'))
+        admission=json.loads((staged/'results/admission.json').read_text())
+        if (admission.get('all_checks_passed') is not True
+            or admission.get('base_schedules_consumed') != 96
+            or admission.get('safe_updates_consumed') != 40
+            or admission.get('unsafe_updates_blocked') != 56
+            or admission.get('rejected_replacements_held') != 56
+            or any(row['new_items_consumed'] != 0 for row in admission['records']
+                   if not row['admitted'])):
+            raise RuntimeError('local schedule admission check failed')
         exact=['results/validation-cases.json','results/feistel-cases.json','results/ablations.json',
                'results/prefix-defect.csv','cases/boundary.json','cases/exact-limit.json','cases/updates.json']
         if not args.quick:exact.append('results/boundary-certificate.jsonl')

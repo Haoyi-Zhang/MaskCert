@@ -9,7 +9,9 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
  p.add_argument('--results',type=Path,default=ROOT/'results',
                 help='Explicit observation directory; default retains the historical Linux export')
- args=p.parse_args();results=args.results
+ p.add_argument('--smt-results',type=Path,
+                help='Separate native SMT observation directory when arithmetic was remeasured')
+ args=p.parse_args();results=args.results;smt_results=args.smt_results or results
  out=args.output;out.mkdir(parents=True,exist_ok=True)
  records=[read(results/f'update-bench/bench-{i:02d}.json') for i in range(20)]
  for record in records:
@@ -43,7 +45,7 @@ def main():
  (out/'transfer-table.tex').write_text(r'\newcommand{\TransferRows}{'+ '\n'.join(lines)+'}\n')
  lines=[]
  for i in [0,2,4,8,9,19]:
-  b=records[i]; f=read(results/f'smt/bench-{i:02d}-full.json');u=read(results/f'smt/bench-{i:02d}-reduced.json')
+  b=records[i]; f=read(smt_results/f'smt/bench-{i:02d}-full.json');u=read(smt_results/f'smt/bench-{i:02d}-reduced.json')
   fv=f"{f['cpu_median_s']:.3f}" if f['status_counts']['unsat']==5 else r'5 timeouts'
   lines.append(f"{i:02d} & {b['base_fragments']} & {b['guard_intervals_per_fragment']} & {fv} & {u['cpu_median_s']:.3f} & {b['boolean_encodings']['full']['clauses']:,}/{b['boolean_encodings']['safe_anchor']['clauses']:,} "+r'\\')
  (out/'smt-table.tex').write_text(r'\newcommand{\SMTRows}{'+ '\n'.join(lines)+'}\n')

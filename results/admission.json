@@ -1,0 +1,605 @@
+{
+  "all_checks_passed": true,
+  "observation_kind": "local_integer_item_consumption",
+  "base_schedules_consumed": 96,
+  "safe_updates_consumed": 40,
+  "unsafe_updates_blocked": 56,
+  "rejected_replacements_held": 56,
+  "history_observed": false,
+  "network_operations": 0,
+  "durable_execution_claim": false,
+  "records": [
+    {
+      "id": "update-000",
+      "admitted": true,
+      "new_items_consumed": 0,
+      "base_items_consumed": 0
+    },
+    {
+      "id": "update-001",
+      "admitted": true,
+      "new_items_consumed": 3,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-002",
+      "admitted": true,
+      "new_items_consumed": 8,
+      "base_items_consumed": 8
+    },
+    {
+      "id": "update-003",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 4
+    },
+    {
+      "id": "update-004",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 11
+    },
+    {
+      "id": "update-005",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 18
+    },
+    {
+      "id": "update-006",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 16
+    },
+    {
+      "id": "update-007",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 23
+    },
+    {
+      "id": "update-008",
+      "admitted": true,
+      "new_items_consumed": 73,
+      "base_items_consumed": 73
+    },
+    {
+      "id": "update-009",
+      "admitted": true,
+      "new_items_consumed": 24,
+      "base_items_consumed": 24
+    },
+    {
+      "id": "update-010",
+      "admitted": true,
+      "new_items_consumed": 85,
+      "base_items_consumed": 85
+    },
+    {
+      "id": "update-011",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 175
+    },
+    {
+      "id": "update-012",
+      "admitted": true,
+      "new_items_consumed": 1,
+      "base_items_consumed": 1
+    },
+    {
+      "id": "update-013",
+      "admitted": true,
+      "new_items_consumed": 4,
+      "base_items_consumed": 4
+    },
+    {
+      "id": "update-014",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 10
+    },
+    {
+      "id": "update-015",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 5
+    },
+    {
+      "id": "update-016",
+      "admitted": true,
+      "new_items_consumed": 13,
+      "base_items_consumed": 13
+    },
+    {
+      "id": "update-017",
+      "admitted": true,
+      "new_items_consumed": 26,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-018",
+      "admitted": true,
+      "new_items_consumed": 12,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-019",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 29
+    },
+    {
+      "id": "update-020",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 78
+    },
+    {
+      "id": "update-021",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 27
+    },
+    {
+      "id": "update-022",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 75
+    },
+    {
+      "id": "update-023",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 158
+    },
+    {
+      "id": "update-024",
+      "admitted": true,
+      "new_items_consumed": 1,
+      "base_items_consumed": 1
+    },
+    {
+      "id": "update-025",
+      "admitted": true,
+      "new_items_consumed": 3,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-026",
+      "admitted": true,
+      "new_items_consumed": 7,
+      "base_items_consumed": 7
+    },
+    {
+      "id": "update-027",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 6
+    },
+    {
+      "id": "update-028",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 15
+    },
+    {
+      "id": "update-029",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 19
+    },
+    {
+      "id": "update-030",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 13
+    },
+    {
+      "id": "update-031",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-032",
+      "admitted": true,
+      "new_items_consumed": 86,
+      "base_items_consumed": 86
+    },
+    {
+      "id": "update-033",
+      "admitted": true,
+      "new_items_consumed": 28,
+      "base_items_consumed": 28
+    },
+    {
+      "id": "update-034",
+      "admitted": true,
+      "new_items_consumed": 83,
+      "base_items_consumed": 83
+    },
+    {
+      "id": "update-035",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 154
+    },
+    {
+      "id": "update-036",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 1
+    },
+    {
+      "id": "update-037",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 2
+    },
+    {
+      "id": "update-038",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-039",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 4
+    },
+    {
+      "id": "update-040",
+      "admitted": true,
+      "new_items_consumed": 12,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-041",
+      "admitted": true,
+      "new_items_consumed": 26,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-042",
+      "admitted": true,
+      "new_items_consumed": 13,
+      "base_items_consumed": 13
+    },
+    {
+      "id": "update-043",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 31
+    },
+    {
+      "id": "update-044",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 76
+    },
+    {
+      "id": "update-045",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 29
+    },
+    {
+      "id": "update-046",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 73
+    },
+    {
+      "id": "update-047",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 168
+    },
+    {
+      "id": "update-048",
+      "admitted": true,
+      "new_items_consumed": 0,
+      "base_items_consumed": 0
+    },
+    {
+      "id": "update-049",
+      "admitted": true,
+      "new_items_consumed": 2,
+      "base_items_consumed": 2
+    },
+    {
+      "id": "update-050",
+      "admitted": true,
+      "new_items_consumed": 12,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-051",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-052",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 14
+    },
+    {
+      "id": "update-053",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 19
+    },
+    {
+      "id": "update-054",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 16
+    },
+    {
+      "id": "update-055",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 31
+    },
+    {
+      "id": "update-056",
+      "admitted": true,
+      "new_items_consumed": 86,
+      "base_items_consumed": 86
+    },
+    {
+      "id": "update-057",
+      "admitted": true,
+      "new_items_consumed": 31,
+      "base_items_consumed": 31
+    },
+    {
+      "id": "update-058",
+      "admitted": true,
+      "new_items_consumed": 81,
+      "base_items_consumed": 81
+    },
+    {
+      "id": "update-059",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 175
+    },
+    {
+      "id": "update-060",
+      "admitted": true,
+      "new_items_consumed": 1,
+      "base_items_consumed": 1
+    },
+    {
+      "id": "update-061",
+      "admitted": true,
+      "new_items_consumed": 3,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-062",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 10
+    },
+    {
+      "id": "update-063",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-064",
+      "admitted": true,
+      "new_items_consumed": 15,
+      "base_items_consumed": 15
+    },
+    {
+      "id": "update-065",
+      "admitted": true,
+      "new_items_consumed": 26,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-066",
+      "admitted": true,
+      "new_items_consumed": 12,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-067",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-068",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 87
+    },
+    {
+      "id": "update-069",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 29
+    },
+    {
+      "id": "update-070",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 85
+    },
+    {
+      "id": "update-071",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 164
+    },
+    {
+      "id": "update-072",
+      "admitted": true,
+      "new_items_consumed": 0,
+      "base_items_consumed": 0
+    },
+    {
+      "id": "update-073",
+      "admitted": true,
+      "new_items_consumed": 2,
+      "base_items_consumed": 2
+    },
+    {
+      "id": "update-074",
+      "admitted": true,
+      "new_items_consumed": 10,
+      "base_items_consumed": 10
+    },
+    {
+      "id": "update-075",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 4
+    },
+    {
+      "id": "update-076",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 12
+    },
+    {
+      "id": "update-077",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 26
+    },
+    {
+      "id": "update-078",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 17
+    },
+    {
+      "id": "update-079",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 32
+    },
+    {
+      "id": "update-080",
+      "admitted": true,
+      "new_items_consumed": 82,
+      "base_items_consumed": 82
+    },
+    {
+      "id": "update-081",
+      "admitted": true,
+      "new_items_consumed": 31,
+      "base_items_consumed": 31
+    },
+    {
+      "id": "update-082",
+      "admitted": true,
+      "new_items_consumed": 86,
+      "base_items_consumed": 86
+    },
+    {
+      "id": "update-083",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 164
+    },
+    {
+      "id": "update-084",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 1
+    },
+    {
+      "id": "update-085",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 3
+    },
+    {
+      "id": "update-086",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 9
+    },
+    {
+      "id": "update-087",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 4
+    },
+    {
+      "id": "update-088",
+      "admitted": true,
+      "new_items_consumed": 11,
+      "base_items_consumed": 11
+    },
+    {
+      "id": "update-089",
+      "admitted": true,
+      "new_items_consumed": 23,
+      "base_items_consumed": 23
+    },
+    {
+      "id": "update-090",
+      "admitted": true,
+      "new_items_consumed": 13,
+      "base_items_consumed": 13
+    },
+    {
+      "id": "update-091",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 30
+    },
+    {
+      "id": "update-092",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 84
+    },
+    {
+      "id": "update-093",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 24
+    },
+    {
+      "id": "update-094",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 89
+    },
+    {
+      "id": "update-095",
+      "admitted": false,
+      "new_items_consumed": 0,
+      "base_items_consumed": 151
+    }
+  ],
+  "cpu_seconds": 0.75,
+  "peak_rss_kib": null,
+  "workers": 1,
+  "host": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe"
+  },
+  "resource_controls": {
+    "posix_cpu_limit": false,
+    "address_space_cap": false,
+    "alarm": false,
+    "affinity": false,
+    "outer_wall_limit_seconds": 120,
+    "peak_rss_measured": false
+  }
+}
