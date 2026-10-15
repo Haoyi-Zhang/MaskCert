@@ -120,6 +120,14 @@ Once consumption has begun, replacement requires a newly declared history.
 Durable once-only execution, observed history and external operations are separate application concerns;
 this consumer performs no network operation or address mapping.
 
+The fixed-record adapter adds actual caller-owned local file reads, exact
+observed-history reconciliation, and held policy replacement. It compares
+direct, full-certificate and incremental-certificate routes on the same jobs,
+including input acquisition, production, full rebasing and consumption costs.
+See `docs/record-workflow.md` for the API, complete protocol and new measurement
+commands. Its 23 regression methods bring current portable discovery to 65;
+the earlier 42-method observations below remain historical observations.
+
 An immutable in-process SafeAnchor is obtained by checking the old full
 certificate. It is not a serialized authentication token. Unsafe or prefix-only
 bases cannot establish it. Cold CLI invocations recheck the old base every time;
@@ -149,8 +157,8 @@ $env:PCS_RESTORE_FIXTURE_PARENT = Join-Path $private 'restore-fixtures'
 python -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-The 42 methods cover eight contract, fourteen restore-input, three
-update-localization, six mask-sweep and eleven item-consumption tests. They use owned finite integer
+The current 65 methods cover eight contract, fourteen restore-input, three
+update-localization, six mask-sweep, eleven item-consumption and 23 record-admission tests. They use owned finite integer
 declarations, in-memory certificates and small private temporary files/archive
 fixtures; the restore fixtures are retained below the selected private path.
 This command supplies no outer wall timeout, POSIX CPU, memory, alarm or
@@ -201,8 +209,8 @@ comparison; errno, filename and the remainder of the error must still agree.
 
 `results/regression.json` preserves the original eight contract-test observation.
 The current regression discovery includes eight contract, fourteen restore-input,
-three update-localization, six mask-sweep and eleven item-consumption methods
-(42 total).
+three update-localization, six mask-sweep, eleven item-consumption and 23
+record-admission methods (65 total).
 The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
@@ -308,6 +316,7 @@ timeout. Unsupported input is never reported as a semantic coverage fault.
 | Current Windows Z3 5.1.0.0: all 64 commands and corresponding fresh outputs | `results/windows-2026-10-06/README.md`, `results/windows-2026-10-06/execution.json` |
 | Ordered-endpoint arithmetic: 23 actual commands and raw measurements | `results/runtime/README.md`, `results/runtime/execution.json` |
 | Local integer-item consumption: 96 bases, 40 safe and 56 unsafe updates | `results/admission.json`, `tests/test_admission.py` |
+| Actual local record jobs: 72 traversals, 1,440 replacements, 540 HOLD decisions | `results/record-workflow.json.gz`, `results/record-workflow-summary.json`, `docs/record-workflow.md` |
 | Frozen timing-statistic and transcript audit | `scripts/audit_extension.py`, `results/extension-audit.json` |
 | All mathematical arguments | `proofs/arguments.md`, `proofs/safe-anchor.md`, `proofs/boolean-encoding.md` |
 | Reference identities and claim-specific uses | `docs/references.json`, `docs/reference-audit.md`, `docs/closest-work.md` |

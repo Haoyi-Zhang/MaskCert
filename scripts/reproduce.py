@@ -187,6 +187,15 @@ def main():
             reports.append(checked_run(script));compare_json(staged,'results/'+result)
         # Additional finite obligations have no frozen timing/result to match.
         reports.append(checked_run('finite_repair_checks.py'))
+        reports.append(checked_run('benchmark_record_workflow.py', '--quick',
+                                   '--repetitions', '1', '--out',
+                                   staged/'results'/'record-workflow-recheck.json'))
+        record_workflow = json.loads((staged/'results/record-workflow-recheck.json').read_text())
+        if (record_workflow.get('all_checks_passed') is not True
+            or record_workflow.get('cases') != 2
+            or record_workflow.get('same_input_and_decisions') is not True
+            or record_workflow.get('same_consumed_record_sequences') is not True):
+            raise RuntimeError('local record-workflow check failed')
         reports.append(checked_run('validate_admission.py'))
         admission=json.loads((staged/'results/admission.json').read_text())
         if (admission.get('all_checks_passed') is not True
@@ -231,6 +240,7 @@ def main():
             'observation_kind':'fresh_clean_recheck_not_original_observation',
             'all_commands_passed':True,'complete_core_reproduction':not args.quick,
             'new_timing_cases_rerun':23 if args.benchmarks else 0,
+            'local_record_workflow_cases_executed':2,
             'native_smt_configurations_rerun':40 if args.smt else 0,
             'native_smt_fresh_status_counts':fresh_smt_counts,
             'frozen_evidence_audited_before_remeasurement':True,

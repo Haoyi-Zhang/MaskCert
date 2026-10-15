@@ -1,0 +1,201 @@
+{
+  "all_checks_passed": true,
+  "cases": 8,
+  "repetitions": 3,
+  "traversals": 72,
+  "replacement_decisions": 1440,
+  "held_replacements": 540,
+  "actual_record_reads": 331776,
+  "environment": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "timer": "perf_counter_ns; process_time_ns",
+    "wall_timer_resolution_seconds": 1e-07,
+    "cpu_timer_resolution_seconds": 1e-07,
+    "affinity": "not set",
+    "peak_rss": "not measured",
+    "persistence": "buffered local reads"
+  },
+  "rows": [
+    {
+      "case": 0,
+      "n": 4096,
+      "fragments": 8,
+      "cycles": 1,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 50.4204,
+        "full": 53.6315,
+        "incremental": 51.9711
+      },
+      "warm_wall_ms": {
+        "direct": 1.9485,
+        "full": 6.8903,
+        "incremental": 5.0601
+      },
+      "cold_wall_ms": {
+        "direct": 1.7652,
+        "full": 2.8391,
+        "incremental": 2.7614
+      }
+    },
+    {
+      "case": 1,
+      "n": 4096,
+      "fragments": 8,
+      "cycles": 4,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 52.8583,
+        "full": 74.3511,
+        "incremental": 66.7093
+      },
+      "warm_wall_ms": {
+        "direct": 6.8698,
+        "full": 27.6805,
+        "incremental": 19.0777
+      },
+      "cold_wall_ms": {
+        "direct": 2.0421,
+        "full": 2.9545,
+        "incremental": 3.0747
+      }
+    },
+    {
+      "case": 2,
+      "n": 4096,
+      "fragments": 32,
+      "cycles": 1,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 77.2237,
+        "full": 104.7612,
+        "incremental": 85.1157
+      },
+      "warm_wall_ms": {
+        "direct": 8.5897,
+        "full": 30.3233,
+        "incremental": 9.6389
+      },
+      "cold_wall_ms": {
+        "direct": 3.7348,
+        "full": 9.0627,
+        "incremental": 9.467
+      }
+    },
+    {
+      "case": 3,
+      "n": 4096,
+      "fragments": 32,
+      "cycles": 4,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 110.1467,
+        "full": 209.1813,
+        "incremental": 121.245
+      },
+      "warm_wall_ms": {
+        "direct": 35.9994,
+        "full": 125.532,
+        "incremental": 41.2948
+      },
+      "cold_wall_ms": {
+        "direct": 4.5855,
+        "full": 9.8312,
+        "incremental": 10.2498
+      }
+    },
+    {
+      "case": 4,
+      "n": 4096,
+      "fragments": 64,
+      "cycles": 1,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 126.4408,
+        "full": 204.384,
+        "incremental": 131.4123
+      },
+      "warm_wall_ms": {
+        "direct": 23.2574,
+        "full": 86.9991,
+        "incremental": 14.4048
+      },
+      "cold_wall_ms": {
+        "direct": 7.5876,
+        "full": 22.7626,
+        "incremental": 22.6013
+      }
+    },
+    {
+      "case": 5,
+      "n": 4096,
+      "fragments": 64,
+      "cycles": 4,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 200.0645,
+        "full": 465.742,
+        "incremental": 178.1262
+      },
+      "warm_wall_ms": {
+        "direct": 93.773,
+        "full": 343.5139,
+        "incremental": 58.1291
+      },
+      "cold_wall_ms": {
+        "direct": 8.9782,
+        "full": 23.8967,
+        "incremental": 24.1181
+      }
+    },
+    {
+      "case": 6,
+      "n": 8192,
+      "fragments": 64,
+      "cycles": 4,
+      "dense": false,
+      "total_wall_ms": {
+        "direct": 306.6623,
+        "full": 581.7442,
+        "incremental": 279.3519
+      },
+      "warm_wall_ms": {
+        "direct": 100.4839,
+        "full": 356.3713,
+        "incremental": 64.1536
+      },
+      "cold_wall_ms": {
+        "direct": 10.2014,
+        "full": 26.2203,
+        "incremental": 26.8392
+      }
+    },
+    {
+      "case": 7,
+      "n": 4096,
+      "fragments": 64,
+      "cycles": 1,
+      "dense": true,
+      "total_wall_ms": {
+        "direct": 127.4872,
+        "full": 203.9077,
+        "incremental": 186.0025
+      },
+      "warm_wall_ms": {
+        "direct": 23.9763,
+        "full": 86.3153,
+        "incremental": 69.4396
+      },
+      "cold_wall_ms": {
+        "direct": 7.6825,
+        "full": 22.854,
+        "incremental": 22.4305
+      }
+    }
+  ]
+}
