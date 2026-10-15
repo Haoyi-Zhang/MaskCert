@@ -94,8 +94,11 @@ def run(staged,script,*args,raw_output=None):
         timed_out=True
     if raw_output is not None:
         # Preserve actual streams before any semantic comparison or failure.
-        stem=script.removesuffix('.py')+''.join('-'+str(a) for a in args)
-        stem=re.sub(r'[^A-Za-z0-9_.-]','_',stem)
+        # Full arguments remain in command.json. Keep file basenames bounded
+        # even when an output argument is a long absolute Windows/POSIX path.
+        ordinal=len(list(raw_output.glob('*.command.json')))+1
+        stem=re.sub(r'[^A-Za-z0-9_.-]','_',script.removesuffix('.py'))[:40]
+        stem+='-'+str(ordinal)
         for suffix,value in [('stdout.txt',stdout),('stderr.txt',stderr)]:
             with (raw_output/(stem+'.'+suffix)).open('x',encoding='utf-8') as stream:
                 stream.write(value)
@@ -111,7 +114,7 @@ def run(staged,script,*args,raw_output=None):
     # Keep the actual child summary and resource observations, not a made-up PASS marker.
     try:payload=json.loads(tail)
     except json.JSONDecodeError:payload={'last_stdout_line':tail}
-    return {'script':script,'arguments':list(args),'returncode':0,'wall_seconds':time.monotonic()-start,
+    return {'script':script,'arguments':[str(a) for a in args],'returncode':0,'wall_seconds':time.monotonic()-start,
             'summary':payload,'stderr':stderr.strip()}
 
 

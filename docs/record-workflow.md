@@ -72,6 +72,7 @@ has the lowest median, are retained.
 `tests/test_record_admission.py` adds 23 methods for the real file adapter,
 including exact history, rejected replacements, malformed certificates,
 dictionary mutation, changed files, short reads and failed-read accounting.
-The complete portable suite has 65 methods (42 existing plus 23 new); both
+The complete portable suite has 66 methods (42 existing, 23 record-admission
+and one report-serialization regression); both
 ordinary and optimized Python execute it. No old finite cases or old kernel
 timings are relabeled as these new workflows.

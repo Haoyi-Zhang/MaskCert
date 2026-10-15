@@ -125,7 +125,7 @@ observed-history reconciliation, and held policy replacement. It compares
 direct, full-certificate and incremental-certificate routes on the same jobs,
 including input acquisition, production, full rebasing and consumption costs.
 See `docs/record-workflow.md` for the API, complete protocol and new measurement
-commands. Its 23 regression methods bring current portable discovery to 65;
+commands. Its 23 regression methods and a report-serialization regression bring current portable discovery to 66;
 the earlier 42-method observations below remain historical observations.
 
 An immutable in-process SafeAnchor is obtained by checking the old full
@@ -157,8 +157,9 @@ $env:PCS_RESTORE_FIXTURE_PARENT = Join-Path $private 'restore-fixtures'
 python -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-The current 65 methods cover eight contract, fourteen restore-input, three
-update-localization, six mask-sweep, eleven item-consumption and 23 record-admission tests. They use owned finite integer
+The current 66 methods cover eight contract, fourteen restore-input, three
+update-localization, six mask-sweep, eleven item-consumption, 23 record-admission
+and one reproduction-report test. They use owned finite integer
 declarations, in-memory certificates and small private temporary files/archive
 fixtures; the restore fixtures are retained below the selected private path.
 This command supplies no outer wall timeout, POSIX CPU, memory, alarm or
@@ -210,7 +211,7 @@ comparison; errno, filename and the remainder of the error must still agree.
 `results/regression.json` preserves the original eight contract-test observation.
 The current regression discovery includes eight contract, fourteen restore-input,
 three update-localization, six mask-sweep, eleven item-consumption and 23
-record-admission methods (65 total).
+record-admission methods and one reproduction-report method (66 total).
 The driver checks the exact current discovered count and
 requires zero failures, errors, skips, expected failures and unexpected successes.
 This test-inventory reconciliation does not rewrite the historical result or
