@@ -26,7 +26,7 @@ records and raw streams are retained alongside the measurements. The main
 arithmetic tables and fragment/edit plots use this directory. The optional
 native solver was not remeasured in this campaign.
 
-`results/windows-2026-10-06/` is the single current directory for the completed
+`results/windows-2026-10-06/` retains the earlier
 64-command Windows campaign: one 48-query finite native SMT suite, 20 update
 benchmarks, three transfer cases and 40 full/reduced SMT configurations. All
 64 actual command exits are 0, with logs retained. This is separate from plan
@@ -80,9 +80,9 @@ binary-search prefix. Certificate generation, transcript order, independent
 checkers and history-first diagnostic positions are unchanged. The three
 `tests/test_update_localization.py` methods use owned small declarations and a
 direct pointwise definition; run `python -B tests/test_update_localization.py -v`.
-Ordinary discovery includes them (42 methods including six mask-sweep and
+The earlier 42-method suite included them, with six mask-sweep and
 eleven local item-consumption regressions; the historical eight-test
-and earlier 22-test records remain observations of their original sources).
+and earlier 22-test records remain observations of their original sources.
 Retained Linux timings precede this localization change; no new timing gain is
 claimed, including cold setup and large-edit crossover cases.
 
@@ -124,6 +124,13 @@ The fixed-record adapter adds actual caller-owned local file reads, exact
 observed-history reconciliation, and held policy replacement. It compares
 direct, full-certificate and incremental-certificate routes on the same jobs,
 including input acquisition, production, full rebasing and consumption costs.
+The measured replacement batches pause record consumption after one full
+history rebase. Further reads require another full reconciliation before
+incremental replacement can resume. The direct comparator evaluates the full
+symbolic formula with trusted arithmetic; the certificate routes include
+production and separately implemented checking. The measurements compare
+these full routes and their trust boundaries, rather than isolating the
+safe-state algebra with a reduced-formula trusted direct comparator.
 See `docs/record-workflow.md` for the API, complete protocol and new measurement
 commands. Its 23 regression methods and a report-serialization regression bring current portable discovery to 66;
 the earlier 42-method observations below remain historical observations.

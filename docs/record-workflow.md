@@ -10,6 +10,9 @@ plan, enforce the same exact coverage obligation, and use the same detached
 snapshots and record iterator. Direct calculation trusts the producer's exact
 arithmetic. The certificate routes use the separately implemented checker;
 their caller supplies, and pays for, the corresponding transcript.
+The retained direct comparator evaluates the full symbolic defect. A trusted
+direct implementation of the reduced safe-state formula would be a distinct
+comparator for isolating algebraic savings from proof-checking costs.
 
 The gate starts on HOLD. `admit` needs a safe base. `consume` reads fixed-length
 records at their target offsets. `replace` first fences consumption, then checks
@@ -36,6 +39,10 @@ processes policy/plan replacements before completing the job. Each cycle has
 safe repartitions, stale revocation and restoration, their repairs, and a
 duplicate followed by repair. Unsafe proposals remain on HOLD. These are
 controlled workload edits, not external production incidents.
+All replacement cycles run while record consumption is paused after the
+initial progress reconciliation. If consumption resumes between batches,
+the API requires another full history reconciliation and rebase before
+incremental replacement; the retained timing configurations use one pause.
 
 ## Reproduction and cost accounting
 
