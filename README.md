@@ -152,8 +152,7 @@ in `../paper/README.md`.
 ## Rights and research scope
 
 Original code is covered by `LICENSE`; upstream Z3 notices remain under
-`third_party/z3/`. Arguments, code, experiments and writing used substantive
-generative-AI assistance. The supplied guarantees are about the stated finite
+`third_party/z3/`. The supplied guarantees are about the stated finite
 declarations and local serial consumer. Durable once-only execution,
 authenticated external history and physical network operations are outside
 that implementation.
