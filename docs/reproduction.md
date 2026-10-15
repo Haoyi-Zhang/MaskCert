@@ -5,7 +5,7 @@
 From the standalone artifact root on Linux, with Python 3.10+ (not `python -O`):
 
 ```sh
-python scripts/reproduce.py
+python -B scripts/reproduce.py
 ```
 
 This is the default correctness recheck, not a fresh rerun of all timing batches.
@@ -23,9 +23,10 @@ certificates and timing-independent scientific fields. No source result file is
 an output destination, and no new time or RSS is relabeled as an old observation.
 
 The frozen regression record remains the original eight-test observation. Fresh
-regression summaries must match current source discovery (31 methods: eight
-contract, fourteen restore-input, three update-localization and six mask-sweep
-tests), with zero failures, errors,
+regression summaries must match current source discovery (66 methods: eight
+contract, fourteen restore-input, three update-localization, six mask-sweep,
+eleven item-consumption, 23 record-admission and one report-serialization
+test), with zero failures, errors,
 skips, expected failures and unexpected successes. Only this test-inventory
 metadata is reconciled; other scientific-result and exact-evidence comparisons
 remain unchanged.
@@ -42,9 +43,9 @@ The Linux driver is not a Windows substitute for this unit route.
 The current implementation has these explicit additional modes:
 
 ```sh
-python scripts/reproduce.py --benchmarks
-python scripts/reproduce.py --smt
-python scripts/reproduce.py --full
+python -B scripts/reproduce.py --benchmarks
+python -B scripts/reproduce.py --smt
+python -B scripts/reproduce.py --full
 ```
 
 `--benchmarks` additionally reruns all twenty six-path batched inputs and the
@@ -79,7 +80,7 @@ This campaign does not extend the Linux reproduction driver to Windows.
 For a durable report, supply a new path outside the source extraction:
 
 ```sh
-python scripts/reproduce.py --full --report /tmp/mask-aware-clean-report.json
+python -B scripts/reproduce.py --full --report /tmp/mask-aware-clean-report.json
 ```
 
 An existing report is refused. `--quick` omits the large boundary case and is
@@ -91,18 +92,19 @@ Python; the public checker performs explicit input/transcript checks.
 The artifact does not depend on `paper/`. From the complete project root:
 
 ```sh
-python artifact/scripts/export_paper_data.py --out paper/figures
-python artifact/scripts/export_extension_data.py --results artifact/results/windows-2026-10-06 --output paper/generated
+python -B artifact/scripts/export_paper_data.py --out paper/figures
+python -B artifact/scripts/export_extension_data.py --results artifact/results/runtime --smt-results artifact/results/windows-2026-10-06 --output paper/generated
 sh paper/build.sh
-python artifact/scripts/audit_paper.py --paper paper --out paper/reference-use-audit.json
+python -B artifact/scripts/audit_paper.py --paper paper --out /tmp/mask-reference-use.json
 ```
 
 Both exporters use only the Python standard library. TeX packages are listed in
 `paper/README.md`. Compilation and figure export are separate from the science
 recheck. The manuscript and separate protocol use the supplied IEEE template;
 compilation is separate from measurement and does not rerun the experiments. Current
-extension tables and fragment/edit plot data use the explicitly selected Windows
-directory; omitting `--results` retains the historical Linux export.
+arithmetic tables and fragment/edit plot data use `artifact/results/runtime/`;
+the SMT table uses `artifact/results/windows-2026-10-06/` through its separate
+argument. Omitting `--results` retains the historical Linux export.
 
 ## Interpreting outcomes
 

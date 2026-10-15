@@ -4,13 +4,13 @@
   "RESEARCH_LINEAGE": {
     "origin_brief_name": "Permutation-Complete Sharding Certificates for Stateless Scan Plans",
     "decision": "formal scope narrowing within the same project",
-    "reason": "The recovered six-page manuscript and two-page protocol establish the guarded-affine scope. The current twelve-page manuscript and five-page protocol retain its schema, linear unauthorized mass, declared history and epoch/counter witness order, and add safe-anchor updates, exact Boolean encodings and separate new measurements. The later pcs-v2 and anonymous nine-page supplement have incompatible semantics and remain excluded."
+    "reason": "The guarded-affine schema, linear unauthorized mass, declared history and epoch/counter witness order are shared by the current manuscript, protocol and implementation. Safe-anchor updates, exact Boolean encodings and separately recorded measurements extend that scope."
   },
   "VENUE_INTENT": "IEEE Transactions on Dependable and Secure Computing (TDSC)",
   "VENUE_STATUS": "intent only; not approved, submitted, accepted, or venue-validated",
   "DOCUMENT_SET": {
-    "main": "paper/main.pdf (12 pages)",
-    "artifact_protocol": "paper/supplement.pdf (5 pages)",
+    "main": "paper/main.pdf (15 pages)",
+    "artifact_protocol": "paper/supplement.pdf (6 pages)",
     "standalone_artifact_root": "artifact/"
   },
   "AUTHOR_METADATA_STATUS": "Recovered named metadata retained consistently; actual authors must confirm authorship, affiliation and permission before external use. No anonymous replacement supplement is included.",

@@ -1,10 +1,10 @@
 # Reference identity and citation-use audit
 
-Twenty scholarly references are actually used by the twelve-page manuscript.
-There is no asserted TDSC minimum citation count. Primary publication records
-and the specific technical passages used in comparison were inspected; this is
-not a claim that all twenty full papers were read, that each experiment was
-independently reproduced, or that a live Crossref audit was executed.
+This note records identity and claim-specific checks for twenty foundational
+sources. The current manuscript cites fifty references; `docs/references.json`
+and the entries below cover the scoped twenty-source comparison. Publication
+records, relevant passages and full-paper reading are recorded at their actual
+depth, separately from experiment reproduction or a live registry query.
 
 The current Dagstuhl record for the VeriPB paper is LIPIcs volume 379,
 43:1–43:21, DOI 10.4230/LIPIcs.CP.2026.43. Its enumeration implementation and

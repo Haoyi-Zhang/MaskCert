@@ -1,162 +1,58 @@
 # Mask-Aware Certificates for Affine Schedule Fragments
 
-Project key: `mask-aware-certificates-for-permutation-complete-stateless-scan-plans`
+Exact certificates for declared epoch–target coverage in guarded affine
+schedules. The artifact includes a producer, a separately implemented arithmetic
+checker, explicit finite oracles, safe-anchor updates, least-fault witnesses,
+Boolean encodings, and a local fixed-record consumer. It is standalone: the
+scientific checks need no sibling paper, network, account or private data.
 
-This repository accompanies the research manuscript and its Artifact Protocol.
-It contains full certificates, safe-anchor updates, exact
-Boolean encodings, finite validation, preserved original observations, and new
-matched-input experiments.
-The supported plan language is the guarded affine model described below.
+## Setup
 
-Default science is self-contained and standard-library-only. It does not require
-the paper directory, a network connection, GPU, account, private cache, LLM API,
-scanner, target host, or external compute. The optional native SMT route uses
-an explicitly selected platform-compatible upstream Z3 library and is a trusted decision baseline,
-not a certified model counter. The historical bundled Linux library is not used
-on Windows; the current Windows run used `z3-solver` 5.1.0.0 `libz3.dll`.
-No CPOG/d4/VeriPB/CakePB pipeline was run.
+Use Python 3.10 or later. The core and portable tests use only the standard
+library; no package installation is needed. The complete reproduction driver
+requires Linux/POSIX resource controls. Windows supports the portable tests
+and public checker commands below.
 
-## Measurements
+The optional native SMT baseline needs a compatible upstream Z3 library.
+Retained Linux observations use Z3 4.13.3.0; the separate Windows native campaign
+used the upstream 5.1.0.0 DLL. The frozen bundle preserves the Linux library and
+its license, but it is not a Windows binary. No certified-counting toolchain is
+required or claimed to have run.
 
-`results/runtime/` contains the 23-command arithmetic campaign on the
-ordered-endpoint checker: 20 six-path update inputs and three streaming
-transfer cases. All command exits were zero. The input objects match
-`cases/update-bench/` and `cases/transfer/`; platform details, actual command
-records and raw streams are retained alongside the measurements. The main
-arithmetic tables and fragment/edit plots use this directory. The optional
-native solver was not remeasured in this campaign.
+## Check a supplied example
 
-`results/windows-2026-10-06/` retains the earlier
-64-command Windows campaign: one 48-query finite native SMT suite, 20 update
-benchmarks, three transfer cases and 40 full/reduced SMT configurations. All
-64 actual command exits are 0, with logs retained. This is separate from plan
-safety and solver completion: split/remove/revoke defects are
-0/44,738,560/1,024, and timed full SMT has five timeout UNKNOWN samples.
-See that directory's README and `platform.json` for the exact platform, solver
-version, CPU-resolution limits, input/formula locations and scientific results.
-All original `results/update-bench/`, `results/transfer/` and `results/smt/`
-observations remain historical Linux measurements, not Windows results.
-The separate paper SMT table uses this native Windows set.
-
-## What the checker establishes
-
-For an independently supplied declaration, fixed affine permutation, interval
-policy, declared history, and guarded modular fragments, the checker verifies
-exact-once coverage of **(retry epoch, target)** and zero undesired occurrences.
-For authorized targets the local penalty is `(m-1)^2`; for unauthorized targets
-it is the linear multiplicity `m`, not `m^2`. History is trusted declaration
-input, not observed execution. A target may be reused in a different epoch.
-
-The diagnostic checker verifies the least fault in lexicographic
-`(epoch,counter)` order using a full certificate and certificates immediately
-before and through the candidate counter. The retained N=64 example therefore
-has `(counter=2,target=17)`, not the minimum-target pair `(50,1)`; its defect at
-prefix 50 is 12.
-
-The producer and checker do not share interval-intersection, CRT, floor-sum, or
-transcript arithmetic. The producer uses two-pointer intersections, modular
-inversion, and its own recurrence. The checker uses an endpoint sweep, extended
-Euclidean congruence composition, and verifies every quotient/remainder triple.
-They deliberately share the strict parser/schema/limit module, the Python
-interpreter, and arbitrary-precision integer semantics. The explicit oracles
-are validation-only dependencies and are imported by neither producer nor
-checker. This is implementation separation, not independent-team development
-or machine-checked noninterference.
-
-## What the update adds
-
-A FULL verified safe old plan has multiplicity equal to its old policy indicator.
-The update theorem substitutes that invariant into the new, linear-forbidden
-defect and eliminates every unchanged-row counting query. With r removed and
-s added future occurrences, it needs O(1+r+s+s^2+sr) masked count terms, rather
-than all old/new row pairs. Input parsing, matching and anchor storage still
-scale with the full input. The old and new policies may differ; affine context,
-epoch count/order and trusted history may not change.
-
-Update least-fault localization now prepares validated, immutable policy masks
-and exact removed/added row occurrences once per call. It evaluates the full
-defect vector before choosing an epoch, then evaluates only that epoch at each
-binary-search prefix. Certificate generation, transcript order, independent
-checkers and history-first diagnostic positions are unchanged. The three
-`tests/test_update_localization.py` methods use owned small declarations and a
-direct pointwise definition; run `python -B tests/test_update_localization.py -v`.
-The earlier 42-method suite included them, with six mask-sweep and
-eleven local item-consumption regressions; the historical eight-test
-and earlier 22-test records remain observations of their original sources.
-Retained Linux timings precede this localization change; no new timing gain is
-claimed, including cold setup and large-edit crossover cases.
-
-The checker's mask intersection still uses an active-count endpoint sweep,
-independent of the producer's interval overlap. For ordered spans it merges
-the two endpoint streams without sorting tagged events, and returns an empty
-intersection immediately for an empty mask. Unordered spans and iterator
-callers retain the generic sorted sweep. Floor queries, certificate record
-order, limits, defect values, and canonical diagnostics are unchanged.
-`tests/test_mask_sweep.py` adds six portable, self-contained methods with
-pointwise mask/defect oracles and full/update corruption controls. Ordinary
-regression discovery includes this file. The arithmetic campaign in
-`results/runtime/` measures this mask-sweep implementation. The older Windows
-and Linux observations remain separate. Large-edit losses and cold-anchor
-costs are included in the reported data.
-
-## Admitted local item consumption
-
-`src/pcs/admission.py` consumes an immutable `SafeAnchor`, not the original
-mutable plan or a serialized acceptance flag. `future_emissions(anchor)`
-visits the future congruence progressions and yields guarded integer items.
-It leaves declared history untouched. Establish the anchor by checking a
-full zero-defect certificate, or advance it by checking a full zero-defect
-update. Unsafe updates create no successor capability.
-
-`results/admission.json` records actual consumption of all 96 retained base
-cases and the 40 accepted updated futures. Declared history plus consumed
-items agrees with pointwise policy membership. The 56 unsafe updates were
-blocked. Eleven regression methods also cover caller mutation, raw acceptance
-flags, prefix-only evidence, corrupted evidence and explicit replay.
-Each iterator represents one traversal. `LocalConsumer` is the single-threaded
-admission interface: it fences the
-stream before a requested replacement, and holds it when checking fails.
-Once consumption has begun, replacement requires a newly declared history.
-Durable once-only execution, observed history and external operations are separate application concerns;
-this consumer performs no network operation or address mapping.
-
-The fixed-record adapter adds actual caller-owned local file reads, exact
-observed-history reconciliation, and held policy replacement. It compares
-direct, full-certificate and incremental-certificate routes on the same jobs,
-including input acquisition, production, full rebasing and consumption costs.
-The measured replacement batches pause record consumption after one full
-history rebase. Further reads require another full reconciliation before
-incremental replacement can resume. The direct comparator evaluates the full
-symbolic formula with trusted arithmetic; the certificate routes include
-production and separately implemented checking. The measurements compare
-these full routes and their trust boundaries, rather than isolating the
-safe-state algebra with a reduced-formula trusted direct comparator.
-See `docs/record-workflow.md` for the API, complete protocol and new measurement
-commands. Its 23 regression methods and a report-serialization regression bring current portable discovery to 66;
-the earlier 42-method observations below remain historical observations.
-
-An immutable in-process SafeAnchor is obtained by checking the old full
-certificate. It is not a serialized authentication token. Unsafe or prefix-only
-bases cannot establish it. Cold CLI invocations recheck the old base every time;
-a warm API call explicitly reuses a checked base. A large edit can be slower
-and larger than a full certificate. Neither cache reuse nor polynomial delta
-algebra is claimed as a new general principle.
-
-## Non-overwriting scientific reproduction
-
-Python 3.10+ on Linux is required for the measured resource controls. Assertions
-are part of validation: do not use `python -O`. From this repository root:
+From this artifact directory:
 
 ```sh
-python scripts/reproduce.py
+python -B pcs.py check examples/declaration.json examples/plan.json examples/certificate.jsonl
+python -B pcs.py audit examples/declaration.json examples/plan.json
 ```
 
-For a narrower portable finite unit recheck, use the shipped tests through
-Python's standard-library `unittest` entrypoint. From the artifact root in a
-fresh Windows PowerShell session:
+For `check` and finite `audit`, exits are 0 for valid safe, 1 for valid unsafe,
+and 2 for malformed, unsupported, corrupted or unreadable input. Generation
+exit 0 means that a transcript was written, including for an unsafe plan.
+Witness verification exit 0 establishes the least canonical fault.
+
+`pcs.py` also supplies `certify`, `diagnose` and `check-witness`.
+`pcs-update.py` supplies full-base/update and update-witness commands;
+`docs/update-protocol.md` contains the runnable cold commands and warm API.
+Output files and diagnosis directories must be new. Check a prefix transcript
+with the same explicit prefix; a prefix-zero result does not establish full safety.
+
+## Tests and reproduction
+
+Portable discovery runs 66 methods: eight contract, fourteen restore-input,
+three localization, six mask-sweep, eleven item-consumption, 23 record-admission,
+and one report-serialization regression.
+
+```sh
+python -B -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+On Windows, select a private temporary parent before the same command:
 
 ```powershell
-$private = Join-Path ([IO.Path]::GetTempPath()) ('P100-owned-tests-' + [guid]::NewGuid().ToString('N'))
+$private = Join-Path ([IO.Path]::GetTempPath()) ('P100-tests-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $private | Out-Null
 $env:TEMP = $private
 $env:TMP = $private
@@ -164,210 +60,100 @@ $env:PCS_RESTORE_FIXTURE_PARENT = Join-Path $private 'restore-fixtures'
 python -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-The current 66 methods cover eight contract, fourteen restore-input, three
-update-localization, six mask-sweep, eleven item-consumption, 23 record-admission
-and one reproduction-report test. They use owned finite integer
-declarations, in-memory certificates and small private temporary files/archive
-fixtures; the restore fixtures are retained below the selected private path.
-This command supplies no outer wall timeout, POSIX CPU, memory, alarm or
-affinity limits, and measures neither CPU usage nor peak RSS. It does not load
-the Linux Z3 library, install dependencies, contact a network, compile the
-paper, rerun timing/native SMT sweeps, or replay the complete correctness
-campaign. A Windows symlink-creation restriction can cause a reported skip;
-record that outcome rather than counting it as a passed check. The Linux
-driver and archived observations remain separate.
-
-The Linux correctness driver also runs the inherited validator and additional
-finite suites; these are not part of the portable unit command above.
-The repaired inherited validator adds 909 actual prefix-transcript checks;
-the archived 909 prefix comparisons used producer/counter-oracle defects.
-Additional checks in `scripts/finite_repair_checks.py` cover 40 prefix CNFs
-on domains 3, 5 and 9 (7,168 assignments), 80 finite progression cases at
-integer widths up to a 32-bit domain, nonfinite JSON overflow rejection, and
-200 selected maximum-row boundary assignments. These are not new operational
-workloads or proof-assistant verification. Original result files are unchanged.
-
-The Linux default rechecks the frozen evidence and measurement summaries, original
-arithmetic/oracles/large certificate, new 96-case updates, Boolean semantics,
-public CLI and anchor contracts. Each scientific child is restricted to one
-affinity CPU, 2,500 MiB of virtual address space, a 115-second alarm and
-110/115-second CPU limits. The parent applies an additional 120-second wall
-limit to the entire child process group. Children run sequentially. The total
-campaign, containing many children, is not promised to finish in 120 seconds.
-
-For fresh repetitions of all new measured comparisons:
+Record any skip as a skip; this portable route does not run the Linux campaign,
+native solver or timing sweeps. On Linux, run the non-overwriting driver:
 
 ```sh
-python scripts/reproduce.py --full --report ../mask-aware-recheck.json
+python -B scripts/reproduce.py --report ../mask-aware-recheck.json --raw-output ../mask-aware-raw
 ```
 
-`--benchmarks` selects the 20 six-path timing inputs and three original-input
-transfer cases; `--smt` selects the 48 finite native decisions and 40 timed native
-solver configurations. `--full` selects both. These optional runs take several
-minutes on the archived environment. The report path must be new and outside
-this source extraction. A `--quick` option skips original boundary regeneration
-and is explicitly not a complete core rerun.
+Both output paths must be new and outside this extraction. The driver restores
+absent frozen assets from `data/frozen-material.zip`, refusing different existing
+bytes, then runs in a private copy. It audits frozen evidence before fresh work
+and compares exact inputs/transcripts and timing-independent scientific fields.
+The source extraction is checked for non-mutation. The current test count is
+discovered from source; the original eight-test record is kept as a historical
+observation.
 
-All driver writes take place in a private temporary copy. It compares exact
-inputs, transcripts and semantic fields, not wall/CPU/RSS values or a required
-speedup. Fresh timeout rates are observations, not required to equal the old
-rate. The source extraction is internally checked for non-mutation. Random
-temporary-directory text in an OSError is normalized only during result
-comparison; errno, filename and the remainder of the error must still agree.
+Default reproduction includes the retained arithmetic, finite updates, Boolean
+semantics, additional prefix/mixed-modulus controls, local admission and two
+small record-workflow checks. It validates saved timing summaries without
+remeasuring all timing cases. Each Linux child has one affinity CPU, 2,500 MiB
+address space, 110/115-second CPU limits, a 115-second alarm and a 120-second
+outer process-group wall limit. Children run sequentially.
 
-`results/regression.json` preserves the original eight contract-test observation.
-The current regression discovery includes eight contract, fourteen restore-input,
-three update-localization, six mask-sweep, eleven item-consumption and 23
-record-admission methods and one reproduction-report method (66 total).
-The driver checks the exact current discovered count and
-requires zero failures, errors, skips, expected failures and unexpected successes.
-This test-inventory reconciliation does not rewrite the historical result or
-relax comparisons of deterministic scientific results, inputs or transcripts.
+Optional `--benchmarks` adds 20 six-path timing inputs and three transfers;
+`--smt` adds 48 finite native comparisons and 40 timed SMT configurations.
+`--full` selects both. `--quick` omits the original large boundary regeneration.
+New timings and timeouts remain new observations, not required reproductions of
+a speed ratio. Full commands, phase coverage and resource details are in
+`docs/reproduction.md`.
 
-To retain actual child standard output and standard error, including a failed
-or timed-out child, add `--raw-output ../mask-aware-raw` with a new directory
-outside the repository. The default also executes `finite_repair_checks.py`.
-That suite includes 1,152 direct mixed-modulus intersection comparisons on
-short owned windows, including the `2^32` endpoint and moduli 61--64; these
-do not enumerate the large counter domain.
+## Contract and consumer
 
-The prepared `scientific-checks.yml` runs this standard-library-only default
-from the flat artifact repository on Ubuntu 24.04 on pushes to `main`. It
-retains raw streams with an always-run upload step. A 900-second whole-command
-wall bound and CPU limit, 2,500-MiB address-space bound and 20-minute job limit
-complement the existing per-child bounds. No timings or native solver sweeps
-are requested by that workflow. Its presence is not an executed remote run.
+For caller-supplied policy, declared history, affine permutation and guarded
+fragments, verification establishes exact-once coverage of each (epoch,target)
+and zero forbidden occurrences. The unauthorized penalty is linear multiplicity;
+the authorized penalty is its squared deviation from one. Histories are trusted
+inputs, and a target can reappear in another epoch. Witness order is
+(epoch,counter), not target or wall-clock order.
 
-Running individual generator/experiment scripts directly writes fresh result
-files in the current working repository. Use the driver to preserve the
-archived observations. Core code and all experiment scripts are inspected
-source assets; no dependency installation or network retrieval is hidden in
-reproduction. Paper building and figure-data export are separate optional steps.
+A full safe check creates an immutable in-process anchor. Update elimination
+removes unchanged-row counting queries under that safe premise. Changed context
+or history requires a full check; large edits can cost more than full checking.
+Parsing, matching and anchor storage still scale with the complete input.
+Producer and checker have separate interval/CRT/floor arithmetic but share
+parsing, Python and integer semantics.
 
-## Public CLI contract
+`src/pcs/admission.py` consumes a verified anchor and holds consumption during
+replacement. The fixed-record adapter additionally performs actual local file
+reads and exact observed-history reconciliation. Its measured batches pause
+reading after one full rebase. Further reads require full reconciliation before
+incremental replacement resumes. The direct comparator evaluates the full
+symbolic formula with trusted arithmetic; certificate routes include production
+and separate checking. All eight workflow configurations remain, including the
+six where direct calculation has the lowest median and two where updates do.
+See `docs/record-workflow.md` for the complete API and costs.
 
-```sh
-python pcs.py certify examples/declaration.json examples/plan.json --out certificate.jsonl
-python pcs.py check examples/declaration.json examples/plan.json certificate.jsonl
-python pcs.py diagnose examples/fault-declaration.json examples/fault-plan.json diagnosis
-python pcs.py check-witness examples/fault-declaration.json examples/fault-plan.json diagnosis
-python pcs.py audit examples/declaration.json examples/plan.json
-```
+The declared language allows domain up to 2^32, at most 16 epochs and 128 total
+fragments, modulus up to 64, and 1,024 intervals per supplied list. JSON,
+transcript and integer limits are defined in `src/pcs/model.py` and
+`docs/format.md`; explicit oracles stop at 2^20. A valid schema does not promise
+that every transcript fits the format limit or finishes within a benchmark bound.
 
-Output files and diagnosis directories must not already exist. For ordinary
-`check` and finite `audit`:
+## Inputs and retained results
 
-- exit 0: valid evidence and a safe plan;
-- exit 1: valid evidence and an unsafe plan;
-- exit 2: malformed, unsupported, corrupted, or unreadable input.
-
-`certify` returns 0 when it writes a transcript, including one for an unsafe
-plan; generation is not verification. `check-witness` returns 0 only for a
-verified least canonical fault. Prefix certificates must be checked with the
-same explicit `--prefix`; a prefix-zero certificate cannot establish full-plan
-safety. `results/repair-checks.json` records subprocess tests of all three
-ordinary checker outcomes.
-
-## Update commands and warm API
-
-The following retained cold checks are immediately runnable:
-
-```sh
-python pcs-update.py check examples/updates/declaration.json examples/updates/old-plan.json examples/updates/old-certificate.jsonl examples/updates/declaration.json examples/updates/safe-plan.json examples/updates/safe-update.jsonl
-python pcs-update.py check examples/updates/declaration.json examples/updates/old-plan.json examples/updates/old-certificate.jsonl examples/updates/declaration.json examples/updates/unsafe-plan.json examples/updates/unsafe-update.jsonl
-python pcs-update.py check-witness examples/updates/declaration.json examples/updates/old-plan.json examples/updates/old-certificate.jsonl examples/updates/declaration.json examples/updates/unsafe-plan.json examples/updates/witness
-```
-
-Their expected exits are respectively 0, 1 and 0. The update example omits only
-counter 2, hence has full defect 1. It is a different input from the inherited
-example whose prefix-50 defect is 12. Both have least counter 2, target 17.
-`docs/update-protocol.md` gives generation, complete wire order, immutable
-snapshots, anchor advancement, a runnable warm API, and its explicit trust
-boundary. A generation command is not an independently checked safety result.
-
-## Supported-format and oracle limits
-
-The exact constants are centralized in `src/pcs/model.py` and documented in
-`docs/format.md`:
-
-- domain `1 <= N <= 2^32`;
-- fragment modulus at most 64;
-- at most 16 epochs;
-- at most 128 total history-plus-future fragments;
-- at most 1,024 intervals per supplied list;
-- at most 8 MiB per JSON input;
-- at most 64 MiB per certificate;
-- at most 65,536 bytes per certificate line;
-- at most 68 Euclidean triples per floor query;
-- transcript integers below `2^128`;
-- explicit finite oracles only for `N <= 2^20`.
-
-The retained exact-limit benchmark uses exactly `2^20`; the boundary-plus-one
-case is rejected. The symbolic checker supports larger N within the separate
-format and certificate limits. Schema validity is not a guarantee that every
-admitted plan has a certificate below 64 MiB or finishes within an experiment
-timeout. Unsupported input is never reported as a semantic coverage fault.
-
-## Evidence navigation
-
-| Claim or activity | Exact evidence |
+| Material | Location |
 |---|---|
-| Original 303 plans, 909 prefixes, 146 witnesses, 1,194 corruptions | `results/validation.json`, `results/validation-cases.json`, `docs/evidence-map.md` |
-| Original 61/64-residue, 1,024-exclusion observation | `cases/boundary.json`, `results/boundary.json`, `results/boundary-certificate.jsonl` |
-| Original failed attempt, measured/unknown distinction | `results/resource-failure.json`, `results/resource-accounting.json` |
-| 96 new update cases, 688 prefixes, 56 witnesses, 438 actual corruptions | `cases/updates.json`, `results/updates.json` |
-| New least-witness and public CLI contracts | `results/update-contract.json`, `examples/updates/` |
-| 28 finite exact Boolean encodings | `cases/cnf/`, `results/boolean-validation.json` |
-| Historical Linux: 20 measured cases, six paths, five calibrated batches | `cases/update-bench/`, `results/update-bench/` |
-| Historical Linux: split/remove/revoke transfers of the original large input | `cases/transfer/`, `results/transfer/` |
-| Historical Linux Z3 4.13.3.0: 48 finite and 40 timed native SMT configurations | `results/smt-validation.json`, `cases/smt/`, `results/smt/` |
-| Current Windows Z3 5.1.0.0: all 64 commands and corresponding fresh outputs | `results/windows-2026-10-06/README.md`, `results/windows-2026-10-06/execution.json` |
-| Ordered-endpoint arithmetic: 23 actual commands and raw measurements | `results/runtime/README.md`, `results/runtime/execution.json` |
-| Local integer-item consumption: 96 bases, 40 safe and 56 unsafe updates | `results/admission.json`, `tests/test_admission.py` |
-| Actual local record jobs: 72 traversals, 1,440 replacements, 540 HOLD decisions | `results/record-workflow.json.gz`, `results/record-workflow-summary.json`, `docs/record-workflow.md` |
-| Frozen timing-statistic and transcript audit | `scripts/audit_extension.py`, `results/extension-audit.json` |
-| All mathematical arguments | `proofs/arguments.md`, `proofs/safe-anchor.md`, `proofs/boolean-encoding.md` |
-| Reference identities and claim-specific uses | `docs/references.json`, `docs/reference-audit.md`, `docs/closest-work.md` |
-| Material claim mapping and external licensing | `claim_evidence_ledger.csv`, `external_resources.csv`, `third_party/z3/` |
+| Inputs, examples and transcript format | `cases/`, `examples/`, `docs/format.md`, `docs/update-protocol.md` |
+| Core evidence and the original failed-attempt accounting | `docs/evidence-map.md`, `results/validation.json`, `results/boundary.json`, `results/resource-accounting.json` |
+| 96 update cases, 688 prefixes and mutation controls | `cases/updates.json`, `results/updates.json`, `results/update-contract.json` |
+| 20 ordered-endpoint arithmetic inputs and three transfers | `results/runtime/` |
+| Separate 64-command Windows campaign, including native SMT | `results/windows-2026-10-06/` |
+| Original Linux arithmetic and SMT observations | `results/update-bench/`, `results/transfer/`, `results/smt/` |
+| 72 local traversals, 1,440 replacement decisions, 540 holds | `results/record-workflow.json.gz`, `results/record-workflow-summary.json` |
+| Proofs, comparisons and source records | `proofs/`, `docs/closest-work.md`, `docs/references.json`, `claim_evidence_ledger.csv`, `external_resources.csv` |
 
-Timing-resolution pilot observations and an interrupted parent-status attempt
-are preserved separately under `results/update-bench-pilot/` and
-`results/update-bench-attempts/`. They are not included in final medians. The
-old SMT field `semantic_result_verified` means only that no incorrect SAT
-answer was observed on a known safe case; it does NOT mean every decision
-finished. The historical Linux audit explicitly reports 95 UNSAT/5 UNKNOWN full-route samples and
-100 UNSAT reduced-route samples. Fresh runs use unambiguous separate fields.
+The paper's arithmetic tables and fragment/edit plot data use
+`results/runtime/`; the SMT table uses its separate native campaign.
+Do not pool these records with original Linux measurements. CPU resolution,
+cold anchoring, negative large-edit results and incomplete solver outcomes
+remain in the respective measurement records.
 
-## Scope, authorship and external use
+For an optional prefix-defect vector figure, install
+`requirements-figures.txt` and run
+`python -B figures/draw_prefix_defect.py`. It reads
+`results/prefix-defect.csv` and writes the vector PDF without rerunning science.
+Use `--out` and `--paper-dir` for other destinations. It uses legally installed
+Times fonts or Matplotlib's bundled Times-compatible STIX serif; proprietary
+fonts are not redistributed. Complete-project table and figure commands are
+in `../paper/README.md`.
 
-The claim is declared epoch-target coverage, not actual scanner execution,
-live authorization, history authenticity, cryptographic identity, arbitrary
-permutation support, pseudorandomness, or a translation from ZMap. General
-certified frameworks have stronger verification properties than this Python
-checker; their end-to-end timing/proof pipelines are not measured here. The
-parsimonious CNF mapping and the actual native SMT experiment are explicitly
-different deliverables. The broad twelve-same-journal-paper calibration and
-live TDSC portal rules have not been substantively verified.
+## Rights and research scope
 
-Arguments, code, experiments and writing used substantive
-generative-AI assistance, not language polishing alone. Mathematical proofs and
-finite executable checks are not proof-assistant verification, independent
-human review or a journal-acceptance guarantee.
-
-## Vector prefix-defect figure
-
-The optional `requirements-figures.txt` dependency applies only to figure
-rendering. Run `python -B figures/draw_prefix_defect.py` to read
-`results/prefix-defect.csv` and write `figures/prefix-defect.pdf`.
-It preserves the five exact integer values and the post-step convention, runs no
-schedule or counting experiment, and imports no certificate producer or checker.
-Identical bytes are copied to an existing sibling paper's `figures/`; use
-`--out` and `--paper-dir` for other destinations. The existing measured
-fragment/edit figure producer remains separate and unchanged.
-
-Windows Times New Roman regular/italic files are used when available.
-On other systems, `FIGURE_FONT_DIR` may point to legally available `times.ttf`
-and `timesi.ttf`; otherwise Matplotlib's bundled Times-compatible STIX serif
-is used. Proprietary fonts are not copied into the artifact.
-Fonts are embedded and all figure paths and text remain vector. The figure
-command does not alter the raw results, security checks, or retained measurements.
+Original code is covered by `LICENSE`; upstream Z3 notices remain under
+`third_party/z3/`. Arguments, code, experiments and writing used substantive
+generative-AI assistance. The supplied guarantees are about the stated finite
+declarations and local serial consumer. Durable once-only execution,
+authenticated external history and physical network operations are outside
+that implementation.
