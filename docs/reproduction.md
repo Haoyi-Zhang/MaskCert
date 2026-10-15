@@ -33,7 +33,7 @@ remain unchanged.
 
 For the narrower portable finite unit route, including Windows, use the
 standard-library `unittest` command and private temporary-directory setup in
-the [artifact README](../README.md#non-overwriting-scientific-reproduction).
+the [artifact README](../README.md#tests-and-reproduction).
 It runs the current unit inventory without restoring the frozen bundle or
 running the Linux correctness campaign, benchmarks or native SMT. It supplies
 no outer wall timeout or POSIX resource controls and measures neither CPU usage
