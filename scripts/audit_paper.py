@@ -16,7 +16,8 @@ def main():
     tex=(paper/'main.tex').read_text();bib=(paper/'references.bib').read_text();bbl=(paper/'main.bbl').read_text()
     records=json.loads((ROOT/'docs/references.json').read_text())
     keyed={x['key']:x for x in records};assert len(keyed)==len(records)
-    keys=re.findall(r'@\w+\s*\{\s*([^,\s]+)\s*,',bib)
+    entries=re.findall(r'@(\w+)\s*\{\s*([^,\s]+)\s*,',bib)
+    keys=[key for kind,key in entries if kind.lower()!='ieeetranbstctl']
     assert len(keys)==len(set(keys)) and set(keyed)<=set(keys)
     citations=[];contexts=[]
     for match in re.finditer(r'\\cite(?:\[[^\]]*\])*\{([^}]+)\}',tex):
@@ -30,7 +31,9 @@ def main():
     assert len(dois)==len(set(dois))
     for entry in records:
         for field,value in entry['checked_fields'].items():
-            assert value and (field+' = {'+value+'}') in bib, (entry['key'],field)
+            # BibTeX case-protection braces may move without changing the field.
+            plain=lambda text:text.replace('{','').replace('}','')
+            assert value and plain(field+' = {'+value+'}') in plain(bib), (entry['key'],field)
     assert '10.4230/LIPIcs.CP.2026.43' in bib
     assert r'\title{Mask-Aware Certificates for Affine Schedule Fragments}' in tex
     for path in (paper/'main.tex',paper/'supplement.tex'):
@@ -38,8 +41,9 @@ def main():
     assert len(re.findall(r'\\section\{',tex))==9
     pages={}
     if shutil.which('pdfinfo'):
-        for name,expected in [('main',13),('supplement',5)]:
-            out=subprocess.check_output(['pdfinfo',str(paper/(name+'.pdf'))],text=True)
+        for name,expected in [('main',14),('supplement',6)]:
+            out=subprocess.check_output(['pdfinfo',str(paper/(name+'.pdf'))],text=True,
+                                        encoding='utf-8',errors='replace')
             page=int(re.search(r'Pages:\s+(\d+)',out).group(1));assert page==expected,(name,page)
             pages[name]=page
     logs_checked=[]

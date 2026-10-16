@@ -147,7 +147,10 @@ For an optional prefix-defect vector figure, install
 Use `--out` and `--paper-dir` for other destinations. It uses legally installed
 Times fonts or Matplotlib's bundled Times-compatible STIX serif; proprietary
 fonts are not redistributed. Complete-project table and figure commands are
-in `../paper/README.md`.
+in `../paper/README.md`. The two-round permutation diagram is self-contained:
+`python -B scripts/draw_schematics.py` writes `figures/feistel.pdf`, and
+`--paper-dir PATH` also installs it into a complete manuscript's figure directory.
+This renderer requires the same optional Matplotlib dependency and invokes no TeX.
 
 ## Rights and research scope
 
