@@ -1,4 +1,4 @@
-# The canonical originals are stored in data/scientific-data.zip.
+# The canonical originals are stored in data/frozen-material.zip.
 # Preparing them locally must not add duplicate expanded evidence to Git.
 /cases/boundary.json
 /cases/smt/bench-09-full.smt2
