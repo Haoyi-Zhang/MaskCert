@@ -84,7 +84,7 @@ class Drawing:
 
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]  # Optional figures stay outside core dependencies.
 
 def main():
     parser = argparse.ArgumentParser(description="Render the two-round permutation; no experiment.")
