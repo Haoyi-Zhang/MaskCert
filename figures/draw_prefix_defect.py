@@ -48,7 +48,7 @@ def main():
     configure_fonts()
     fig = plt.figure(figsize=(236.788 / 72, 127.4971 / 72))
     ax = fig.add_axes([29.0 / 236.788, 27.8 / 127.4971,
-                       205.8 / 236.788, 94.05 / 127.4971])
+                       197.8 / 236.788, 94.05 / 127.4971])
     ax.step(x, y, where="post", color="black", linewidth=.8)
     ax.plot(x, y, linestyle="none", marker="o", color="black", markersize=3.4,
             clip_on=False)
@@ -61,6 +61,16 @@ def main():
     ax.yaxis.set_minor_locator(NullLocator())
     ax.plot(4, 0, marker=">", markersize=3, color="black", clip_on=False)
     ax.plot(0, 2.25, marker="^", markersize=3, color="black", clip_on=False)
+    # Keep labels, arrowheads and endpoint markers away from the PDF edge.
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    padding = fig.dpi / 72  # One PDF point of visible canvas padding.
+    for artist in [ax.xaxis.label, ax.yaxis.label, *ax.get_xticklabels(),
+                   *ax.get_yticklabels(), *ax.lines]:
+        box = artist.get_window_extent(renderer)
+        if (box.x0 < padding or box.y0 < padding or
+                box.x1 > fig.bbox.x1 - padding or box.y1 > fig.bbox.y1 - padding):
+            raise ValueError("A visible plot element reaches the canvas edge")
     args.out.mkdir(parents=True, exist_ok=True)
     path = args.out / "prefix-defect.pdf"
     fig.savefig(path, metadata={"Creator": None, "Producer": None,
