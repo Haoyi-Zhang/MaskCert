@@ -52,7 +52,7 @@ python -B -m unittest discover -s tests -p 'test_*.py' -v
 On Windows, select a private temporary parent before the same command:
 
 ```powershell
-$private = Join-Path ([IO.Path]::GetTempPath()) ('P100-tests-' + [guid]::NewGuid().ToString('N'))
+$private = Join-Path ([IO.Path]::GetTempPath()) ('maskcert-tests-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $private | Out-Null
 $env:TEMP = $private
 $env:TMP = $private
