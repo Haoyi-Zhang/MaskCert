@@ -463,7 +463,7 @@
   "host": {
     "platform": "Windows-11-10.0.28000-SP0",
     "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
-    "executable": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+    "executable": "<PYTHON_ROOT>\\python.exe"
   },
   "resource_controls": {
     "posix_cpu_limit": false,
