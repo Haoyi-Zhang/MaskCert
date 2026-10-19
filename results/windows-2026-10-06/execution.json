@@ -657,7 +657,7 @@
   "planned_commands": 64,
   "all_commands_succeeded": true,
   "platform": "win32",
-  "native_library": "<PROJECTS_ROOT>\\2026-07-13\\new-chat-4\\repair_workspace\\dependencies\\z3\\z3\\lib\\libz3.dll",
+  "native_library": "<DEPENDENCIES_ROOT>/z3/z3/lib/libz3.dll",
   "posix_resource_caps": false,
-  "fresh_output": "<PROJECTS_ROOT>\\2026-07-13\\new-chat-4\\repair_workspace\\experiments\\P100\\artifact\\results"
+  "fresh_output": "<ARTIFACT_ROOT>/results"
 }
