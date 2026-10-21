@@ -65,14 +65,21 @@ differ despite identical queries and mathematical contents. The current
 transfer table reports the actual Windows sizes; in-memory update certificate
 lengths use LF and match the retained values.
 
-## Paper data
+## Historical-cohort export
 
-The three extension tables and fragment/edit plot CSVs in `paper/generated/`
-select this directory explicitly. From the complete project root:
+To inspect this historical cohort's three extension tables and fragment/edit
+plot CSVs, use a fresh scratch directory outside the delivered project. On
+Linux, run from the complete project root:
 
 ```sh
-python artifact/scripts/export_extension_data.py --results artifact/results/windows-2026-10-06 --output paper/generated
+scratch="$(mktemp -d /tmp/maskcert-cohort.XXXXXXXXXX)" || exit 1
+python -B artifact/scripts/export_extension_data.py --results artifact/results/windows-2026-10-06 --output "$scratch"
 ```
+
+Do not export this historical cohort over the current `paper/generated/`. The
+current paper uses `artifact/results/runtime/` for arithmetic and this cohort
+separately for SMT; follow the sibling `paper/README.md` in the complete project
+for the current data binding and regeneration commands.
 
 Without `--results`, the exporter retains its historical Linux source. Original
 boundary, pilot, failed-attempt and finite-validation observations were not
