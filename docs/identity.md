@@ -2,7 +2,7 @@
 
 - **PROJECT_NAME:** Mask-Aware Certificates for Affine Schedule Fragments
 - **SLUG:** `mask-aware-certificates-for-permutation-complete-stateless-scan-plans`
-- **Document set:** `paper/main.pdf` is the fifteen-page manuscript;
+- **Document set:** `paper/main.pdf` is the fourteen-page manuscript;
   `paper/supplement.pdf` is the six-page *Artifact Protocol for Affine Schedule
   Certificates*. Both are compiled from the accompanying sources. The
   standalone artifact runs independently of paper compilation.

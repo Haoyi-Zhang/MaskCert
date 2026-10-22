@@ -42,7 +42,7 @@ def main() -> int:
         bibliography = (sibling_paper / 'references.bib').read_text(encoding='utf-8')
         assert r'\title{' + NAME + '}' in main_tex
         assert r'\title{Artifact Protocol for Affine Schedule Certificates}' in protocol_tex
-        assert KEY in main_tex and KEY in protocol_tex
+        assert r'\url{https://github.com/Haoyi-Zhang/MaskCert}' in main_tex
         assert 'LIPIcs.CP.2026.54' not in bibliography
         assert '10.4230/LIPIcs.CP.2026.43' in bibliography
         assert 'volume = {379}' in bibliography and 'pages = {43:1--43:21}' in bibliography

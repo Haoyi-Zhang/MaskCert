@@ -9,7 +9,7 @@
   "VENUE_INTENT": "IEEE Transactions on Dependable and Secure Computing (TDSC)",
   "VENUE_STATUS": "intent only; not approved, submitted, accepted, or venue-validated",
   "DOCUMENT_SET": {
-    "main": "paper/main.pdf (15 pages)",
+    "main": "paper/main.pdf (14 pages)",
     "artifact_protocol": "paper/supplement.pdf (6 pages)",
     "standalone_artifact_root": "artifact/"
   },
